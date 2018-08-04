@@ -84,7 +84,7 @@ public:
 };
 
 template<class TSelector>
-void sort(vector<Item>& items, TSelector fieldSelector)
+void xsort(vector<Item>& items, TSelector fieldSelector)
 {
     for (;;) 
     {
@@ -99,7 +99,7 @@ void sort(vector<Item>& items, TSelector fieldSelector)
     }
 }
 
-sort(items, [&](Item item) { return item.name; })
+xsort(items [&](Item item) { return item.name; })
 Execute(sortSelector, [&](Item item) { return item.name == "hi" || item.id < 10 || item.quantity == 0;})
 
 
