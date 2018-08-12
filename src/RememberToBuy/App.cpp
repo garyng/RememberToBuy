@@ -1,6 +1,6 @@
 ﻿#include "stdafx.h"
 #include "App.h"
-
+#include <addons/imguidatechooser/imguidatechooser.h>
 
 using namespace std;
 
@@ -47,13 +47,12 @@ void App::Loop()
 		ImGui::NewFrame();
 
 		Render();
-
 		ImGui::Render();
 
-		int display_w, display_h;
+		int displayWidth, displayHeight;
 		glfwMakeContextCurrent(_window);
-		glfwGetFramebufferSize(_window, &display_w, &display_h);
-		glViewport(0, 0, display_w, display_h);
+		glfwGetFramebufferSize(_window, &displayWidth, &displayHeight);
+		glViewport(0, 0, displayWidth, displayHeight);
 		glClearColor(clearColor.x, clearColor.y, clearColor.z, clearColor.w);
 		glClear(GL_COLOR_BUFFER_BIT);
 		ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
@@ -87,6 +86,9 @@ void App::Render() const
 
 		ImGui::Begin("Hello, world!"); // Create a window called "Hello, world!" and append into it.
 
+		static tm date;
+		ImGui::DateChooser("Choose a date", date);
+
 		ImGui::Text("This is some useful text."); // Display some text (you can use a format strings too)
 		ImGui::Checkbox("Demo Window", &showDemoWindow); // Edit bools storing our window open/close state
 		ImGui::Checkbox("Another Window", &showAnotherWindow);
@@ -115,7 +117,6 @@ void App::Render() const
 			showAnotherWindow = false;
 		ImGui::End();
 	}
-
 
 }
 

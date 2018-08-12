@@ -25,6 +25,9 @@
     <Filter Include="Source Files\gl3w">
       <UniqueIdentifier>{e87d374a-a957-4a4d-af2f-c5fcee787be0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\imgui\addons">
+      <UniqueIdentifier>{15b4e267-6628-4d67-99bf-162bea2a52c4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -69,6 +72,9 @@
     <ClInclude Include="App.h">
       <Filter>Source Files\ui</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\libs\imgui\addons\imguidatechooser\imguidatechooser.h">
+      <Filter>Source Files\imgui\addons</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -97,6 +103,9 @@
     </ClCompile>
     <ClCompile Include="App.cpp">
       <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\imgui\addons\imguidatechooser\imguidatechooser.cpp">
+      <Filter>Source Files\imgui\addons</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
