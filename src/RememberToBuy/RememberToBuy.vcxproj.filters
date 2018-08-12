@@ -16,8 +16,14 @@
     <Filter Include="Source Files\imgui">
       <UniqueIdentifier>{4426b3bc-5718-44cf-8f6c-76a0c42a0ed1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\core">
+      <UniqueIdentifier>{6dd53df2-00f9-483d-ab2b-acda5adbd92e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ui">
+      <UniqueIdentifier>{b3c23b35-9082-4e41-a664-88543ab639a7}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Source Files\gl3w">
-      <UniqueIdentifier>{cb38492f-ff8d-4e64-883d-3577f5dcfd4b}</UniqueIdentifier>
+      <UniqueIdentifier>{e87d374a-a957-4a4d-af2f-c5fcee787be0}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -48,24 +54,24 @@
     <ClInclude Include="..\..\libs\imgui\stb_truetype.h">
       <Filter>Source Files\imgui</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\libs\gl3w\GL\gl3w.h">
-      <Filter>Source Files\gl3w</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\libs\gl3w\GL\glcorearb.h">
-      <Filter>Source Files\gl3w</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\libs\imgui\examples\imgui_impl_opengl3.h">
       <Filter>Source Files\imgui</Filter>
     </ClInclude>
     <ClInclude Include="..\..\libs\imgui\examples\imgui_impl_glfw.h">
       <Filter>Source Files\imgui</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\libs\gl3w\GL\gl3w.h">
+      <Filter>Source Files\gl3w</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\gl3w\GL\glcorearb.h">
+      <Filter>Source Files\gl3w</Filter>
+    </ClInclude>
+    <ClInclude Include="App.h">
+      <Filter>Source Files\ui</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\libs\imgui\imgui.cpp">
@@ -77,14 +83,20 @@
     <ClCompile Include="..\..\libs\imgui\imgui_draw.cpp">
       <Filter>Source Files\imgui</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\libs\gl3w\GL\gl3w.c">
-      <Filter>Source Files\gl3w</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\libs\imgui\examples\imgui_impl_opengl3.cpp">
       <Filter>Source Files\imgui</Filter>
     </ClCompile>
     <ClCompile Include="..\..\libs\imgui\examples\imgui_impl_glfw.cpp">
       <Filter>Source Files\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\gl3w\GL\gl3w.c">
+      <Filter>Source Files\gl3w</Filter>
+    </ClCompile>
+    <ClCompile Include="App.cpp">
+      <Filter>Source Files\ui</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
