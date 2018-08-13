@@ -1,6 +1,3 @@
 [submodule "libs/imgui"]
 	path = libs/imgui
 	url = git@github.com:Flix01/imgui.git
-[submodule "libs/di"]
-	path = libs/di
-	url = git@github.com:boost-experimental/di.git
