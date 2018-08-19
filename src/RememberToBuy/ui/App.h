@@ -12,11 +12,12 @@ private:
 	GLFWwindow* _window;
 	const std::string WINDOW_TITLE = "Remember To Buy";
 	std::shared_ptr<Renderer> _renderer;
+	std::shared_ptr<ILogger> _logger;
 	void Initialize();
-	void Loop();
+	void Loop() const;
 	void Render() const;
 
 public:
 	void Start();
-	explicit App(const std::shared_ptr<Renderer>& renderer);
+	explicit App(const std::shared_ptr<Renderer>& renderer, const std::shared_ptr<ILogger>& logger);
 };
