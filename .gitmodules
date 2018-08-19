@@ -4,3 +4,6 @@
 [submodule "libs/Hypodermic"]
 	path = libs/Hypodermic
 	url = git@github.com:ybainier/Hypodermic.git
+[submodule "libs/IconFontCppHeaders"]
+	path = libs/IconFontCppHeaders
+	url = git@github.com:juliettef/IconFontCppHeaders.git
