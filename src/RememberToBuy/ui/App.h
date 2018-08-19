@@ -3,16 +3,20 @@
 #include <examples/imgui_impl_opengl3.h>
 #include <GL/gl3w.h>
 #include <GLFW/glfw3.h>
+#include "Renderer.h"
+
 
 class App
 {
 private:
 	GLFWwindow* _window;
 	const std::string WINDOW_TITLE = "Remember To Buy";
+	std::shared_ptr<Renderer> _renderer;
 	void Initialize();
 	void Loop();
 	void Render() const;
 
 public:
 	void Start();
+	explicit App(const std::shared_ptr<Renderer>& renderer);
 };

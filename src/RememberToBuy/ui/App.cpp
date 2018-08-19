@@ -4,6 +4,10 @@
 
 using namespace std;
 
+App::App(const std::shared_ptr<Renderer>& renderer) : _renderer(renderer)
+{
+}
+
 void App::Initialize()
 {
 	
@@ -72,6 +76,10 @@ void App::Loop()
 
 void App::Render() const
 {
+
+	_renderer->Render();
+
+
 	static bool showDemoWindow = true;
 	static bool showAnotherWindow = false;
 
@@ -126,3 +134,5 @@ void App::Start()
 	Initialize();
 	Loop();
 }
+
+
