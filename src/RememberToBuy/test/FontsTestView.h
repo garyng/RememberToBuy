@@ -2,7 +2,7 @@
 #include <imgui.h>
 #include <string>
 #include "ui/ITestView.h"
-#include "Fonts.h"
+#include "ui/fonts/Fonts.h"
 
 class FontsTestView : public ITestView
 {

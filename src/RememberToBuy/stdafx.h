@@ -29,3 +29,4 @@ struct unary_function
 
 
 #include "logger/ILogger.h"
+#include "ui/fonts/Fonts.h"

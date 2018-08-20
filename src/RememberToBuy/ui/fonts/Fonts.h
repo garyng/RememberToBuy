@@ -2,7 +2,7 @@
 class Fonts
 {
 private:
-	int _index;
+	const int _index;
 
 	Fonts(int index) : _index(index)
 	{
