@@ -14,6 +14,9 @@
 #include "ui/cart/CartViewModel.h"
 #include "ui/navigation/NavigationService.h"
 #include "ui/test/NavigationTestView.h"
+#include "ui/pending/PendingView.h"
+#include "ui/history/HistoryView.h"
+#include "ui/stock/StockView.h"
 
 using namespace std;
 using namespace Hypodermic;
@@ -126,6 +129,9 @@ int main(int argc, char* argv[])
 	       .singleInstance();
 
 	registerViewViewModel<CartView, CartViewModel>(builder);
+	registerViewViewModel<PendingView, PendingViewModel>(builder);
+	registerViewViewModel<HistoryView, HistoryViewModel>(builder);
+	registerViewViewModel<StockView, StockViewModel>(builder);
 
 
 	registerTestView<TestView>(builder);

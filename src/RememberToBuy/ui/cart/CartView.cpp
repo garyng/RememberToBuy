@@ -8,7 +8,7 @@ CartView::CartView(const std::shared_ptr<CartViewModel>& viewModel,
 
 std::string CartView::Name() const
 {
-	return "CartView";
+	return NAMEOF(CartView);
 }
 
 void CartView::Render()

@@ -43,6 +43,15 @@
     <Filter Include="Source Files\ui\test">
       <UniqueIdentifier>{49471701-c755-4dcc-8062-1ffc1948db34}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\ui\stock">
+      <UniqueIdentifier>{887f75c4-48a8-4741-8231-1d8e41d05134}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ui\pending">
+      <UniqueIdentifier>{4d4f3ed0-3310-4874-b10b-65dfed9ec56e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ui\history">
+      <UniqueIdentifier>{838a6ca4-ae23-4421-b3fb-37d591ecd1e5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -135,9 +144,6 @@
     <ClInclude Include="ui\ViewBase.h">
       <Filter>Source Files\ui</Filter>
     </ClInclude>
-    <ClInclude Include="Constraints.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
     <ClInclude Include="ui\test\ColorsTestView.h">
       <Filter>Source Files\ui\test</Filter>
     </ClInclude>
@@ -149,6 +155,27 @@
     </ClInclude>
     <ClInclude Include="ui\test\NavigationTestView.h">
       <Filter>Source Files\ui\test</Filter>
+    </ClInclude>
+    <ClInclude Include="ui\history\HistoryViewModel.h">
+      <Filter>Source Files\ui\history</Filter>
+    </ClInclude>
+    <ClInclude Include="ui\history\HistoryView.h">
+      <Filter>Source Files\ui\history</Filter>
+    </ClInclude>
+    <ClInclude Include="Utilities.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ui\pending\PendingView.h">
+      <Filter>Source Files\ui\pending</Filter>
+    </ClInclude>
+    <ClInclude Include="ui\pending\PendingViewModel.h">
+      <Filter>Source Files\ui\pending</Filter>
+    </ClInclude>
+    <ClInclude Include="ui\stock\StockViewModel.h">
+      <Filter>Source Files\ui\stock</Filter>
+    </ClInclude>
+    <ClInclude Include="ui\stock\StockView.h">
+      <Filter>Source Files\ui\stock</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -196,6 +223,24 @@
     </ClCompile>
     <ClCompile Include="ui\cart\CartViewModel.cpp">
       <Filter>Source Files\ui\cart</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\history\HistoryViewModel.cpp">
+      <Filter>Source Files\ui\history</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\history\HistoryView.cpp">
+      <Filter>Source Files\ui\history</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\pending\PendingView.cpp">
+      <Filter>Source Files\ui\pending</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\pending\PendingViewModel.cpp">
+      <Filter>Source Files\ui\pending</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\stock\StockViewModel.cpp">
+      <Filter>Source Files\ui\stock</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\stock\StockView.cpp">
+      <Filter>Source Files\ui\stock</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

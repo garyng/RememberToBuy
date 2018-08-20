@@ -11,6 +11,6 @@ public:
 
 	std::string Name() override
 	{
-		return "CartViewModel";
+		return NAMEOF(CartViewModel);
 	}
 };
