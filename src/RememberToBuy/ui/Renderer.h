@@ -12,8 +12,8 @@ private:
 
 public:
 	explicit Renderer(const std::vector<std::shared_ptr<IView>>& views,
-	                  const std::vector<std::shared_ptr<ITestView>> testViews)
-		: _views(views), _testViews(std::move(testViews))
+	                  const std::vector<std::shared_ptr<ITestView>>& testViews)
+		: _views(views), _testViews(testViews)
 	{
 	}
 
