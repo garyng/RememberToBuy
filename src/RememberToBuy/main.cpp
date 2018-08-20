@@ -8,6 +8,7 @@
 #include "test/ImGuiDemoTestView.h"
 #include "logger/ConsoleLogger.h"
 #include "test/FontsTestView.h"
+#include "test/ColorsTestView.h"
 
 using namespace std;
 using namespace Hypodermic;
@@ -57,10 +58,6 @@ public:
 	}
 };
 
-// https://www.fluentcpp.com/2018/05/18/make-sfinae-pretty-2-hidden-beauty-sfinae/
-template <class TDerived, class TBase>
-using IsBaseOf = enable_if_t<is_base_of_v<TBase, TDerived>>;
-
 template <class T, class = IsBaseOf<T, IView>>
 void test(shared_ptr<T> var)
 {
@@ -86,6 +83,15 @@ void showAllTestViews(const shared_ptr<Container>& container)
 	}
 }
 
+template <class TView, class TAs, class = IsBaseOf<TView, IView>, class = IsBaseOf<TAs, IView>>
+void registerView(ContainerBuilder& builder)
+{
+	builder.registerType<TView>()
+	       .as<TAs>()
+	       .asSelf()
+	       .singleInstance();
+}
+
 
 int main(int argc, char* argv[])
 {
@@ -95,23 +101,12 @@ int main(int argc, char* argv[])
 	       .as<ILogger>()
 	       .singleInstance();
 
-	builder.registerType<AnotherView>()
-	       .as<IView>()
-	       .asSelf()
-	       .singleInstance();
-	builder.registerType<TestView>()
-	       .as<ITestView>()
-	       .asSelf()
-	       .singleInstance();
 
-	builder.registerType<ImGuiDemoTestView>()
-	       .as<ITestView>()
-	       .asSelf()
-	       .singleInstance();
-	builder.registerType<FontsTestView>()
-	       .as<ITestView>()
-	       .asSelf()
-	       .singleInstance();
+	registerView<AnotherView, IView>(builder);
+	registerView<TestView, ITestView>(builder);
+	registerView<ImGuiDemoTestView, ITestView>(builder);
+	registerView<FontsTestView, ITestView>(builder);
+	registerView<ColorsTestView, ITestView>(builder);
 
 	builder.registerType<Renderer>()
 	       .singleInstance();
@@ -119,8 +114,8 @@ int main(int argc, char* argv[])
 	       .singleInstance();
 
 	shared_ptr<Container> container = builder.build();
-	showAllTestViews(container);
 
+	showAllTestViews(container);
 	container->resolve<App>()->Start();
 
 

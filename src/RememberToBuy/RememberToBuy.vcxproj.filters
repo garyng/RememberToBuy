@@ -34,6 +34,9 @@
     <Filter Include="Source Files\ui\fonts">
       <UniqueIdentifier>{ffce06e9-d711-4050-88c3-993bef429192}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\ui\colors">
+      <UniqueIdentifier>{d75a2b22-b565-4b80-bd96-eb78c76df1e6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -111,6 +114,12 @@
     <ClInclude Include="ui\fonts\Fonts.h">
       <Filter>Source Files\ui\fonts</Filter>
     </ClInclude>
+    <ClInclude Include="ui\colors\Colors.h">
+      <Filter>Source Files\ui\colors</Filter>
+    </ClInclude>
+    <ClInclude Include="test\ColorsTestView.h">
+      <Filter>Source Files\ui\test</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -148,6 +157,9 @@
     </ClCompile>
     <ClCompile Include="ui\fonts\Fonts.cpp">
       <Filter>Source Files\ui\fonts</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\colors\Colors.cpp">
+      <Filter>Source Files\ui\colors</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -183,9 +183,11 @@ XCOPY "$(TargetDir)$(TargetName)$(TargetExt)" "$(SolutionDir)..\dist\" /s /i /y 
     <ClInclude Include="logger\NullLogger.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="test\ColorsTestView.h" />
     <ClInclude Include="test\FontsTestView.h" />
     <ClInclude Include="test\ImGuiDemoTestView.h" />
     <ClInclude Include="ui\App.h" />
+    <ClInclude Include="ui\colors\Colors.h" />
     <ClInclude Include="ui\fonts\Fonts.h" />
     <ClInclude Include="ui\ITestView.h" />
     <ClInclude Include="ui\IView.h" />
@@ -228,6 +230,7 @@ XCOPY "$(TargetDir)$(TargetName)$(TargetExt)" "$(SolutionDir)..\dist\" /s /i /y 
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="ui\App.cpp" />
+    <ClCompile Include="ui\colors\Colors.cpp" />
     <ClCompile Include="ui\fonts\Fonts.cpp" />
   </ItemGroup>
   <ItemGroup>
