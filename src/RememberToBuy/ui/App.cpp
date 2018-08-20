@@ -3,6 +3,21 @@
 
 using namespace std;
 
+App::App(const std::shared_ptr<Renderer>& renderer, const std::shared_ptr<ILogger>& logger) : _renderer(renderer),
+                                                                                              _logger(logger)
+{
+}
+
+void App::Start()
+{
+	_logger->Debug("Initializing ImGui");
+	Initialize();
+	_logger->Debug("Entering render loop");
+	Loop();
+	_logger->Debug("Exit from render loop");
+}
+
+
 void App::Initialize()
 {
 	glfwSetErrorCallback([](int error, const char* description)
@@ -32,6 +47,59 @@ void App::Initialize()
 	ImGui_ImplOpenGL3_Init(glsl_version);
 
 	ImGui::StyleColorsDark();
+	LoadFonts();
+	SetStyles();
+}
+
+void App::LoadFonts() const
+{
+	_logger->Debug("Loading fonts");
+	// Font index is best retrieved via Fonts class
+	ImGuiIO& io = ImGui::GetIO();
+	io.Fonts->Clear();
+
+	io.Fonts->AddFontFromFileTTF("fonts/Roboto-Regular.ttf", 20.0f);
+	AddIconFont(io, 20.0f);
+
+	io.Fonts->AddFontFromFileTTF("fonts/Roboto-Light.ttf", 35.0f);
+	AddIconFont(io, 35.0f);
+
+	io.Fonts->AddFontFromFileTTF("fonts/Roboto-Bold.ttf", 20.0f);
+	AddIconFont(io, 20.0f);
+
+	io.Fonts->AddFontFromFileTTF("fonts/Roboto-Regular.ttf", 30.0f);
+	AddIconFont(io, 30.0f);
+
+	io.Fonts->AddFontFromFileTTF("fonts/Roboto-Light.ttf", 30.0f);
+	AddIconFont(io, 30.0f);
+
+	AddIconFont(io, 72.0f, false);
+
+	io.Fonts->Build();
+	_logger->Debug("All fonts loaded");
+}
+
+
+void App::AddIconFont(ImGuiIO& io, float fontSize, bool mergeIntoPrevious) const
+{
+	ImFontConfig config;
+	config.MergeMode = mergeIntoPrevious;
+	static const ImWchar iconRange[] = {ICON_MIN_FA, ICON_MAX_FA, 0};
+	io.Fonts->AddFontFromFileTTF("fonts/fa-solid-900.ttf", fontSize, &config, iconRange);
+}
+
+void App::SetStyles() const
+{
+	ImGuiStyle& style = ImGui::GetStyle();
+	style.WindowPadding = ImVec2(20, 20);
+	style.WindowRounding = 5.0f;
+	style.WindowTitleAlign = ImVec2(0.5f, 0.5f);
+	style.FramePadding = ImVec2(5, 5);
+	style.FrameRounding = 4.0f;
+	style.ItemSpacing = ImVec2(12, 8);
+	style.ItemInnerSpacing = ImVec2(8, 6);
+	style.IndentSpacing = 25.0f;
+	style.ScrollbarSize = 15.0f;
 }
 
 void App::Loop() const
@@ -71,18 +139,4 @@ void App::Loop() const
 void App::Render() const
 {
 	_renderer->Render();
-}
-
-void App::Start()
-{
-	_logger->Debug("Initializing ImGui");
-	Initialize();
-	_logger->Debug("Entering render loop");
-	Loop();
-	_logger->Debug("Exit from render loop");
-}
-
-App::App(const std::shared_ptr<Renderer>& renderer, const std::shared_ptr<ILogger>& logger): _renderer(renderer),
-                                                                                             _logger(logger)
-{
 }

@@ -90,7 +90,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir)\..\libs\glfw\include\;$(SolutionDir)\..\libs\imgui\;$(SolutionDir)\..\libs\gl3w\;$(SolutionDir)\..\libs\Hypodermic\;$(SolutionDir)\..\libs\boost\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir)\..\libs\glfw\include\;$(SolutionDir)\..\libs\imgui\;$(SolutionDir)\..\libs\gl3w\;$(SolutionDir)\..\libs\Hypodermic\;$(SolutionDir)\..\libs\boost\;$(SolutionDir)\..\libs\IconFontCppHeaders\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
     </ClCompile>
@@ -129,7 +129,7 @@ XCOPY "$(TargetDir)$(TargetName)$(TargetExt)" "$(SolutionDir)..\dist\" /s /i /y 
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir)\..\libs\glfw\include\;$(SolutionDir)\..\libs\imgui\;$(SolutionDir)\..\libs\gl3w\;$(SolutionDir)\..\libs\Hypodermic\;$(SolutionDir)\..\libs\boost\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir)\..\libs\glfw\include\;$(SolutionDir)\..\libs\imgui\;$(SolutionDir)\..\libs\gl3w\;$(SolutionDir)\..\libs\Hypodermic\;$(SolutionDir)\..\libs\boost\;$(SolutionDir)\..\libs\IconFontCppHeaders\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
@@ -177,11 +177,14 @@ XCOPY "$(TargetDir)$(TargetName)$(TargetExt)" "$(SolutionDir)..\dist\" /s /i /y 
     <ClInclude Include="..\..\libs\imgui\stb_rect_pack.h" />
     <ClInclude Include="..\..\libs\imgui\stb_textedit.h" />
     <ClInclude Include="..\..\libs\imgui\stb_truetype.h" />
+    <ClInclude Include="Fonts.h" />
     <ClInclude Include="imgui\imgui_custom.h" />
     <ClInclude Include="logger\ConsoleLogger.h" />
     <ClInclude Include="logger\ILogger.h" />
+    <ClInclude Include="logger\NullLogger.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="test\FontsTestView.h" />
     <ClInclude Include="test\ImGuiDemoTestView.h" />
     <ClInclude Include="ui\App.h" />
     <ClInclude Include="ui\ITestView.h" />
@@ -216,6 +219,7 @@ XCOPY "$(TargetDir)$(TargetName)$(TargetExt)" "$(SolutionDir)..\dist\" /s /i /y 
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="Fonts.cpp" />
     <ClCompile Include="imgui\imgui_custom.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="stdafx.cpp">

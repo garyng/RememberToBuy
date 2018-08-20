@@ -31,6 +31,9 @@
     <Filter Include="Source Files\logger">
       <UniqueIdentifier>{7c2b0abc-b8bf-474f-87ec-f24379701ae6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\ui\fonts">
+      <UniqueIdentifier>{ffce06e9-d711-4050-88c3-993bef429192}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -99,6 +102,15 @@
     <ClInclude Include="logger\ConsoleLogger.h">
       <Filter>Source Files\logger</Filter>
     </ClInclude>
+    <ClInclude Include="Fonts.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="test\FontsTestView.h">
+      <Filter>Source Files\ui\test</Filter>
+    </ClInclude>
+    <ClInclude Include="logger\NullLogger.h">
+      <Filter>Source Files\logger</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -132,6 +144,9 @@
       <Filter>Source Files\imgui</Filter>
     </ClCompile>
     <ClCompile Include="Main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Fonts.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

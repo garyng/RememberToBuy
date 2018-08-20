@@ -14,6 +14,9 @@ private:
 	std::shared_ptr<Renderer> _renderer;
 	std::shared_ptr<ILogger> _logger;
 	void Initialize();
+	void LoadFonts() const;
+	void AddIconFont(ImGuiIO& io, float fontSize, bool mergeIntoPrevious = true) const;
+	void SetStyles() const;
 	void Loop() const;
 	void Render() const;
 

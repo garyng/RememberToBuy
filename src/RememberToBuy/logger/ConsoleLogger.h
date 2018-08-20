@@ -5,6 +5,7 @@
 class ConsoleLogger : public ILogger
 {
 public:
+
 	void Debug(std::string message) override
 	{
 		std::cout << "[DEBUG] " << message << std::endl;
