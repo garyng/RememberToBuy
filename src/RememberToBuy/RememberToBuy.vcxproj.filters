@@ -25,9 +25,6 @@
     <Filter Include="Source Files\imgui\addons">
       <UniqueIdentifier>{15b4e267-6628-4d67-99bf-162bea2a52c4}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\ui\test">
-      <UniqueIdentifier>{58291307-64f3-4d6f-8265-a888285ae57e}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\logger">
       <UniqueIdentifier>{7c2b0abc-b8bf-474f-87ec-f24379701ae6}</UniqueIdentifier>
     </Filter>
@@ -36,6 +33,15 @@
     </Filter>
     <Filter Include="Source Files\ui\colors">
       <UniqueIdentifier>{d75a2b22-b565-4b80-bd96-eb78c76df1e6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ui\navigation">
+      <UniqueIdentifier>{3747f3b4-3b10-48c0-999a-9902c14137c4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ui\cart">
+      <UniqueIdentifier>{fe42915d-4277-4704-82da-d5bde634ed68}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ui\test">
+      <UniqueIdentifier>{49471701-c755-4dcc-8062-1ffc1948db34}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -96,17 +102,11 @@
     <ClInclude Include="imgui\imgui_custom.h">
       <Filter>Source Files\imgui</Filter>
     </ClInclude>
-    <ClInclude Include="test\ImGuiDemoTestView.h">
-      <Filter>Source Files\ui\test</Filter>
-    </ClInclude>
     <ClInclude Include="logger\ILogger.h">
       <Filter>Source Files\logger</Filter>
     </ClInclude>
     <ClInclude Include="logger\ConsoleLogger.h">
       <Filter>Source Files\logger</Filter>
-    </ClInclude>
-    <ClInclude Include="test\FontsTestView.h">
-      <Filter>Source Files\ui\test</Filter>
     </ClInclude>
     <ClInclude Include="logger\NullLogger.h">
       <Filter>Source Files\logger</Filter>
@@ -117,7 +117,37 @@
     <ClInclude Include="ui\colors\Colors.h">
       <Filter>Source Files\ui\colors</Filter>
     </ClInclude>
-    <ClInclude Include="test\ColorsTestView.h">
+    <ClInclude Include="ui\navigation\NavigationService.h">
+      <Filter>Source Files\ui\navigation</Filter>
+    </ClInclude>
+    <ClInclude Include="ui\IViewModel.h">
+      <Filter>Source Files\ui</Filter>
+    </ClInclude>
+    <ClInclude Include="ui\cart\CartView.h">
+      <Filter>Source Files\ui\cart</Filter>
+    </ClInclude>
+    <ClInclude Include="ui\cart\CartViewModel.h">
+      <Filter>Source Files\ui\cart</Filter>
+    </ClInclude>
+    <ClInclude Include="ui\ViewModelBase.h">
+      <Filter>Source Files\ui</Filter>
+    </ClInclude>
+    <ClInclude Include="ui\ViewBase.h">
+      <Filter>Source Files\ui</Filter>
+    </ClInclude>
+    <ClInclude Include="Constraints.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ui\test\ColorsTestView.h">
+      <Filter>Source Files\ui\test</Filter>
+    </ClInclude>
+    <ClInclude Include="ui\test\FontsTestView.h">
+      <Filter>Source Files\ui\test</Filter>
+    </ClInclude>
+    <ClInclude Include="ui\test\ImGuiDemoTestView.h">
+      <Filter>Source Files\ui\test</Filter>
+    </ClInclude>
+    <ClInclude Include="ui\test\NavigationTestView.h">
       <Filter>Source Files\ui\test</Filter>
     </ClInclude>
   </ItemGroup>
@@ -160,6 +190,12 @@
     </ClCompile>
     <ClCompile Include="ui\colors\Colors.cpp">
       <Filter>Source Files\ui\colors</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\cart\CartView.cpp">
+      <Filter>Source Files\ui\cart</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\cart\CartViewModel.cpp">
+      <Filter>Source Files\ui\cart</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

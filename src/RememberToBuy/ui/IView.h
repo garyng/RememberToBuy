@@ -3,9 +3,8 @@
 
 class IView
 {
-
 public:
 	virtual ~IView() = default;
-	std::string virtual Name() const = 0;
-	void virtual Render() = 0;
+	virtual std::string Name() const = 0;
+	virtual void Render() = 0;
 };

@@ -3,17 +3,20 @@
 #include <imgui.h>
 #include "IView.h"
 #include "ITestView.h"
+#include "navigation/NavigationService.h"
 
 class Renderer
 {
 private:
 	std::vector<std::shared_ptr<IView>> _views;
 	std::vector<std::shared_ptr<ITestView>> _testViews;
+	std::shared_ptr<NavigationService> _navigationService;
 
 public:
 	explicit Renderer(const std::vector<std::shared_ptr<IView>>& views,
-	                  const std::vector<std::shared_ptr<ITestView>>& testViews)
-		: _views(views), _testViews(testViews)
+	                  const std::vector<std::shared_ptr<ITestView>>& testViews,
+	                  const std::shared_ptr<NavigationService>& navigationService)
+		: _views(views), _testViews(testViews), _navigationService(navigationService)
 	{
 	}
 
@@ -55,7 +58,7 @@ public:
 		}
 		else
 		{
-			// todo: render current
+			_navigationService->CurrentView()->Render();
 		}
 	}
 

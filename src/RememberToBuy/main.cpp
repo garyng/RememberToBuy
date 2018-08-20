@@ -5,10 +5,15 @@
 #include <Hypodermic/ContainerBuilder.h>
 #include "ui/Renderer.h"
 #include "ui/App.h"
-#include "test/ImGuiDemoTestView.h"
+#include "ui/test/ImGuiDemoTestView.h"
 #include "logger/ConsoleLogger.h"
-#include "test/FontsTestView.h"
-#include "test/ColorsTestView.h"
+#include "ui/test/FontsTestView.h"
+#include "ui/test/ColorsTestView.h"
+#include "ui/cart/CartView.h"
+#include "ui/IViewModel.h"
+#include "ui/cart/CartViewModel.h"
+#include "ui/navigation/NavigationService.h"
+#include "ui/test/NavigationTestView.h"
 
 using namespace std;
 using namespace Hypodermic;
@@ -18,7 +23,7 @@ class IResettable
 	// todo: IResettable
 public:
 	virtual ~IResettable() = default;
-	void virtual Reset() = 0;
+	virtual void Reset() = 0;
 };
 
 class TestView : public ITestView
@@ -83,15 +88,32 @@ void showAllTestViews(const shared_ptr<Container>& container)
 	}
 }
 
-template <class TView, class TAs, class = IsBaseOf<TView, IView>, class = IsBaseOf<TAs, IView>>
-void registerView(ContainerBuilder& builder)
+template <class TView,
+          class = IsBaseOf<TView, IView>>
+void registerTestView(ContainerBuilder& builder)
 {
 	builder.registerType<TView>()
-	       .as<TAs>()
+	       .as<ITestView>()
 	       .asSelf()
 	       .singleInstance();
 }
 
+template <class TView, class TViewModel,
+          class = IsBaseOf<TView, IView>,
+          class = IsBaseOf<TViewModel, IViewModel>>
+void registerViewViewModel(ContainerBuilder& builder)
+{
+	builder.registerType<TView>()
+	       .as<ViewBase<TViewModel>>()
+	       .as<IView>()
+	       .asSelf()
+	       .singleInstance();
+
+	builder.registerType<TViewModel>()
+	       .as<IViewModel>()
+	       .asSelf()
+	       .singleInstance();
+}
 
 int main(int argc, char* argv[])
 {
@@ -100,13 +122,18 @@ int main(int argc, char* argv[])
 	builder.registerType<ConsoleLogger>()
 	       .as<ILogger>()
 	       .singleInstance();
+	builder.registerType<NavigationService>()
+	       .singleInstance();
+
+	registerViewViewModel<CartView, CartViewModel>(builder);
 
 
-	registerView<AnotherView, IView>(builder);
-	registerView<TestView, ITestView>(builder);
-	registerView<ImGuiDemoTestView, ITestView>(builder);
-	registerView<FontsTestView, ITestView>(builder);
-	registerView<ColorsTestView, ITestView>(builder);
+	registerTestView<TestView>(builder);
+	registerTestView<ImGuiDemoTestView>(builder);
+	registerTestView<FontsTestView>(builder);
+	registerTestView<ColorsTestView>(builder);
+	registerTestView<NavigationTestView>(builder);
+
 
 	builder.registerType<Renderer>()
 	       .singleInstance();
@@ -116,8 +143,9 @@ int main(int argc, char* argv[])
 	shared_ptr<Container> container = builder.build();
 
 	showAllTestViews(container);
-	container->resolve<App>()->Start();
 
+	container->resolve<NavigationService>()->GoTo<CartViewModel>();
+	container->resolve<App>()->Start();
 
 	/*shared_ptr<TestView> view = make_shared<TestView>();
 	test(view);

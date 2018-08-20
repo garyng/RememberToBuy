@@ -177,21 +177,29 @@ XCOPY "$(TargetDir)$(TargetName)$(TargetExt)" "$(SolutionDir)..\dist\" /s /i /y 
     <ClInclude Include="..\..\libs\imgui\stb_rect_pack.h" />
     <ClInclude Include="..\..\libs\imgui\stb_textedit.h" />
     <ClInclude Include="..\..\libs\imgui\stb_truetype.h" />
+    <ClInclude Include="Constraints.h" />
     <ClInclude Include="imgui\imgui_custom.h" />
     <ClInclude Include="logger\ConsoleLogger.h" />
     <ClInclude Include="logger\ILogger.h" />
     <ClInclude Include="logger\NullLogger.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
-    <ClInclude Include="test\ColorsTestView.h" />
-    <ClInclude Include="test\FontsTestView.h" />
-    <ClInclude Include="test\ImGuiDemoTestView.h" />
     <ClInclude Include="ui\App.h" />
+    <ClInclude Include="ui\cart\CartView.h" />
+    <ClInclude Include="ui\cart\CartViewModel.h" />
     <ClInclude Include="ui\colors\Colors.h" />
     <ClInclude Include="ui\fonts\Fonts.h" />
     <ClInclude Include="ui\ITestView.h" />
     <ClInclude Include="ui\IView.h" />
+    <ClInclude Include="ui\IViewModel.h" />
+    <ClInclude Include="ui\navigation\NavigationService.h" />
     <ClInclude Include="ui\Renderer.h" />
+    <ClInclude Include="ui\test\ColorsTestView.h" />
+    <ClInclude Include="ui\test\FontsTestView.h" />
+    <ClInclude Include="ui\test\ImGuiDemoTestView.h" />
+    <ClInclude Include="ui\test\NavigationTestView.h" />
+    <ClInclude Include="ui\ViewBase.h" />
+    <ClInclude Include="ui\ViewModelBase.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\libs\gl3w\GL\gl3w.c">
@@ -230,6 +238,8 @@ XCOPY "$(TargetDir)$(TargetName)$(TargetExt)" "$(SolutionDir)..\dist\" /s /i /y 
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="ui\App.cpp" />
+    <ClCompile Include="ui\cart\CartView.cpp" />
+    <ClCompile Include="ui\cart\CartViewModel.cpp" />
     <ClCompile Include="ui\colors\Colors.cpp" />
     <ClCompile Include="ui\fonts\Fonts.cpp" />
   </ItemGroup>
