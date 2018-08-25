@@ -14,4 +14,8 @@ std::string HistoryView::Name() const
 
 void HistoryView::Render()
 {
+	ImGui::BeginDefaultCenteredResizableWindow("History");
+	RenderGoBackButton();
+
+	ImGui::End();
 }

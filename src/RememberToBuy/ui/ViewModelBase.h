@@ -18,4 +18,9 @@ public:
 		_navigationService->GoBack();
 	}
 
+	virtual bool CanGoBack() const
+	{
+		return _navigationService->CanGoBack();
+	}
+
 };

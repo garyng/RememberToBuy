@@ -6,6 +6,7 @@
 #include "ui/ICanReset.h"
 #include "Utilities.h"
 #include <stack>
+#include "ui/IViewModel.h"
 
 class NavigationService
 {

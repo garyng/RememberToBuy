@@ -13,4 +13,8 @@ std::string StockView::Name() const
 
 void StockView::Render()
 {
+	ImGui::BeginDefaultCenteredResizableWindow("Stock");
+	RenderGoBackButton();
+
+	ImGui::End();
 }

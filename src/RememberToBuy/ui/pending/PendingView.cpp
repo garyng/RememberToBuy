@@ -14,4 +14,8 @@ std::string PendingView::Name() const
 
 void PendingView::Render()
 {
+	ImGui::BeginDefaultCenteredResizableWindow("Pending");
+	RenderGoBackButton();
+
+	ImGui::End();
 }
