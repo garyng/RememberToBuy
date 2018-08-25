@@ -88,16 +88,23 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir)\..\libs\glfw\include\;$(SolutionDir)\..\libs\imgui\;$(SolutionDir)\..\libs\gl3w\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir)\..\libs\glfw\include\;$(SolutionDir)\..\libs\imgui\;$(SolutionDir)\..\libs\gl3w\;$(SolutionDir)\..\libs\IconFontCppHeaders\;$(SolutionDir)\..\libs\boost\;$(SolutionDir)\..\libs\Hypodermic\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)\..\libs\glfw\lib-vc2015;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)\..\libs\glfw\lib-vc2017;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>opengl32.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>XCOPY "$(ProjectDir)fonts" "$(SolutionDir)..\dist\fonts\" /s /i /y /d
+XCOPY "$(TargetDir)$(TargetName)$(TargetExt)" "$(SolutionDir)..\dist\" /s /i /y /d</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -121,18 +128,25 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir)\..\libs\glfw\include\;$(SolutionDir)\..\libs\imgui\;$(SolutionDir)\..\libs\gl3w\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir)\..\libs\glfw\include\;$(SolutionDir)\..\libs\imgui\;$(SolutionDir)\..\libs\gl3w\;$(SolutionDir)\..\libs\IconFontCppHeaders\;$(SolutionDir)\..\libs\boost\;$(SolutionDir)\..\libs\Hypodermic\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)\..\libs\glfw\lib-vc2015;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)\..\libs\glfw\lib-vc2017;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>opengl32.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>XCOPY "$(ProjectDir)fonts" "$(SolutionDir)..\dist\fonts\" /s /i /y /d
+XCOPY "$(TargetDir)$(TargetName)$(TargetExt)" "$(SolutionDir)..\dist\" /s /i /y /d</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -155,6 +169,7 @@
   <ItemGroup>
     <ClInclude Include="..\..\libs\gl3w\GL\gl3w.h" />
     <ClInclude Include="..\..\libs\gl3w\GL\glcorearb.h" />
+    <ClInclude Include="..\..\libs\imgui\addons\imguidatechooser\imguidatechooser.h" />
     <ClInclude Include="..\..\libs\imgui\examples\imgui_impl_glfw.h" />
     <ClInclude Include="..\..\libs\imgui\examples\imgui_impl_opengl3.h" />
     <ClInclude Include="..\..\libs\imgui\imconfig.h" />
@@ -164,13 +179,44 @@
     <ClInclude Include="..\..\libs\imgui\stb_rect_pack.h" />
     <ClInclude Include="..\..\libs\imgui\stb_textedit.h" />
     <ClInclude Include="..\..\libs\imgui\stb_truetype.h" />
+    <ClInclude Include="ui\ICanReset.h" />
+    <ClInclude Include="ui\pending\PendingView.h" />
+    <ClInclude Include="ui\pending\PendingViewModel.h" />
+    <ClInclude Include="ui\stock\StockView.h" />
+    <ClInclude Include="ui\stock\StockViewModel.h" />
+    <ClInclude Include="Utilities.h" />
+    <ClInclude Include="imgui\imgui_custom.h" />
+    <ClInclude Include="logger\ConsoleLogger.h" />
+    <ClInclude Include="logger\ILogger.h" />
+    <ClInclude Include="logger\NullLogger.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="ui\App.h" />
+    <ClInclude Include="ui\cart\CartView.h" />
+    <ClInclude Include="ui\cart\CartViewModel.h" />
+    <ClInclude Include="ui\colors\Colors.h" />
+    <ClInclude Include="ui\fonts\Fonts.h" />
+    <ClInclude Include="ui\history\HistoryView.h" />
+    <ClInclude Include="ui\history\HistoryViewModel.h" />
+    <ClInclude Include="ui\ITestView.h" />
+    <ClInclude Include="ui\IView.h" />
+    <ClInclude Include="ui\IViewModel.h" />
+    <ClInclude Include="ui\navigation\NavigationService.h" />
+    <ClInclude Include="ui\Renderer.h" />
+    <ClInclude Include="ui\test\ColorsTestView.h" />
+    <ClInclude Include="ui\test\FontsTestView.h" />
+    <ClInclude Include="ui\test\ImGuiDemoTestView.h" />
+    <ClInclude Include="ui\test\NavigationTestView.h" />
+    <ClInclude Include="ui\ViewBase.h" />
+    <ClInclude Include="ui\ViewModelBase.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\libs\gl3w\GL\gl3w.c">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\imgui\addons\imguidatechooser\imguidatechooser.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="..\..\libs\imgui\examples\imgui_impl_glfw.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
@@ -192,13 +238,25 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="main.cpp" />
+    <ClCompile Include="imgui\imgui_custom.cpp" />
+    <ClCompile Include="Main.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="ui\App.cpp" />
+    <ClCompile Include="ui\cart\CartView.cpp" />
+    <ClCompile Include="ui\cart\CartViewModel.cpp" />
+    <ClCompile Include="ui\colors\Colors.cpp" />
+    <ClCompile Include="ui\fonts\Fonts.cpp" />
+    <ClCompile Include="ui\history\HistoryView.cpp" />
+    <ClCompile Include="ui\history\HistoryViewModel.cpp" />
+    <ClCompile Include="ui\pending\PendingView.cpp" />
+    <ClCompile Include="ui\pending\PendingViewModel.cpp" />
+    <ClCompile Include="ui\stock\StockView.cpp" />
+    <ClCompile Include="ui\stock\StockViewModel.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\libs\imgui\imgui_user.inl" />

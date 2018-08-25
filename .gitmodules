@@ -1,3 +1,9 @@
 [submodule "libs/imgui"]
 	path = libs/imgui
 	url = git@github.com:Flix01/imgui.git
+[submodule "libs/Hypodermic"]
+	path = libs/Hypodermic
+	url = git@github.com:ybainier/Hypodermic.git
+[submodule "libs/IconFontCppHeaders"]
+	path = libs/IconFontCppHeaders
+	url = git@github.com:juliettef/IconFontCppHeaders.git
