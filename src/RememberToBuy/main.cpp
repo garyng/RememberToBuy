@@ -19,15 +19,7 @@
 #include "ui/stock/StockView.h"
 
 using namespace std;
-using namespace Hypodermic;
-
-class IResettable
-{
-	// todo: IResettable
-public:
-	virtual ~IResettable() = default;
-	virtual void Reset() = 0;
-};
+ using namespace Hypodermic;
 
 class TestView : public ITestView
 {
@@ -51,9 +43,31 @@ public:
 	}
 };
 
-class AnotherView : public IView
+class AnotherViewModel : public ViewModelBase, public ICanReset
 {
 public:
+	AnotherViewModel(const std::shared_ptr<NavigationService>& navigationService,
+	                 const std::shared_ptr<ILogger>& logger)
+		: ViewModelBase(navigationService, logger)
+	{
+	}
+
+	std::string Name() override
+	{
+		return NAMEOF(AnotherViewModel);
+	}
+
+	void Reset() override
+	{
+		std::cout << "asdhbasd" << std::endl;
+	}
+};
+
+class AnotherView : public ViewBase<AnotherViewModel>
+{
+public:
+	AnotherView() = default;
+
 	string Name() const override
 	{
 		return "AnotherView";
@@ -62,6 +76,7 @@ public:
 	void Render() override
 	{
 		ImGui::Begin("Another view");
+
 		ImGui::End();
 	}
 };
@@ -102,7 +117,7 @@ void registerTestView(ContainerBuilder& builder)
 }
 
 template <class TView, class TViewModel,
-          class = IsBaseOf<TView, IView>,
+          class = IsBaseOf<TView, ViewBase<TViewModel>>,
           class = IsBaseOf<TViewModel, IViewModel>>
 void registerViewViewModel(ContainerBuilder& builder)
 {
@@ -120,6 +135,8 @@ void registerViewViewModel(ContainerBuilder& builder)
 
 int main(int argc, char* argv[])
 {
+	std::shared_ptr<int> s = make_shared<int>();
+
 	ContainerBuilder builder;
 
 	builder.registerType<ConsoleLogger>()
@@ -132,7 +149,12 @@ int main(int argc, char* argv[])
 	registerViewViewModel<PendingView, PendingViewModel>(builder);
 	registerViewViewModel<HistoryView, HistoryViewModel>(builder);
 	registerViewViewModel<StockView, StockViewModel>(builder);
+	
 
+	//builder.registerType<AnotherViewModel>()
+	//	.as<IViewModel>()
+	//	.asSelf()
+	//	.singleInstance();
 
 	registerTestView<TestView>(builder);
 	registerTestView<ImGuiDemoTestView>(builder);
@@ -152,6 +174,7 @@ int main(int argc, char* argv[])
 
 	container->resolve<NavigationService>()->GoTo<CartViewModel>();
 	container->resolve<App>()->Start();
+
 
 	/*shared_ptr<TestView> view = make_shared<TestView>();
 	test(view);

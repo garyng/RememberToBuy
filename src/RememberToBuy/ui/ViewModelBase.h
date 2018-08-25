@@ -5,8 +5,8 @@
 class ViewModelBase : public IViewModel
 {
 protected:
-	const std::shared_ptr<NavigationService>& _navigationService;
-	const std::shared_ptr<ILogger>& _logger;
+	std::shared_ptr<NavigationService> _navigationService;
+	std::shared_ptr<ILogger> _logger;
 public:
 	ViewModelBase(const std::shared_ptr<NavigationService>& navigationService,
 	              const std::shared_ptr<ILogger>& logger): _navigationService(navigationService), _logger(logger)
@@ -17,4 +17,5 @@ public:
 	{
 		_navigationService->GoBack();
 	}
+
 };

@@ -1,22 +1,23 @@
 #pragma once
 #include <imgui.h>
-#include <vector>
 #include "ui/ITestView.h"
 #include "ui/IViewModel.h"
 #include "ui/navigation/NavigationService.h"
 #include "imgui/imgui_custom.h"
-
+#include "ui/pending/PendingViewModel.h"
+#include "ui/cart/CartViewModel.h"
+#include "ui/history/HistoryViewModel.h"
+#include "ui/stock/StockViewModel.h"
 
 class NavigationTestView : public ITestView
 {
 private:
-	std::vector<std::shared_ptr<IViewModel>> _viewModels;
+
 	std::shared_ptr<NavigationService> _navigationService;
 
 public:
-	NavigationTestView(const std::vector<std::shared_ptr<IViewModel>>& viewModels,
-	                   const std::shared_ptr<NavigationService>& navigationService)
-		: _viewModels(viewModels), _navigationService(navigationService)
+	NavigationTestView(const std::shared_ptr<NavigationService>& navigationService)
+		: _navigationService(navigationService)
 	{
 	}
 
@@ -29,15 +30,10 @@ public:
 	{
 		ImGui::Begin("Test: Navigation service");
 
-		for (const auto& viewModel : _viewModels)
-		{
-			if (ImGui::FullWidthButton("Navigate to " + viewModel->Name()))
-			{
-				_navigationService->GoTo(viewModel);
-				// todo: test all variants of GoTo
-
-			}
-		}
+		RenderNavigateToButton<CartViewModel>();
+		RenderNavigateToButton<PendingViewModel>();
+		RenderNavigateToButton<HistoryViewModel>();
+		RenderNavigateToButton<StockViewModel>();
 
 		if (ImGui::FullWidthButton(ICON_FA_ARROW_LEFT " Go back"))
 		{
@@ -45,5 +41,14 @@ public:
 		}
 
 		ImGui::End();
+	}
+
+	template <class TViewModel, class = IsBaseOf<TViewModel, IViewModel>>
+	void RenderNavigateToButton()
+	{
+		if (ImGui::FullWidthButton("Navigate to '" + std::string(typeid(TViewModel).name()) + "'"))
+		{
+			_navigationService->GoTo<TViewModel>();
+		}
 	}
 };

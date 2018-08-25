@@ -90,9 +90,10 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir)\..\libs\glfw\include\;$(SolutionDir)\..\libs\imgui\;$(SolutionDir)\..\libs\gl3w\;$(SolutionDir)\..\libs\Hypodermic\;$(SolutionDir)\..\libs\boost\;$(SolutionDir)\..\libs\IconFontCppHeaders\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir)\..\libs\glfw\include\;$(SolutionDir)\..\libs\imgui\;$(SolutionDir)\..\libs\gl3w\;$(SolutionDir)\..\libs\IconFontCppHeaders\;$(SolutionDir)\..\libs\boost\;$(SolutionDir)\..\libs\Hypodermic\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -129,9 +130,10 @@ XCOPY "$(TargetDir)$(TargetName)$(TargetExt)" "$(SolutionDir)..\dist\" /s /i /y 
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir)\..\libs\glfw\include\;$(SolutionDir)\..\libs\imgui\;$(SolutionDir)\..\libs\gl3w\;$(SolutionDir)\..\libs\Hypodermic\;$(SolutionDir)\..\libs\boost\;$(SolutionDir)\..\libs\IconFontCppHeaders\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir)\..\libs\glfw\include\;$(SolutionDir)\..\libs\imgui\;$(SolutionDir)\..\libs\gl3w\;$(SolutionDir)\..\libs\IconFontCppHeaders\;$(SolutionDir)\..\libs\boost\;$(SolutionDir)\..\libs\Hypodermic\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -177,6 +179,7 @@ XCOPY "$(TargetDir)$(TargetName)$(TargetExt)" "$(SolutionDir)..\dist\" /s /i /y 
     <ClInclude Include="..\..\libs\imgui\stb_rect_pack.h" />
     <ClInclude Include="..\..\libs\imgui\stb_textedit.h" />
     <ClInclude Include="..\..\libs\imgui\stb_truetype.h" />
+    <ClInclude Include="ui\ICanReset.h" />
     <ClInclude Include="ui\pending\PendingView.h" />
     <ClInclude Include="ui\pending\PendingViewModel.h" />
     <ClInclude Include="ui\stock\StockView.h" />

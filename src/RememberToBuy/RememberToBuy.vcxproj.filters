@@ -177,6 +177,9 @@
     <ClInclude Include="ui\stock\StockView.h">
       <Filter>Source Files\ui\stock</Filter>
     </ClInclude>
+    <ClInclude Include="ui\ICanReset.h">
+      <Filter>Source Files\ui</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
