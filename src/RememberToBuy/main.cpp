@@ -19,83 +19,7 @@
 #include "ui/stock/StockView.h"
 
 using namespace std;
- using namespace Hypodermic;
-
-class TestView : public ITestView
-{
-public:
-
-	void Render() override
-	{
-		ImGui::Begin("Testing");
-		ImGui::FullWidthButton("asdasd");
-		ImGui::Text("Dear ImGui %s", ImGui::GetVersion());
-		ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate,
-		            ImGui::GetIO().Framerate);
-		ImGui::Text("%d vertices, %d indices (%d triangles)", ImGui::GetIO().MetricsRenderVertices,
-		            ImGui::GetIO().MetricsRenderIndices, ImGui::GetIO().MetricsRenderIndices / 3);
-		ImGui::End();
-	}
-
-	string Name() const override
-	{
-		return "TestView";
-	}
-};
-
-class AnotherViewModel : public ViewModelBase, public ICanReset
-{
-public:
-	AnotherViewModel(const std::shared_ptr<NavigationService>& navigationService,
-	                 const std::shared_ptr<ILogger>& logger)
-		: ViewModelBase(navigationService, logger)
-	{
-	}
-
-	std::string Name() override
-	{
-		return NAMEOF(AnotherViewModel);
-	}
-
-	void Reset() override
-	{
-		std::cout << "asdhbasd" << std::endl;
-	}
-};
-
-class AnotherView : public ViewBase<AnotherViewModel>
-{
-public:
-	AnotherView() = default;
-
-	string Name() const override
-	{
-		return "AnotherView";
-	}
-
-	void Render() override
-	{
-		ImGui::Begin("Another view");
-
-		ImGui::End();
-	}
-};
-
-template <class T, class = IsBaseOf<T, IView>>
-void test(shared_ptr<T> var)
-{
-	if constexpr (is_base_of_v<IView, T>)
-	{
-		// https://stackoverflow.com/questions/13636540/how-to-check-for-the-type-of-a-template-parameter
-		const shared_ptr<IView> casted = static_pointer_cast<IView>(var);
-		std::cout << casted->GetName();
-	}
-}
-
-template <class T, class U, class = IsBaseOf<T, IView>, class = enable_if_t<is_arithmetic_v<U>>>
-void test2(shared_ptr<T> t1, shared_ptr<U> u1)
-{
-}
+using namespace Hypodermic;
 
 void showAllTestViews(const shared_ptr<Container>& container)
 {
@@ -149,14 +73,7 @@ int main(int argc, char* argv[])
 	registerViewViewModel<PendingView, PendingViewModel>(builder);
 	registerViewViewModel<HistoryView, HistoryViewModel>(builder);
 	registerViewViewModel<StockView, StockViewModel>(builder);
-	
 
-	//builder.registerType<AnotherViewModel>()
-	//	.as<IViewModel>()
-	//	.asSelf()
-	//	.singleInstance();
-
-	registerTestView<TestView>(builder);
 	registerTestView<ImGuiDemoTestView>(builder);
 	registerTestView<FontsTestView>(builder);
 	registerTestView<ColorsTestView>(builder);
@@ -174,11 +91,4 @@ int main(int argc, char* argv[])
 
 	container->resolve<NavigationService>()->GoTo<CartViewModel>();
 	container->resolve<App>()->Start();
-
-
-	/*shared_ptr<TestView> view = make_shared<TestView>();
-	test(view);
-
-	shared_ptr<int> i = make_shared<int>(1);
-	test2(view, i);*/
 }

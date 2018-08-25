@@ -14,7 +14,7 @@ private:
 	std::shared_ptr<IView> _currentView;
 	std::shared_ptr<ILogger> _logger;
 	std::shared_ptr<Hypodermic::Container> _container;
-	std::stack<std::shared_ptr<IView>> _history;
+	std::stack<std::shared_ptr<IView>> _history{};
 
 public:
 	NavigationService(const std::shared_ptr<Hypodermic::Container>& container,

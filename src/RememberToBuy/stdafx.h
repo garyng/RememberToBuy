@@ -15,7 +15,7 @@ struct unary_function
 	typedef ResultType result_type;
 };
 
-#include <stdio.h>
+#include <cstdio>
 #include <tchar.h>
 
 #include <iostream>
@@ -24,10 +24,12 @@ struct unary_function
 #include <vector>
 
 #include <imgui.h>
-#include "imgui/imgui_custom.h"
 #include <IconsFontAwesome5.h>
+
+#include "imgui/imgui_custom.h"
 
 #include "logger/ILogger.h"
 #include "ui/fonts/Fonts.h"
 #include "ui/colors/Colors.h"
+
 #include "Utilities.h"
