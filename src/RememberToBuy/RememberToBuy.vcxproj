@@ -179,6 +179,14 @@ XCOPY "$(TargetDir)$(TargetName)$(TargetExt)" "$(SolutionDir)..\dist\" /s /i /y 
     <ClInclude Include="..\..\libs\imgui\stb_rect_pack.h" />
     <ClInclude Include="..\..\libs\imgui\stb_textedit.h" />
     <ClInclude Include="..\..\libs\imgui\stb_truetype.h" />
+    <ClInclude Include="models\CartItem.h" />
+    <ClInclude Include="models\Category.h" />
+    <ClInclude Include="models\HistoryItem.h" />
+    <ClInclude Include="models\Item.h" />
+    <ClInclude Include="models\ItemSource.h" />
+    <ClInclude Include="models\PendingItem.h" />
+    <ClInclude Include="models\Source.h" />
+    <ClInclude Include="models\StockItem.h" />
     <ClInclude Include="ui\ICanReset.h" />
     <ClInclude Include="ui\pending\PendingView.h" />
     <ClInclude Include="ui\pending\PendingViewModel.h" />
@@ -240,6 +248,14 @@ XCOPY "$(TargetDir)$(TargetName)$(TargetExt)" "$(SolutionDir)..\dist\" /s /i /y 
     </ClCompile>
     <ClCompile Include="imgui\imgui_custom.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="models\CartItem.cpp" />
+    <ClCompile Include="models\Category.cpp" />
+    <ClCompile Include="models\HistoryItem.cpp" />
+    <ClCompile Include="models\Item.cpp" />
+    <ClCompile Include="models\ItemSource.cpp" />
+    <ClCompile Include="models\PendingItem.cpp" />
+    <ClCompile Include="models\Source.cpp" />
+    <ClCompile Include="models\StockItem.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
