@@ -52,6 +52,9 @@
     <Filter Include="Source Files\ui\history">
       <UniqueIdentifier>{838a6ca4-ae23-4421-b3fb-37d591ecd1e5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\models">
+      <UniqueIdentifier>{a5b1ea8c-5018-4425-8405-9c5fc402425b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -180,6 +183,30 @@
     <ClInclude Include="ui\ICanReset.h">
       <Filter>Source Files\ui</Filter>
     </ClInclude>
+    <ClInclude Include="models\Item.h">
+      <Filter>Source Files\models</Filter>
+    </ClInclude>
+    <ClInclude Include="models\ItemSource.h">
+      <Filter>Source Files\models</Filter>
+    </ClInclude>
+    <ClInclude Include="models\Source.h">
+      <Filter>Source Files\models</Filter>
+    </ClInclude>
+    <ClInclude Include="models\Category.h">
+      <Filter>Source Files\models</Filter>
+    </ClInclude>
+    <ClInclude Include="models\CartItem.h">
+      <Filter>Source Files\models</Filter>
+    </ClInclude>
+    <ClInclude Include="models\PendingItem.h">
+      <Filter>Source Files\models</Filter>
+    </ClInclude>
+    <ClInclude Include="models\HistoryItem.h">
+      <Filter>Source Files\models</Filter>
+    </ClInclude>
+    <ClInclude Include="models\StockItem.h">
+      <Filter>Source Files\models</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -244,6 +271,30 @@
     </ClCompile>
     <ClCompile Include="ui\stock\StockView.cpp">
       <Filter>Source Files\ui\stock</Filter>
+    </ClCompile>
+    <ClCompile Include="models\Item.cpp">
+      <Filter>Source Files\models</Filter>
+    </ClCompile>
+    <ClCompile Include="models\ItemSource.cpp">
+      <Filter>Source Files\models</Filter>
+    </ClCompile>
+    <ClCompile Include="models\Source.cpp">
+      <Filter>Source Files\models</Filter>
+    </ClCompile>
+    <ClCompile Include="models\Category.cpp">
+      <Filter>Source Files\models</Filter>
+    </ClCompile>
+    <ClCompile Include="models\CartItem.cpp">
+      <Filter>Source Files\models</Filter>
+    </ClCompile>
+    <ClCompile Include="models\PendingItem.cpp">
+      <Filter>Source Files\models</Filter>
+    </ClCompile>
+    <ClCompile Include="models\HistoryItem.cpp">
+      <Filter>Source Files\models</Filter>
+    </ClCompile>
+    <ClCompile Include="models\StockItem.cpp">
+      <Filter>Source Files\models</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
