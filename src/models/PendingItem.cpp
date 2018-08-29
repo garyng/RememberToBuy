@@ -38,3 +38,19 @@ void PendingItem::Quantity(int value)
 {
 	_quantity = value;
 }
+
+void to_json(nlohmann::json& json, const PendingItem& pendingItem)
+{
+	json = nlohmann::json{
+		{"Id", pendingItem.Id()},
+		{"ItemId", pendingItem.ItemId()},
+		{"Quantity", pendingItem.Quantity()}
+	};
+}
+
+void from_json(const nlohmann::json& json, PendingItem& pendingItem)
+{
+	pendingItem.Id(json.at("Id").get<int>());
+	pendingItem.ItemId(json.at("ItemId").get<int>());
+	pendingItem.Quantity(json.at("Quantity").get<int>());
+}

@@ -18,6 +18,14 @@
 #include "ui/history/HistoryView.h"
 #include "ui/stock/StockView.h"
 #include "storage/CartItemStorage.h"
+#include "storage/CategoryStorage.h"
+#include "storage/HistoryItemStorage.h"
+#include "storage/ItemStorage.h"
+#include "storage/ItemSourceStorage.h"
+#include "storage/PendingItemStorage.h"
+#include "storage/SourceStorage.h"
+#include "storage/StockItemStorage.h"
+
 
 using namespace std;
 using namespace Hypodermic;
@@ -58,6 +66,16 @@ void registerViewViewModel(ContainerBuilder& builder)
 	       .singleInstance();
 }
 
+template <class TData, class TStorage,
+          class = IsBaseOf<TStorage, JsonStorage<TData>>>
+void registerStorage(ContainerBuilder& builder)
+{
+	builder.registerType<TStorage>()
+	       .as<JsonStorage<TData>>()
+	       .asSelf()
+	       .singleInstance();
+}
+
 int main(int argc, char* argv[])
 {
 	std::shared_ptr<int> s = make_shared<int>();
@@ -80,8 +98,14 @@ int main(int argc, char* argv[])
 	registerTestView<ColorsTestView>(builder);
 	registerTestView<NavigationTestView>(builder);
 
-	builder.registerType<CartItemStorage>()
-		.singleInstance();
+	registerStorage<CartItem, CartItemStorage>(builder);
+	registerStorage<Category, CategoryStorage>(builder);
+	registerStorage<HistoryItem, HistoryItemStorage>(builder);
+	registerStorage<Item, ItemStorage>(builder);
+	registerStorage<ItemSource, ItemSourceStorage>(builder);
+	registerStorage<PendingItem, PendingItemStorage>(builder);
+	registerStorage<Source, SourceStorage>(builder);
+	registerStorage<StockItem, StockItemStorage>(builder);
 
 	builder.registerType<Renderer>()
 	       .singleInstance();
@@ -92,6 +116,7 @@ int main(int argc, char* argv[])
 
 	showAllTestViews(container);
 
+	container->resolve<JsonStorage<CartItem>>()->Load();
 	container->resolve<CartItemStorage>()->Save();
 
 	container->resolve<NavigationService>()->GoTo<CartViewModel>();

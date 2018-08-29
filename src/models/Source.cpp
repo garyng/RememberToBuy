@@ -38,3 +38,19 @@ void Source::Address(std::string value)
 {
 	_address = value;
 }
+
+void to_json(nlohmann::json& json, const Source& source)
+{
+	json = nlohmann::json{
+		{"Id", source.Id()},
+		{"Name", source.Name()},
+		{"Address", source.Address()}
+	};
+}
+
+void from_json(const nlohmann::json& json, Source& source)
+{
+	source.Id(json.at("Id").get<int>());
+	source.Name(json.at("Name").get<std::string>());
+	source.Address(json.at("Address").get<std::string>());
+}

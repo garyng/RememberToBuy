@@ -1,4 +1,5 @@
 ﻿#pragma once
+#include <nlohmann/json.hpp>
 
 class ItemSource
 {
@@ -24,3 +25,6 @@ public:
 	double Price() const;
 	void Price(double value);
 };
+
+void to_json(nlohmann::json& json, const ItemSource& itemSource);
+void from_json(const nlohmann::json& json, ItemSource& itemSource);

@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <nlohmann/json.hpp>
 
 class Item
 {
@@ -21,3 +22,6 @@ public:
 	int CategoryId() const;
 	void CategoryId(int value);
 };
+
+void to_json(nlohmann::json& json, const Item& item);
+void from_json(const nlohmann::json& json, Item& item);

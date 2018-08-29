@@ -1,4 +1,5 @@
 ﻿#pragma once
+#include <nlohmann/json.hpp>
 
 class PendingItem
 {
@@ -21,3 +22,6 @@ public:
 	int Quantity() const;
 	void Quantity(int value);
 };
+
+void to_json(nlohmann::json& json, const PendingItem& pendingItem);
+void from_json(const nlohmann::json& json, PendingItem& pendingItem);

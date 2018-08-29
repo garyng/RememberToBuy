@@ -1,5 +1,6 @@
 ﻿#pragma once
 #include <string>
+#include <nlohmann/json.hpp>
 
 class HistoryItem
 {
@@ -35,3 +36,6 @@ public:
 	std::string Date() const;
 	void Date(std::string value);
 };
+
+void to_json(nlohmann::json& json, const HistoryItem& historyItem);
+void from_json(const nlohmann::json& json, HistoryItem& historyItem);

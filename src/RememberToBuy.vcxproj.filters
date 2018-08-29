@@ -219,6 +219,27 @@
     <ClInclude Include="..\libs\gl3w\GL\glcorearb.h">
       <Filter>Source Files\gl3w</Filter>
     </ClInclude>
+    <ClInclude Include="storage\CategoryStorage.h">
+      <Filter>Source Files\storage</Filter>
+    </ClInclude>
+    <ClInclude Include="storage\HistoryItemStorage.h">
+      <Filter>Source Files\storage</Filter>
+    </ClInclude>
+    <ClInclude Include="storage\ItemStorage.h">
+      <Filter>Source Files\storage</Filter>
+    </ClInclude>
+    <ClInclude Include="storage\ItemSourceStorage.h">
+      <Filter>Source Files\storage</Filter>
+    </ClInclude>
+    <ClInclude Include="storage\PendingItemStorage.h">
+      <Filter>Source Files\storage</Filter>
+    </ClInclude>
+    <ClInclude Include="storage\SourceStorage.h">
+      <Filter>Source Files\storage</Filter>
+    </ClInclude>
+    <ClInclude Include="storage\StockItemStorage.h">
+      <Filter>Source Files\storage</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -310,6 +331,27 @@
     </ClCompile>
     <ClCompile Include="..\libs\gl3w\GL\gl3w.c">
       <Filter>Source Files\gl3w</Filter>
+    </ClCompile>
+    <ClCompile Include="storage\CategoryStorage.cpp">
+      <Filter>Source Files\storage</Filter>
+    </ClCompile>
+    <ClCompile Include="storage\HistoryItemStorage.cpp">
+      <Filter>Source Files\storage</Filter>
+    </ClCompile>
+    <ClCompile Include="storage\ItemStorage.cpp">
+      <Filter>Source Files\storage</Filter>
+    </ClCompile>
+    <ClCompile Include="storage\ItemSourceStorage.cpp">
+      <Filter>Source Files\storage</Filter>
+    </ClCompile>
+    <ClCompile Include="storage\PendingItemStorage.cpp">
+      <Filter>Source Files\storage</Filter>
+    </ClCompile>
+    <ClCompile Include="storage\SourceStorage.cpp">
+      <Filter>Source Files\storage</Filter>
+    </ClCompile>
+    <ClCompile Include="storage\StockItemStorage.cpp">
+      <Filter>Source Files\storage</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

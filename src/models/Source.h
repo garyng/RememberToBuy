@@ -1,5 +1,6 @@
 ﻿#pragma once
 #include <string>
+#include <nlohmann/json.hpp>
 
 class Source
 {
@@ -21,3 +22,6 @@ public:
 	std::string Address() const;
 	void Address(std::string value);
 };
+
+void to_json(nlohmann::json& json, const Source& source);
+void from_json(const nlohmann::json& json, Source& source);

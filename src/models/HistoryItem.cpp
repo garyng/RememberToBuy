@@ -72,3 +72,25 @@ void HistoryItem::Date(std::string value)
 {
 	_date = value;
 }
+
+void to_json(nlohmann::json& json, const HistoryItem& historyItem)
+{
+	json = nlohmann::json{
+		{"Id", historyItem.Id()},
+		{"ItemId", historyItem.ItemId()},
+		{"Quantity", historyItem.Quantity()},
+		{"SourceId", historyItem.SourceId()},
+		{"Price", historyItem.Price()},
+		{"Date", historyItem.Date()}
+	};
+}
+
+void from_json(const nlohmann::json& json, HistoryItem& historyItem)
+{
+	historyItem.Id(json.at("Id").get<int>());
+	historyItem.ItemId(json.at("ItemId").get<int>());
+	historyItem.Quantity(json.at("Quantity").get<int>());
+	historyItem.SourceId(json.at("SourceId").get<int>());
+	historyItem.Price(json.at("Price").get<double>());
+	historyItem.Date(json.at("Date").get<std::string>());
+}

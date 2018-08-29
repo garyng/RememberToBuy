@@ -49,3 +49,22 @@ void ItemSource::Price(double value)
 {
 	_price = value;
 }
+
+void to_json(nlohmann::json& json, const ItemSource& itemSource)
+{
+	json = nlohmann::json
+	{
+		{"Id", itemSource.Id()},
+		{"ItemId", itemSource.ItemId()},
+		{"SourceId", itemSource.SourceId()},
+		{"Price", itemSource.Price()}
+	};
+}
+
+void from_json(const nlohmann::json& json, ItemSource& itemSource)
+{
+	itemSource.Id(json.at("Id").get<int>());
+	itemSource.ItemId(json.at("ItemId").get<int>());
+	itemSource.SourceId(json.at("SourceId").get<int>());
+	itemSource.Price(json.at("Price").get<double>());
+}

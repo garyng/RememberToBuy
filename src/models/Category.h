@@ -1,5 +1,6 @@
 ﻿#pragma once
 #include <string>
+#include <nlohmann/json.hpp>
 
 class Category
 {
@@ -22,3 +23,6 @@ public:
 	std::string Description() const;
 	void Description(std::string value);
 };
+
+void to_json(nlohmann::json& json, const Category& category);
+void from_json(const nlohmann::json& json, Category& category);

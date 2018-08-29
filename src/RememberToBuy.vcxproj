@@ -94,6 +94,7 @@
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -134,6 +135,7 @@ XCOPY "$(TargetDir)$(TargetName)$(TargetExt)" "$(SolutionDir)..\dist\" /s /i /y 
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -187,6 +189,16 @@ XCOPY "$(TargetDir)$(TargetName)$(TargetExt)" "$(SolutionDir)..\dist\" /s /i /y 
     <ClInclude Include="models\PendingItem.h" />
     <ClInclude Include="models\Source.h" />
     <ClInclude Include="models\StockItem.h" />
+    <ClInclude Include="storage\CartItemStorage.h" />
+    <ClInclude Include="storage\CategoryStorage.h" />
+    <ClInclude Include="storage\HistoryItemStorage.h" />
+    <ClInclude Include="storage\IStorage.h" />
+    <ClInclude Include="storage\ItemSourceStorage.h" />
+    <ClInclude Include="storage\ItemStorage.h" />
+    <ClInclude Include="storage\JsonStorage.h" />
+    <ClInclude Include="storage\PendingItemStorage.h" />
+    <ClInclude Include="storage\SourceStorage.h" />
+    <ClInclude Include="storage\StockItemStorage.h" />
     <ClInclude Include="ui\ICanReset.h" />
     <ClInclude Include="ui\pending\PendingView.h" />
     <ClInclude Include="ui\pending\PendingViewModel.h" />
@@ -262,6 +274,14 @@ XCOPY "$(TargetDir)$(TargetName)$(TargetExt)" "$(SolutionDir)..\dist\" /s /i /y 
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="storage\CartItemStorage.cpp" />
+    <ClCompile Include="storage\CategoryStorage.cpp" />
+    <ClCompile Include="storage\HistoryItemStorage.cpp" />
+    <ClCompile Include="storage\ItemSourceStorage.cpp" />
+    <ClCompile Include="storage\ItemStorage.cpp" />
+    <ClCompile Include="storage\PendingItemStorage.cpp" />
+    <ClCompile Include="storage\SourceStorage.cpp" />
+    <ClCompile Include="storage\StockItemStorage.cpp" />
     <ClCompile Include="ui\App.cpp" />
     <ClCompile Include="ui\cart\CartView.cpp" />
     <ClCompile Include="ui\cart\CartViewModel.cpp" />
