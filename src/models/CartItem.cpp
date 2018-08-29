@@ -49,3 +49,21 @@ void CartItem::SourceId(int value)
 {
 	_sourceId = value;
 }
+
+void to_json(nlohmann::json& json, const CartItem& item)
+{
+	json = nlohmann::json{
+		{"Id", item.Id()},
+		{"ItemId", item.ItemId()},
+		{"Quantity", item.Quantity()},
+		{"SourceId", item.SourceId()}
+	};
+}
+
+void from_json(const nlohmann::json& json, CartItem& item)
+{
+	item.Id(json.at("Id").get<int>());
+	item.ItemId(json.at("ItemId").get<int>());
+	item.Quantity(json.at("Quantity").get<int>());
+	item.SourceId(json.at("SourceId").get<int>());
+}

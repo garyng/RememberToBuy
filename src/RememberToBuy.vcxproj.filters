@@ -55,6 +55,9 @@
     <Filter Include="Source Files\models">
       <UniqueIdentifier>{a5b1ea8c-5018-4425-8405-9c5fc402425b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\storage">
+      <UniqueIdentifier>{d5a80203-8ea4-4c19-9dce-35326ea22de9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -63,40 +66,34 @@
     <ClInclude Include="targetver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\libs\imgui\imconfig.h">
+    <ClInclude Include="..\libs\imgui\imconfig.h">
       <Filter>Source Files\imgui</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\libs\imgui\imgui.h">
+    <ClInclude Include="..\libs\imgui\imgui.h">
       <Filter>Source Files\imgui</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\libs\imgui\imgui_internal.h">
+    <ClInclude Include="..\libs\imgui\imgui_internal.h">
       <Filter>Source Files\imgui</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\libs\imgui\imgui_user.h">
+    <ClInclude Include="..\libs\imgui\imgui_user.h">
       <Filter>Source Files\imgui</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\libs\imgui\stb_rect_pack.h">
+    <ClInclude Include="..\libs\imgui\stb_rect_pack.h">
       <Filter>Source Files\imgui</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\libs\imgui\stb_textedit.h">
+    <ClInclude Include="..\libs\imgui\stb_textedit.h">
       <Filter>Source Files\imgui</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\libs\imgui\stb_truetype.h">
+    <ClInclude Include="..\libs\imgui\stb_truetype.h">
       <Filter>Source Files\imgui</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\libs\imgui\examples\imgui_impl_opengl3.h">
+    <ClInclude Include="..\libs\imgui\examples\imgui_impl_opengl3.h">
       <Filter>Source Files\imgui</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\libs\imgui\examples\imgui_impl_glfw.h">
+    <ClInclude Include="..\libs\imgui\examples\imgui_impl_glfw.h">
       <Filter>Source Files\imgui</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\libs\gl3w\GL\gl3w.h">
-      <Filter>Source Files\gl3w</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\libs\gl3w\GL\glcorearb.h">
-      <Filter>Source Files\gl3w</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\libs\imgui\addons\imguidatechooser\imguidatechooser.h">
+    <ClInclude Include="..\libs\imgui\addons\imguidatechooser\imguidatechooser.h">
       <Filter>Source Files\imgui\addons</Filter>
     </ClInclude>
     <ClInclude Include="ui\App.h">
@@ -207,30 +204,42 @@
     <ClInclude Include="models\StockItem.h">
       <Filter>Source Files\models</Filter>
     </ClInclude>
+    <ClInclude Include="storage\IStorage.h">
+      <Filter>Source Files\storage</Filter>
+    </ClInclude>
+    <ClInclude Include="storage\JsonStorage.h">
+      <Filter>Source Files\storage</Filter>
+    </ClInclude>
+    <ClInclude Include="storage\CartItemStorage.h">
+      <Filter>Source Files\storage</Filter>
+    </ClInclude>
+    <ClInclude Include="..\libs\gl3w\GL\gl3w.h">
+      <Filter>Source Files\gl3w</Filter>
+    </ClInclude>
+    <ClInclude Include="..\libs\gl3w\GL\glcorearb.h">
+      <Filter>Source Files\gl3w</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\libs\imgui\imgui.cpp">
+    <ClCompile Include="..\libs\imgui\imgui.cpp">
       <Filter>Source Files\imgui</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\libs\imgui\imgui_demo.cpp">
+    <ClCompile Include="..\libs\imgui\imgui_demo.cpp">
       <Filter>Source Files\imgui</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\libs\imgui\imgui_draw.cpp">
+    <ClCompile Include="..\libs\imgui\imgui_draw.cpp">
       <Filter>Source Files\imgui</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\libs\imgui\examples\imgui_impl_opengl3.cpp">
+    <ClCompile Include="..\libs\imgui\examples\imgui_impl_opengl3.cpp">
       <Filter>Source Files\imgui</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\libs\imgui\examples\imgui_impl_glfw.cpp">
+    <ClCompile Include="..\libs\imgui\examples\imgui_impl_glfw.cpp">
       <Filter>Source Files\imgui</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\libs\gl3w\GL\gl3w.c">
-      <Filter>Source Files\gl3w</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\libs\imgui\addons\imguidatechooser\imguidatechooser.cpp">
+    <ClCompile Include="..\libs\imgui\addons\imguidatechooser\imguidatechooser.cpp">
       <Filter>Source Files\imgui\addons</Filter>
     </ClCompile>
     <ClCompile Include="ui\App.cpp">
@@ -296,9 +305,15 @@
     <ClCompile Include="models\StockItem.cpp">
       <Filter>Source Files\models</Filter>
     </ClCompile>
+    <ClCompile Include="storage\CartItemStorage.cpp">
+      <Filter>Source Files\storage</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libs\gl3w\GL\gl3w.c">
+      <Filter>Source Files\gl3w</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\libs\imgui\imgui_user.inl">
+    <None Include="..\libs\imgui\imgui_user.inl">
       <Filter>Source Files\imgui</Filter>
     </None>
   </ItemGroup>

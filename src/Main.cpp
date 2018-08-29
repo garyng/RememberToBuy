@@ -17,6 +17,7 @@
 #include "ui/pending/PendingView.h"
 #include "ui/history/HistoryView.h"
 #include "ui/stock/StockView.h"
+#include "storage/CartItemStorage.h"
 
 using namespace std;
 using namespace Hypodermic;
@@ -79,6 +80,8 @@ int main(int argc, char* argv[])
 	registerTestView<ColorsTestView>(builder);
 	registerTestView<NavigationTestView>(builder);
 
+	builder.registerType<CartItemStorage>()
+		.singleInstance();
 
 	builder.registerType<Renderer>()
 	       .singleInstance();
@@ -88,6 +91,8 @@ int main(int argc, char* argv[])
 	shared_ptr<Container> container = builder.build();
 
 	showAllTestViews(container);
+
+	container->resolve<CartItemStorage>()->Save();
 
 	container->resolve<NavigationService>()->GoTo<CartViewModel>();
 	container->resolve<App>()->Start();
