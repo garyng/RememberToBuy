@@ -1,5 +1,4 @@
 #pragma once
-#pragma once
 template <class TQuery, class TResult>
 class IQueryHandler
 {

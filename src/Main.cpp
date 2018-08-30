@@ -75,6 +75,22 @@ void registerStorage(ContainerBuilder& builder)
 	       .singleInstance();
 }
 
+template <class TQueryHandler, class TQuery, class TResult,
+          class = IsBaseOf<TQueryHandler, IQueryHandler<TQuery, TResult>>>
+void registerQuery(ContainerBuilder& builder)
+{
+	builder.registerType<TQueryHandler>()
+	       .as<IQueryHandler<TQuery, TResult>>();
+}
+
+template <class TCommandHandler, class TCommand,
+          class = IsBaseOf<TCommandHandler, ICommandHandler<TCommand>>>
+void registerCommand(ContainerBuilder& builder)
+{
+	builder.registerType<TCommandHandler>()
+	       .as<ICommandHandler<TCommand>>();
+}
+
 
 int main(int argc, char* argv[])
 {
@@ -113,6 +129,9 @@ int main(int argc, char* argv[])
 
 	builder.registerType<QueryDispatcher>()
 	       .singleInstance();
+	builder.registerType<CommandDispatcher>()
+	       .singleInstance();
+
 
 	shared_ptr<Container> container = builder.build();
 
