@@ -22,12 +22,21 @@ private:
 protected:
 	std::shared_ptr<ILogger> _logger;
 	std::vector<TData> _data;
+	bool _loaded{false};
 
 	virtual std::string Filename() const = 0;
 	virtual std::vector<TData> DefaultData() const = 0;
 
 public:
-	std::vector<TData>& Data() { return _data; }
+	std::vector<TData>& Data()
+	{
+		if (!_loaded)
+		{
+			Load();
+			_loaded = !_loaded;
+		}
+		return _data;
+	}
 
 	JsonStorage(const std::shared_ptr<ILogger>& logger): _logger(logger)
 	{
