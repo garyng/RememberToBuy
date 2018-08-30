@@ -7,3 +7,6 @@
 [submodule "libs/IconFontCppHeaders"]
 	path = libs/IconFontCppHeaders
 	url = git@github.com:juliettef/IconFontCppHeaders.git
+[submodule "libs/json"]
+	path = libs/json
+	url = git@github.com:nlohmann/json.git

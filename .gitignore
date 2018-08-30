@@ -336,3 +336,4 @@ ASALocalRun/
 # End of https://www.gitignore.io/api/visualstudio
 imgui.ini
 /dist/
+src/data/
