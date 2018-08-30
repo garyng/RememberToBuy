@@ -1,5 +1,4 @@
 ﻿#pragma once
-#include <filesystem>
 #include <string>
 #include "Utilities.h"
 #include "ui/ITestView.h"
@@ -25,8 +24,6 @@ public:
 	{
 		ImGui::Begin("Test: Storage");
 
-		// todo: confirmation dialog
-
 		RenderResetStorageButton();
 		RenderResetAllStorageButton();
 		ImGui::End();
@@ -36,11 +33,23 @@ public:
 	{
 		for (const auto& storage : _storages)
 		{
-			std::string text = "Reset " + std::string(typeid(*storage).name());
+			std::string name = std::string(typeid(*storage).name());
+			std::string popupName = "Are you sure?##" + name;
+			std::string text = "Reset " + name;
+
 			if (ImGui::FullWidthButton(text.c_str()))
 			{
-				storage->Restore();
+				ImGui::OpenPopup(popupName.c_str());
 			}
+
+			ImGui::OkCancelPopupModel(popupName.c_str(), ICON_FA_EXCLAMATION_CIRCLE,
+			                          {
+				                          "Restoring " + name,
+				                          "Are you sure?"
+			                          }, [&]()
+			                          {
+				                          storage->Restore();
+			                          }, "Yes", "No");
 		}
 	}
 
@@ -48,10 +57,19 @@ public:
 	{
 		if (ImGui::FullWidthButton("Reset all storage"))
 		{
-			for (const auto& storage : _storages)
-			{
-				storage->Restore();
-			}
+			ImGui::OpenPopup("Are you sure?");
 		}
+
+		ImGui::OkCancelPopupModel("Are you sure?", ICON_FA_EXCLAMATION_CIRCLE,
+		                          {
+			                          "Restoring all storage",
+			                          "Are you sure?"
+		                          }, [&]()
+		                          {
+			                          for (const auto& storage : _storages)
+			                          {
+				                          storage->Restore();
+			                          }
+		                          }, "Yes", "No");
 	}
 };

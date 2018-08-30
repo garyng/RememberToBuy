@@ -26,4 +26,57 @@ namespace ImGui
 	{
 		return BeginChild(id.c_str(), ImVec2{0, -lines * GetItemsLineHeightWithSpacing()});
 	}
+
+	void OkCancelPopupModel(std::string name, std::string icon, std::initializer_list<std::string> texts,
+	                        std::function<void()> onOkClicked,
+	                        std::string ok, std::string cancel, float buttonWidth)
+	{
+		OkCancelPopupModel(name, icon, texts, onOkClicked, []()
+		{
+		}, ok, cancel, buttonWidth);
+	}
+
+	void OkCancelPopupModel(std::string name, std::string icon, std::initializer_list<std::string> texts,
+	                        std::function<void()> onOkClicked, std::function<void()> onCancelClicked,
+	                        std::string ok, std::string cancel, float buttonWidth)
+	{
+		SetNextWindowPosCenter();
+		if (BeginPopupModal(name.c_str(), nullptr, ImGuiWindowFlags_AlwaysAutoResize))
+		{
+			Text("");
+
+			PushFont(Fonts::FontAwesome5_Title);
+			Text(icon.c_str());
+			PopFont();
+
+			SameLine();
+
+			BeginGroup();
+			{
+				for (const auto& text : texts)
+				{
+					Text(text.c_str());
+				}
+			}
+			EndGroup();
+
+
+			float buttonStartX = GetWindowSize().x / 2 - buttonWidth;
+			SetCursorPosX(buttonStartX);
+
+			if (Button(ok.c_str(), ImVec2{buttonWidth, 0}))
+			{
+				onOkClicked();
+				CloseCurrentPopup();
+			}
+			SameLine();
+			if (Button(cancel.c_str(), ImVec2{buttonWidth, 0}))
+			{
+				onCancelClicked();
+				CloseCurrentPopup();
+			}
+
+			EndPopup();
+		}
+	}
 }
