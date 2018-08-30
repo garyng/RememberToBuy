@@ -37,3 +37,8 @@ struct unary_function
 #include "ui/ItestView.h"
 #include "ui/fonts/Fonts.h"
 #include "ui/colors/Colors.h"
+
+#include "query/IQueryHandler.h"
+#include "query/QueryDispatcher.h"
+#include "command/ICommandHandler.h"
+#include "command/CommandDispatcher.h"

@@ -27,7 +27,6 @@
 #include "storage/StockItemStorage.h"
 #include "ui/test/StorageTestView.h"
 
-
 using namespace std;
 using namespace Hypodermic;
 
@@ -76,10 +75,9 @@ void registerStorage(ContainerBuilder& builder)
 	       .singleInstance();
 }
 
+
 int main(int argc, char* argv[])
 {
-	std::shared_ptr<int> s = make_shared<int>();
-
 	ContainerBuilder builder;
 
 	builder.registerType<ConsoleLogger>()
@@ -113,12 +111,12 @@ int main(int argc, char* argv[])
 	builder.registerType<App>()
 	       .singleInstance();
 
+	builder.registerType<QueryDispatcher>()
+	       .singleInstance();
+
 	shared_ptr<Container> container = builder.build();
 
 	showAllTestViews(container);
-
-	container->resolve<CartItemStorage>()->Load();
-	container->resolve<CartItemStorage>()->Save();
 
 	container->resolve<NavigationService>()->GoTo<CartViewModel>();
 	container->resolve<App>()->Start();
