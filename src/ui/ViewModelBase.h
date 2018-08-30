@@ -7,9 +7,16 @@ class ViewModelBase : public IViewModel
 protected:
 	std::shared_ptr<NavigationService> _navigationService;
 	std::shared_ptr<ILogger> _logger;
+	std::shared_ptr<CommandDispatcher> _commandDispatcher;
+	std::shared_ptr<QueryDispatcher> _queryDispatcher;
 public:
-	ViewModelBase(const std::shared_ptr<NavigationService>& navigationService,
-	              const std::shared_ptr<ILogger>& logger): _navigationService(navigationService), _logger(logger)
+	ViewModelBase(const std::shared_ptr<NavigationService>& navigationService, const std::shared_ptr<ILogger>& logger,
+	              const std::shared_ptr<CommandDispatcher>& commandDispatcher,
+	              const std::shared_ptr<QueryDispatcher>& queryDispatcher)
+		: _navigationService(navigationService),
+		  _logger(logger),
+		  _commandDispatcher(commandDispatcher),
+		  _queryDispatcher(queryDispatcher)
 	{
 	}
 
@@ -22,5 +29,4 @@ public:
 	{
 		return _navigationService->CanGoBack();
 	}
-
 };
