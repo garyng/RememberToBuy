@@ -25,6 +25,7 @@
 #include "storage/PendingItemStorage.h"
 #include "storage/SourceStorage.h"
 #include "storage/StockItemStorage.h"
+#include "ui/test/StorageTestView.h"
 
 
 using namespace std;
@@ -66,12 +67,11 @@ void registerViewViewModel(ContainerBuilder& builder)
 	       .singleInstance();
 }
 
-template <class TData, class TStorage,
-          class = IsBaseOf<TStorage, JsonStorage<TData>>>
+template <class TStorage, class = IsBaseOf<TStorage, IStorage>>
 void registerStorage(ContainerBuilder& builder)
 {
 	builder.registerType<TStorage>()
-	       .as<JsonStorage<TData>>()
+	       .as<IStorage>()
 	       .asSelf()
 	       .singleInstance();
 }
@@ -97,15 +97,16 @@ int main(int argc, char* argv[])
 	registerTestView<FontsTestView>(builder);
 	registerTestView<ColorsTestView>(builder);
 	registerTestView<NavigationTestView>(builder);
+	registerTestView<StorageTestView>(builder);
 
-	registerStorage<CartItem, CartItemStorage>(builder);
-	registerStorage<Category, CategoryStorage>(builder);
-	registerStorage<HistoryItem, HistoryItemStorage>(builder);
-	registerStorage<Item, ItemStorage>(builder);
-	registerStorage<ItemSource, ItemSourceStorage>(builder);
-	registerStorage<PendingItem, PendingItemStorage>(builder);
-	registerStorage<Source, SourceStorage>(builder);
-	registerStorage<StockItem, StockItemStorage>(builder);
+	registerStorage<CartItemStorage>(builder);
+	registerStorage<CategoryStorage>(builder);
+	registerStorage<HistoryItemStorage>(builder);
+	registerStorage<ItemStorage>(builder);
+	registerStorage<ItemSourceStorage>(builder);
+	registerStorage<PendingItemStorage>(builder);
+	registerStorage<SourceStorage>(builder);
+	registerStorage<StockItemStorage>(builder);
 
 	builder.registerType<Renderer>()
 	       .singleInstance();
@@ -116,7 +117,7 @@ int main(int argc, char* argv[])
 
 	showAllTestViews(container);
 
-	container->resolve<JsonStorage<CartItem>>()->Load();
+	container->resolve<CartItemStorage>()->Load();
 	container->resolve<CartItemStorage>()->Save();
 
 	container->resolve<NavigationService>()->GoTo<CartViewModel>();

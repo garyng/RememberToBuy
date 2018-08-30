@@ -240,6 +240,9 @@
     <ClInclude Include="storage\StockItemStorage.h">
       <Filter>Source Files\storage</Filter>
     </ClInclude>
+    <ClInclude Include="ui\test\StorageTestView.h">
+      <Filter>Source Files\ui\test</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">

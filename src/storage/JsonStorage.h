@@ -80,7 +80,7 @@ public:
 	void Restore() override
 	{
 		_data = DefaultData();
-		Save();
 		_logger->Debug("Restored data to default value");
+		Save();
 	}
 };

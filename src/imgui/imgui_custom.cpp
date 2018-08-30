@@ -21,4 +21,9 @@ namespace ImGui
 		SetNextWindowPosCenter();
 		return Begin(name.c_str(), nullptr, ImGuiWindowFlags_NoCollapse);
 	}
+
+	bool BeginChildWithBottomSpace(std::string id, int lines)
+	{
+		return BeginChild(id.c_str(), ImVec2{0, -lines * GetItemsLineHeightWithSpacing()});
+	}
 }

@@ -25,11 +25,15 @@ struct unary_function
 
 #include <imgui.h>
 #include <IconsFontAwesome5.h>
-
 #include "imgui/imgui_custom.h"
 
 #include "logger/ILogger.h"
-#include "ui/fonts/Fonts.h"
-#include "ui/colors/Colors.h"
 
 #include "Utilities.h"
+#include "storage/IStorage.h"
+#include "storage/JsonStorage.h"
+
+#include "ui/IView.h"
+#include "ui/ItestView.h"
+#include "ui/fonts/Fonts.h"
+#include "ui/colors/Colors.h"
