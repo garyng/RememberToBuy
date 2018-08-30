@@ -64,6 +64,9 @@
     <Filter Include="Source Files\query">
       <UniqueIdentifier>{ce423e30-8fcc-4bd0-ac5c-855c3950b90c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\proxy">
+      <UniqueIdentifier>{c62b0b8a-2e1d-4022-aa59-b3ec341bfc66}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -261,6 +264,27 @@
     <ClInclude Include="query\IQueryHandler.h">
       <Filter>Source Files\query</Filter>
     </ClInclude>
+    <ClInclude Include="query\GetAllCartItems.h">
+      <Filter>Source Files\query</Filter>
+    </ClInclude>
+    <ClInclude Include="query\GetAllCartItemsQueryHandler.h">
+      <Filter>Source Files\query</Filter>
+    </ClInclude>
+    <ClInclude Include="proxy\ItemProxy.h">
+      <Filter>Source Files\proxy</Filter>
+    </ClInclude>
+    <ClInclude Include="query\GetItemById.h">
+      <Filter>Source Files\query</Filter>
+    </ClInclude>
+    <ClInclude Include="query\GetItemByIdQueryHandler.h">
+      <Filter>Source Files\query</Filter>
+    </ClInclude>
+    <ClInclude Include="proxy\ProxyFactory.h">
+      <Filter>Source Files\proxy</Filter>
+    </ClInclude>
+    <ClInclude Include="proxy\ProxyBase.h">
+      <Filter>Source Files\proxy</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -373,6 +397,12 @@
     </ClCompile>
     <ClCompile Include="storage\StockItemStorage.cpp">
       <Filter>Source Files\storage</Filter>
+    </ClCompile>
+    <ClCompile Include="query\GetAllCartItemsQueryHandler.cpp">
+      <Filter>Source Files\query</Filter>
+    </ClCompile>
+    <ClCompile Include="query\GetItemByIdQueryHandler.cpp">
+      <Filter>Source Files\query</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -26,6 +26,10 @@
 #include "storage/SourceStorage.h"
 #include "storage/StockItemStorage.h"
 #include "ui/test/StorageTestView.h"
+#include "proxy/ProxyFactory.h"
+#include "query/GetAllCartItemsQueryHandler.h"
+#include "query/GetItemByIdQueryHandler.h"
+
 
 using namespace std;
 using namespace Hypodermic;
@@ -91,7 +95,6 @@ void registerCommand(ContainerBuilder& builder)
 	       .as<ICommandHandler<TCommand>>();
 }
 
-
 int main(int argc, char* argv[])
 {
 	ContainerBuilder builder;
@@ -132,11 +135,19 @@ int main(int argc, char* argv[])
 	builder.registerType<CommandDispatcher>()
 	       .singleInstance();
 
+	builder.registerType<ProxyFactory>()
+	       .singleInstance();
+
+	registerQuery<GetAllCartItemsQueryHandler, GetAllCartItems, std::vector<CartItem>>(builder);
+	registerQuery<GetItemByIdQueryHandler, GetItemById, Item>(builder);
 
 	shared_ptr<Container> container = builder.build();
 
 	showAllTestViews(container);
 
-	container->resolve<NavigationService>()->GoTo<CartViewModel>();
+	container->resolve<NavigationService>()->GoTo<CartViewModel>([](std::shared_ptr<CartViewModel> vm)
+	{
+		vm->LoadCartItemsCommand();
+	});
 	container->resolve<App>()->Start();
 }

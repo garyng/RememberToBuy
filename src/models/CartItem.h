@@ -1,5 +1,6 @@
 ﻿#pragma once
 #include <nlohmann/json.hpp>
+#include "proxy/ItemProxy.h"
 
 class CartItem
 {
@@ -8,6 +9,8 @@ private:
 	int _itemId{};
 	int _quantity{};
 	int _sourceId{};
+
+	std::shared_ptr<ItemProxy> _item;
 
 public:
 	CartItem(const int id, const int itemId, const int quantity, const int sourceId);
@@ -18,6 +21,9 @@ public:
 
 	int ItemId() const;
 	void ItemId(int value);
+
+	std::shared_ptr<ItemProxy> Item() const { return _item; }
+	void Item(std::shared_ptr<ItemProxy> value) { _item = value; }
 
 	int Quantity() const;
 	void Quantity(int value);
