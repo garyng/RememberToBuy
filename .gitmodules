@@ -10,3 +10,6 @@
 [submodule "libs/json"]
 	path = libs/json
 	url = git@github.com:nlohmann/json.git
+[submodule "libs/linq"]
+	path = libs/linq
+	url = git@github.com:coveo/linq.git

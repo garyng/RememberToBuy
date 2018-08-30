@@ -27,6 +27,8 @@ struct unary_function
 #include <IconsFontAwesome5.h>
 #include "imgui/imgui_custom.h"
 
+#include <coveo/linq.h>
+
 #include "logger/ILogger.h"
 
 #include "Utilities.h"
