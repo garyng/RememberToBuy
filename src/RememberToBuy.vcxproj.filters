@@ -58,6 +58,12 @@
     <Filter Include="Source Files\storage">
       <UniqueIdentifier>{d5a80203-8ea4-4c19-9dce-35326ea22de9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\command">
+      <UniqueIdentifier>{cc4de305-c0c3-4169-8e3f-00040d5b89e2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\query">
+      <UniqueIdentifier>{ce423e30-8fcc-4bd0-ac5c-855c3950b90c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -242,6 +248,18 @@
     </ClInclude>
     <ClInclude Include="ui\test\StorageTestView.h">
       <Filter>Source Files\ui\test</Filter>
+    </ClInclude>
+    <ClInclude Include="query\QueryDispatcher.h">
+      <Filter>Source Files\query</Filter>
+    </ClInclude>
+    <ClInclude Include="command\ICommandHandler.h">
+      <Filter>Source Files\command</Filter>
+    </ClInclude>
+    <ClInclude Include="command\CommandDispatcher.h">
+      <Filter>Source Files\command</Filter>
+    </ClInclude>
+    <ClInclude Include="query\IQueryHandler.h">
+      <Filter>Source Files\query</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
