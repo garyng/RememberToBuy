@@ -1,6 +1,7 @@
 ﻿#pragma once
 #include <nlohmann/json.hpp>
 #include "proxy/ItemProxy.h"
+#include "proxy/SourceProxy.h"
 
 class CartItem
 {
@@ -11,7 +12,7 @@ private:
 	int _sourceId{};
 
 	ItemProxy _item{};
-
+	SourceProxy _source{};
 
 public:
 	CartItem(const int id, const int itemId, const int quantity, const int sourceId);
@@ -31,6 +32,10 @@ public:
 
 	int SourceId() const;
 	void SourceId(int value);
+
+	SourceProxy Source() const { return _source; }
+	void Source(SourceProxy value) { _source = value; }
+	
 };
 
 void to_json(nlohmann::json& json, const CartItem& item);

@@ -306,6 +306,15 @@
     <ClInclude Include="command\UpdateCartItemQuantityCommandHandler.h">
       <Filter>Source Files\command</Filter>
     </ClInclude>
+    <ClInclude Include="proxy\SourceProxy.h">
+      <Filter>Source Files\proxy</Filter>
+    </ClInclude>
+    <ClInclude Include="query\GetSourceById.h">
+      <Filter>Source Files\query</Filter>
+    </ClInclude>
+    <ClInclude Include="query\GetSourceByIdQueryHandler.h">
+      <Filter>Source Files\query</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -430,6 +439,9 @@
     </ClCompile>
     <ClCompile Include="command\UpdateCartItemQuantityCommandHandler.cpp">
       <Filter>Source Files\command</Filter>
+    </ClCompile>
+    <ClCompile Include="query\GetSourceByIdQueryHandler.cpp">
+      <Filter>Source Files\query</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -1,6 +1,7 @@
 ﻿#pragma once
 #include "ItemProxy.h"
 #include "models/CartItem.h"
+#include "SourceProxy.h"
 
 class ProxyFactory
 {
@@ -27,29 +28,43 @@ public:
 
 	void Apply(CartItem& cartItem)
 	{
-		if (cartItem.Item()) return;
-		cartItem.Item(ItemProxyFactory(cartItem.Id()));
+		if (!cartItem.Item())
+		{
+			cartItem.Item(ItemProxyFactory(cartItem.ItemId()));
+		}
+		if (!cartItem.Source())
+		{
+			cartItem.Source(SourceProxyFactory(cartItem.SourceId()));
+		}
 	}
 
 	void Apply(Item& item)
 	{
-		if (item.Category()) return;
-		item.Category(CategoryProxyFactory(item.Id()));
+		if (!item.Category())
+		{
+			item.Category(CategoryProxyFactory(item.CategoryId()));
+		}
 	}
+
 
 	template <class T>
 	void Apply(T& item)
 	{
-		//_logger->Debug("No proxy available for " + std::string(typeid(item).name()));
+		// no proxy available for the item
 	}
 
-	ItemProxy ItemProxyFactory(int itemId)
+	ItemProxy ItemProxyFactory(int id)
 	{
-		return ItemProxy{_queryDispatcher, itemId};
+		return ItemProxy{_queryDispatcher, id};
 	}
 
 	CategoryProxy CategoryProxyFactory(int id)
 	{
 		return CategoryProxy{_queryDispatcher, id};
+	}
+
+	SourceProxy SourceProxyFactory(int id)
+	{
+		return SourceProxy{_queryDispatcher, id};
 	}
 };

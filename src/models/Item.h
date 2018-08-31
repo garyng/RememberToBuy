@@ -27,8 +27,6 @@ public:
 
 	CategoryProxy Category() const { return _category; }
 	void Category(CategoryProxy value) { _category = value; }
-	
-	
 };
 
 void to_json(nlohmann::json& json, const Item& item);
