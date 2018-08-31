@@ -7,13 +7,17 @@
 class ItemProxy : public ProxyBase<Item>
 {
 private:
-	int _itemId;
+	int _itemId{};
 
 public:
 
 	ItemProxy(const std::shared_ptr<QueryDispatcher>& queryDispatcher, const int itemId)
 		: ProxyBase<Item>(queryDispatcher),
 		  _itemId(itemId)
+	{
+	}
+
+	ItemProxy()
 	{
 	}
 

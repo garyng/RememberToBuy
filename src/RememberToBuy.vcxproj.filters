@@ -285,10 +285,19 @@
     <ClInclude Include="proxy\ProxyBase.h">
       <Filter>Source Files\proxy</Filter>
     </ClInclude>
+    <ClInclude Include="proxy\CategoryProxy.h">
+      <Filter>Source Files\proxy</Filter>
+    </ClInclude>
     <ClInclude Include="query\GetById.h">
       <Filter>Source Files\query</Filter>
     </ClInclude>
+    <ClInclude Include="query\GetCategoryById.h">
+      <Filter>Source Files\query</Filter>
+    </ClInclude>
     <ClInclude Include="query\GetByIdQueryHandlerBase.h">
+      <Filter>Source Files\query</Filter>
+    </ClInclude>
+    <ClInclude Include="query\GetCategoryByIdQueryHandler.h">
       <Filter>Source Files\query</Filter>
     </ClInclude>
   </ItemGroup>
@@ -408,6 +417,9 @@
       <Filter>Source Files\query</Filter>
     </ClCompile>
     <ClCompile Include="query\GetItemByIdQueryHandler.cpp">
+      <Filter>Source Files\query</Filter>
+    </ClCompile>
+    <ClCompile Include="query\GetCategoryByIdQueryHandler.cpp">
       <Filter>Source Files\query</Filter>
     </ClCompile>
   </ItemGroup>

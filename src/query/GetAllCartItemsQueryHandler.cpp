@@ -15,6 +15,8 @@ GetAllCartItemsQueryHandler::GetAllCartItemsQueryHandler(const std::shared_ptr<C
 std::vector<CartItem> GetAllCartItemsQueryHandler::Handle(GetAllCartItems parameter)
 {
 	std::vector<CartItem> cartItems = _cartItemStorage->Data();
+
 	_proxyFactory->Apply(cartItems);
+
 	return cartItems;
 }

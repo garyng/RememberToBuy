@@ -22,6 +22,7 @@ struct unary_function
 #include <string>
 #include <memory>
 #include <vector>
+#include <optional>
 
 #include <imgui.h>
 #include <IconsFontAwesome5.h>

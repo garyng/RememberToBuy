@@ -98,9 +98,10 @@
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <GenerateDebugInformation>DebugFastLink</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(SolutionDir)\..\libs\glfw\lib-vc2017;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>opengl32.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ShowProgress>NotSet</ShowProgress>
     </Link>
     <PostBuildEvent>
       <Command>XCOPY "$(ProjectDir)fonts" "$(SolutionDir)..\dist\fonts\" /s /i /y /d
@@ -191,6 +192,7 @@ XCOPY "$(TargetDir)$(TargetName)$(TargetExt)" "$(SolutionDir)..\dist\" /s /i /y 
     <ClInclude Include="models\PendingItem.h" />
     <ClInclude Include="models\Source.h" />
     <ClInclude Include="models\StockItem.h" />
+    <ClInclude Include="proxy\CategoryProxy.h" />
     <ClInclude Include="proxy\ItemProxy.h" />
     <ClInclude Include="proxy\ProxyBase.h" />
     <ClInclude Include="proxy\ProxyFactory.h" />
@@ -198,6 +200,8 @@ XCOPY "$(TargetDir)$(TargetName)$(TargetExt)" "$(SolutionDir)..\dist\" /s /i /y 
     <ClInclude Include="query\GetAllCartItemsQueryHandler.h" />
     <ClInclude Include="query\GetById.h" />
     <ClInclude Include="query\GetByIdQueryHandlerBase.h" />
+    <ClInclude Include="query\GetCategoryById.h" />
+    <ClInclude Include="query\GetCategoryByIdQueryHandler.h" />
     <ClInclude Include="query\GetItemById.h" />
     <ClInclude Include="query\GetItemByIdQueryHandler.h" />
     <ClInclude Include="query\IQueryHandler.h" />
@@ -283,6 +287,7 @@ XCOPY "$(TargetDir)$(TargetName)$(TargetExt)" "$(SolutionDir)..\dist\" /s /i /y 
     <ClCompile Include="models\Source.cpp" />
     <ClCompile Include="models\StockItem.cpp" />
     <ClCompile Include="query\GetAllCartItemsQueryHandler.cpp" />
+    <ClCompile Include="query\GetCategoryByIdQueryHandler.cpp" />
     <ClCompile Include="query\GetItemByIdQueryHandler.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
