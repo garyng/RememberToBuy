@@ -79,4 +79,40 @@ namespace ImGui
 			EndPopup();
 		}
 	}
+
+	void TextBoldNormal(std::string text)
+	{
+		PushFont(Fonts::RobotoBold_Normal);
+		Text(text.c_str());
+		PopFont();
+	}
+
+	void TextLightTitle1(std::string text)
+	{
+		PushFont(Fonts::RobotoLight_Title1);
+		Text(text.c_str());
+		PopFont();
+	}
+
+	void TextLightTitle2(std::string text)
+	{
+		PushFont(Fonts::RobotoLight_Title2);
+		Text(text.c_str());
+		PopFont();
+	}
+
+	void TextRegularTitle(std::string text)
+	{
+		PushFont(Fonts::RobotoRegular_Title);
+		Text(text.c_str());
+		PopFont();
+	}
+
+	bool FullWidthInputInt(std::string label, int& value)
+	{
+		PushItemWidth(-1);
+		bool isValueChanged = InputInt(label.c_str(), &value);
+		PopItemWidth();
+		return isValueChanged;
+	}
 }
