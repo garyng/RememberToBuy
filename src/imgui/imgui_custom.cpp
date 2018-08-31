@@ -108,10 +108,18 @@ namespace ImGui
 		PopFont();
 	}
 
-	bool FullWidthInputInt(std::string label, int& value)
+	bool FullWidthInputInt(std::string label, int& value, int minimum)
 	{
+		const int oldValue = value;
 		PushItemWidth(-1);
-		bool isValueChanged = InputInt(label.c_str(), &value);
+		InputInt(label.c_str(), &value);
+		if (value < minimum)
+		{
+			value = minimum;
+		}
+
+		bool isValueChanged = value != oldValue;
+
 		PopItemWidth();
 		return isValueChanged;
 	}

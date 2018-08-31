@@ -21,5 +21,6 @@ namespace ImGui
 	void TextLightTitle1(std::string text);
 	void TextLightTitle2(std::string text);
 	void TextRegularTitle(std::string text);
-	bool FullWidthInputInt(std::string label, int& value);
+
+	bool FullWidthInputInt(std::string label, int& value, int minimum = 0);
 }
