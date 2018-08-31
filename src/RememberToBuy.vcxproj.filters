@@ -315,6 +315,15 @@
     <ClInclude Include="query\GetSourceByIdQueryHandler.h">
       <Filter>Source Files\query</Filter>
     </ClInclude>
+    <ClInclude Include="query\GetItemSourceByItemIdAndSourceId.h">
+      <Filter>Source Files\query</Filter>
+    </ClInclude>
+    <ClInclude Include="query\GetItemSourceByItemIdAndSourceIdQueryHandler.h">
+      <Filter>Source Files\query</Filter>
+    </ClInclude>
+    <ClInclude Include="proxy\ItemSourceProxy.h">
+      <Filter>Source Files\proxy</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -441,6 +450,9 @@
       <Filter>Source Files\command</Filter>
     </ClCompile>
     <ClCompile Include="query\GetSourceByIdQueryHandler.cpp">
+      <Filter>Source Files\query</Filter>
+    </ClCompile>
+    <ClCompile Include="query\GetItemSourceByItemIdAndSourceIdQueryHandler.cpp">
       <Filter>Source Files\query</Filter>
     </ClCompile>
   </ItemGroup>

@@ -196,6 +196,7 @@ XCOPY "$(TargetDir)$(TargetName)$(TargetExt)" "$(SolutionDir)..\dist\" /s /i /y 
     <ClInclude Include="models\StockItem.h" />
     <ClInclude Include="proxy\CategoryProxy.h" />
     <ClInclude Include="proxy\ItemProxy.h" />
+    <ClInclude Include="proxy\ItemSourceProxy.h" />
     <ClInclude Include="proxy\ProxyBase.h" />
     <ClInclude Include="proxy\ProxyFactory.h" />
     <ClInclude Include="proxy\SourceProxy.h" />
@@ -207,6 +208,8 @@ XCOPY "$(TargetDir)$(TargetName)$(TargetExt)" "$(SolutionDir)..\dist\" /s /i /y 
     <ClInclude Include="query\GetCategoryByIdQueryHandler.h" />
     <ClInclude Include="query\GetItemById.h" />
     <ClInclude Include="query\GetItemByIdQueryHandler.h" />
+    <ClInclude Include="query\GetItemSourceByItemIdAndSourceId.h" />
+    <ClInclude Include="query\GetItemSourceByItemIdAndSourceIdQueryHandler.h" />
     <ClInclude Include="query\GetSourceById.h" />
     <ClInclude Include="query\GetSourceByIdQueryHandler.h" />
     <ClInclude Include="query\IQueryHandler.h" />
@@ -295,6 +298,7 @@ XCOPY "$(TargetDir)$(TargetName)$(TargetExt)" "$(SolutionDir)..\dist\" /s /i /y 
     <ClCompile Include="query\GetAllCartItemsQueryHandler.cpp" />
     <ClCompile Include="query\GetCategoryByIdQueryHandler.cpp" />
     <ClCompile Include="query\GetItemByIdQueryHandler.cpp" />
+    <ClCompile Include="query\GetItemSourceByItemIdAndSourceIdQueryHandler.cpp" />
     <ClCompile Include="query\GetSourceByIdQueryHandler.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

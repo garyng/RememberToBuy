@@ -2,6 +2,7 @@
 #include "ItemProxy.h"
 #include "models/CartItem.h"
 #include "SourceProxy.h"
+#include "ItemSourceProxy.h"
 
 class ProxyFactory
 {
@@ -24,8 +25,6 @@ public:
 		}
 	}
 
-	// todo: apply vector<category>
-
 	void Apply(CartItem& cartItem)
 	{
 		if (!cartItem.Item())
@@ -35,6 +34,10 @@ public:
 		if (!cartItem.Source())
 		{
 			cartItem.Source(SourceProxyFactory(cartItem.SourceId()));
+		}
+		if (!cartItem.ItemSource())
+		{
+			cartItem.ItemSource(ItemSourceProxyFactory(cartItem.ItemId(), cartItem.SourceId()));
 		}
 	}
 
@@ -66,5 +69,10 @@ public:
 	SourceProxy SourceProxyFactory(int id)
 	{
 		return SourceProxy{_queryDispatcher, id};
+	}
+
+	ItemSourceProxy ItemSourceProxyFactory(int itemId, int sourceId)
+	{
+		return ItemSourceProxy{_queryDispatcher, itemId, sourceId};
 	}
 };

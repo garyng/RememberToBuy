@@ -2,6 +2,7 @@
 #include <nlohmann/json.hpp>
 #include "proxy/ItemProxy.h"
 #include "proxy/SourceProxy.h"
+#include "proxy/ItemSourceProxy.h"
 
 class CartItem
 {
@@ -13,6 +14,8 @@ private:
 
 	ItemProxy _item{};
 	SourceProxy _source{};
+	ItemSourceProxy _itemSource;
+
 
 public:
 	CartItem(const int id, const int itemId, const int quantity, const int sourceId);
@@ -35,6 +38,10 @@ public:
 
 	SourceProxy Source() const { return _source; }
 	void Source(SourceProxy value) { _source = value; }
+
+	ItemSourceProxy ItemSource() const { return _itemSource; }
+	void ItemSource(ItemSourceProxy value) { _itemSource = value; }
+	
 	
 };
 
