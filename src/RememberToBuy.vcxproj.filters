@@ -300,6 +300,12 @@
     <ClInclude Include="query\GetCategoryByIdQueryHandler.h">
       <Filter>Source Files\query</Filter>
     </ClInclude>
+    <ClInclude Include="command\UpdateCartItemQuantity.h">
+      <Filter>Source Files\command</Filter>
+    </ClInclude>
+    <ClInclude Include="command\UpdateCartItemQuantityCommandHandler.h">
+      <Filter>Source Files\command</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -421,6 +427,9 @@
     </ClCompile>
     <ClCompile Include="query\GetCategoryByIdQueryHandler.cpp">
       <Filter>Source Files\query</Filter>
+    </ClCompile>
+    <ClCompile Include="command\UpdateCartItemQuantityCommandHandler.cpp">
+      <Filter>Source Files\command</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

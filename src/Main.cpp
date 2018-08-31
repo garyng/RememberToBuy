@@ -30,6 +30,7 @@
 #include "query/GetAllCartItemsQueryHandler.h"
 #include "query/GetItemByIdQueryHandler.h"
 #include "query/GetCategoryByIdQueryHandler.h"
+#include "command/UpdateCartItemQuantityCommandHandler.h"
 
 
 using namespace std;
@@ -142,6 +143,8 @@ int main(int argc, char* argv[])
 	registerQuery<GetAllCartItemsQueryHandler, GetAllCartItems, std::vector<CartItem>>(builder);
 	registerQuery<GetItemByIdQueryHandler, GetItemById, Item>(builder);
 	registerQuery<GetCategoryByIdQueryHandler, GetCategoryById, Category>(builder);
+
+	registerCommand<UpdateCartItemQuantityCommandHandler, UpdateCartItemQuantity>(builder);
 
 	shared_ptr<Container> container = builder.build();
 

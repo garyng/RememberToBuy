@@ -184,6 +184,8 @@ XCOPY "$(TargetDir)$(TargetName)$(TargetExt)" "$(SolutionDir)..\dist\" /s /i /y 
     <ClInclude Include="..\libs\gl3w\GL\glcorearb.h" />
     <ClInclude Include="command\CommandDispatcher.h" />
     <ClInclude Include="command\ICommandHandler.h" />
+    <ClInclude Include="command\UpdateCartItemQuantity.h" />
+    <ClInclude Include="command\UpdateCartItemQuantityCommandHandler.h" />
     <ClInclude Include="models\CartItem.h" />
     <ClInclude Include="models\Category.h" />
     <ClInclude Include="models\HistoryItem.h" />
@@ -276,6 +278,7 @@ XCOPY "$(TargetDir)$(TargetName)$(TargetExt)" "$(SolutionDir)..\dist\" /s /i /y 
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="command\UpdateCartItemQuantityCommandHandler.cpp" />
     <ClCompile Include="imgui\imgui_custom.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="models\CartItem.cpp" />
