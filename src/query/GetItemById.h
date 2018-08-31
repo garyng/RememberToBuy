@@ -1,6 +1,6 @@
 ﻿#pragma once
-class GetItemById
+#include "GetById.h"
+
+class GetItemById : public GetById
 {
-public:
-	int Id;
 };

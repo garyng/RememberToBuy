@@ -1,13 +1,10 @@
 ﻿#pragma once
 #include "storage/ItemStorage.h"
 #include "GetItemById.h"
+#include "GetByIdQueryHandlerBase.h"
 
-class GetItemByIdQueryHandler : public IQueryHandler<GetItemById, Item>
+class GetItemByIdQueryHandler : public GetByIdQueryHandlerBase<GetItemById, Item, ItemStorage>
 {
-private:
-	std::shared_ptr<ItemStorage> _itemStorage;
 public:
-	GetItemByIdQueryHandler(const std::shared_ptr<ItemStorage>& itemStorage);
-
-	Item Handle(GetItemById parameter) override;
+	GetItemByIdQueryHandler(const std::shared_ptr<ItemStorage>& storage);
 };

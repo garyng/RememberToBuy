@@ -17,7 +17,7 @@ public:
 	{
 	}
 
-	Item Value() const
+	Item Value() const override
 	{
 		return _queryDispatcher->Dispatch<Item>(GetItemById{_itemId});
 	}
