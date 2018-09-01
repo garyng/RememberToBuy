@@ -34,6 +34,7 @@
 #include "query/GetItemSourceByItemIdAndSourceIdQueryHandler.h"
 #include "query/GetSourceByIdQueryHandler.h"
 #include "ui/test/IconsAlignmentTestView.h"
+#include "ui/test/ICanResetTestView.h"
 
 
 using namespace std;
@@ -60,7 +61,9 @@ void registerTestView(ContainerBuilder& builder)
 
 template <class TView, class TViewModel,
           class = IsBaseOf<TView, ViewBase<TViewModel>>,
-          class = IsBaseOf<TViewModel, IViewModel>>
+          class = std::enable_if_t<
+	          std::is_base_of_v<IViewModel, TViewModel> ||
+	          (std::is_base_of_v<IViewModel, TViewModel> && std::is_base_of_v<ICanReset, TViewModel>)>>
 void registerViewViewModel(ContainerBuilder& builder)
 {
 	builder.registerType<TView>()
@@ -69,11 +72,23 @@ void registerViewViewModel(ContainerBuilder& builder)
 	       .asSelf()
 	       .singleInstance();
 
-	builder.registerType<TViewModel>()
-	       .as<IViewModel>()
-	       .asSelf()
-	       .singleInstance();
+	if constexpr (std::is_base_of_v<ICanReset, TViewModel>)
+	{
+		builder.registerType<TViewModel>()
+		       .as<IViewModel>()
+		       .as<ICanReset>()
+		       .asSelf()
+		       .singleInstance();
+	}
+	else
+	{
+		builder.registerType<TViewModel>()
+		       .as<IViewModel>()
+		       .asSelf()
+		       .singleInstance();
+	}
 }
+
 
 template <class TStorage, class = IsBaseOf<TStorage, IStorage>>
 void registerStorage(ContainerBuilder& builder)
@@ -121,6 +136,7 @@ int main(int argc, char* argv[])
 	registerTestView<NavigationTestView>(builder);
 	registerTestView<StorageTestView>(builder);
 	registerTestView<IconAlignmentTestView>(builder);
+	registerTestView<ICanResetTestView>(builder);
 
 	registerStorage<CartItemStorage>(builder);
 	registerStorage<CategoryStorage>(builder);
