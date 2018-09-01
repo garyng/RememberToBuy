@@ -84,6 +84,10 @@ void App::AddIconFont(ImGuiIO& io, float fontSize, bool mergeIntoPrevious) const
 {
 	ImFontConfig config;
 	config.MergeMode = mergeIntoPrevious;
+	// make them monospace
+	// https://github.com/ocornut/imgui/issues/1869
+	config.GlyphMinAdvanceX = fontSize + 5;
+	config.GlyphMaxAdvanceX = fontSize + 5;
 	static const ImWchar iconRange[] = {ICON_MIN_FA, ICON_MAX_FA, 0};
 	io.Fonts->AddFontFromFileTTF("fonts/fa-solid-900.ttf", fontSize, &config, iconRange);
 }

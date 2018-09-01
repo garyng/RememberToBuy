@@ -229,6 +229,7 @@ XCOPY "$(TargetDir)$(TargetName)$(TargetExt)" "$(SolutionDir)..\dist\" /s /i /y 
     <ClInclude Include="ui\pending\PendingViewModel.h" />
     <ClInclude Include="ui\stock\StockView.h" />
     <ClInclude Include="ui\stock\StockViewModel.h" />
+    <ClInclude Include="ui\test\IconsAlignmentTestView.h" />
     <ClInclude Include="ui\test\StorageTestView.h" />
     <ClInclude Include="Utilities.h" />
     <ClInclude Include="imgui\imgui_custom.h" />

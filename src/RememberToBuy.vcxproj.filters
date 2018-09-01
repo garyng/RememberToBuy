@@ -324,6 +324,9 @@
     <ClInclude Include="proxy\ItemSourceProxy.h">
       <Filter>Source Files\proxy</Filter>
     </ClInclude>
+    <ClInclude Include="ui\test\IconsAlignmentTestView.h">
+      <Filter>Source Files\ui\test</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">

@@ -32,6 +32,8 @@
 #include "query/GetCategoryByIdQueryHandler.h"
 #include "command/UpdateCartItemQuantityCommandHandler.h"
 #include "query/GetItemSourceByItemIdAndSourceIdQueryHandler.h"
+#include "query/GetSourceByIdQueryHandler.h"
+#include "ui/test/IconsAlignmentTestView.h"
 
 
 using namespace std;
@@ -118,6 +120,7 @@ int main(int argc, char* argv[])
 	registerTestView<ColorsTestView>(builder);
 	registerTestView<NavigationTestView>(builder);
 	registerTestView<StorageTestView>(builder);
+	registerTestView<IconAlignmentTestView>(builder);
 
 	registerStorage<CartItemStorage>(builder);
 	registerStorage<CategoryStorage>(builder);
@@ -145,6 +148,7 @@ int main(int argc, char* argv[])
 	registerQuery<GetItemByIdQueryHandler, GetItemById, Item>(builder);
 	registerQuery<GetCategoryByIdQueryHandler, GetCategoryById, Category>(builder);
 	registerQuery<GetItemSourceByItemIdAndSourceIdQueryHandler, GetItemSourceByItemIdAndSourceId, ItemSource>(builder);
+	registerQuery<GetSourceByIdQueryHandler, GetSourceById, Source>(builder);
 
 	registerCommand<UpdateCartItemQuantityCommandHandler, UpdateCartItemQuantity>(builder);
 
