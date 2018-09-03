@@ -1,5 +1,6 @@
 #pragma once
 #include <functional>
+#include "ui/fonts/Fonts.h"
 
 namespace ImGui
 {
@@ -21,6 +22,9 @@ namespace ImGui
 	void TextLightTitle1(std::string text);
 	void TextLightTitle2(std::string text);
 	void TextRegularTitle(std::string text);
+	void TextCenteredHorizontally(std::string text);
+	void TextCenteredHorizontally(std::string text, ImVec2 size);
+	void BlankScreenPrompt(std::string icon, std::initializer_list<std::string> texts);
 
 	bool FullWidthInputInt(std::string label, int& value, int minimum = 1);
 }
