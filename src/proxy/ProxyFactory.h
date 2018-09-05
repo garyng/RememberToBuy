@@ -17,11 +17,12 @@ public:
 	{
 	}
 
-	void Apply(std::vector<CartItem>& cartItems)
+	template <class T>
+	void Apply(std::vector<T>& items)
 	{
-		for (CartItem& cartItem : cartItems)
+		for (auto && item : items)
 		{
-			Apply(cartItem);
+			Apply(item);
 		}
 	}
 
