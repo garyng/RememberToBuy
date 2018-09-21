@@ -44,7 +44,7 @@ public:
 
 			ImGui::OkCancelPopupModel(popupName.c_str(), ICON_FA_EXCLAMATION_CIRCLE,
 			                          {
-				                          "Restoring " + name,
+				                          "Resetting " + name,
 				                          "Are you sure?"
 			                          }, [&]()
 			                          {

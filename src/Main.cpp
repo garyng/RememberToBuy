@@ -35,6 +35,7 @@
 #include "query/GetSourceByIdQueryHandler.h"
 #include "ui/test/IconsAlignmentTestView.h"
 #include "ui/test/ICanResetTestView.h"
+#include "query/GetAllCartItemsByPredicateQueryHandler.h"
 
 
 using namespace std;
@@ -165,6 +166,7 @@ int main(int argc, char* argv[])
 	registerQuery<GetCategoryByIdQueryHandler, GetCategoryById, Category>(builder);
 	registerQuery<GetItemSourceByItemIdAndSourceIdQueryHandler, GetItemSourceByItemIdAndSourceId, ItemSource>(builder);
 	registerQuery<GetSourceByIdQueryHandler, GetSourceById, Source>(builder);
+	registerQuery<GetAllCartItemsByPredicateQueryHandler, GetAllCartItemsByPredicate, std::vector<CartItem>>(builder);
 
 	registerCommand<UpdateCartItemQuantityCommandHandler, UpdateCartItemQuantity>(builder);
 
@@ -172,9 +174,6 @@ int main(int argc, char* argv[])
 
 	showAllTestViews(container);
 
-	container->resolve<NavigationService>()->GoTo<CartViewModel>([](std::shared_ptr<CartViewModel> vm)
-	{
-		vm->LoadCartItemsCommand();
-	});
+	container->resolve<NavigationService>()->GoTo<CartViewModel>();
 	container->resolve<App>()->Start();
 }

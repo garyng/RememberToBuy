@@ -92,4 +92,10 @@ public:
 		_logger->Debug("Restored data to default value");
 		Save();
 	}
+
+	void Clear() override
+	{
+		_data.clear();
+		_logger->Debug("Emptied in-memory data of " + std::string(typeid(TData).name()));
+	}
 };
