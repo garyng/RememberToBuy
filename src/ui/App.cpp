@@ -76,6 +76,9 @@ void App::LoadFonts() const
 
 	AddIconFont(io, 72.0f, false);
 
+	io.Fonts->AddFontFromFileTTF("fonts/Roboto-Regular.ttf", 15.0f);
+	AddIconFont(io, 15.0f);
+
 	io.Fonts->Build();
 	_logger->Debug("All fonts loaded");
 }

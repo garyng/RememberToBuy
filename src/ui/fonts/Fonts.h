@@ -13,6 +13,7 @@ public:
 	static Fonts RobotoBold_Normal;
 
 	static Fonts RobotoRegular_Title;
+	static Fonts RobotoRegular_Small;
 
 	static Fonts RobotoLight_Title1;
 	static Fonts RobotoLight_Title2;
