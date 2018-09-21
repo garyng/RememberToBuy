@@ -11,6 +11,11 @@ GetItemSourceByItemIdAndSourceIdQueryHandler::GetItemSourceByItemIdAndSourceIdQu
 ItemSource GetItemSourceByItemIdAndSourceIdQueryHandler::Handle(GetItemSourceByItemIdAndSourceId parameter)
 {
 	using namespace coveo::linq;
+	if (_storage->Data().empty())
+	{
+		// todo: handle when storage is empty
+		return ItemSource{};
+	}
 	ItemSource result = _storage->Data()
 		| first([&](ItemSource item)
 		{

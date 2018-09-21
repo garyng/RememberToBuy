@@ -20,6 +20,11 @@ public:
 	TResult Handle(TQuery parameter) override
 	{
 		using namespace coveo::linq;
+		if (_storage->Data().empty())
+		{
+			// todo: handle when storage is empty
+			return TResult{};
+		}
 		TResult result = _storage->Data()
 			| first([&](TResult item)
 			{
