@@ -35,7 +35,6 @@
 #include "query/GetSourceByIdQueryHandler.h"
 #include "ui/test/IconsAlignmentTestView.h"
 #include "ui/test/ICanResetTestView.h"
-#include "query/GetAllCartItemsByPredicateQueryHandler.h"
 
 
 using namespace std;
@@ -116,6 +115,7 @@ void registerCommand(ContainerBuilder& builder)
 	       .as<ICommandHandler<TCommand>>();
 }
 
+
 int main(int argc, char* argv[])
 {
 	ContainerBuilder builder;
@@ -166,7 +166,6 @@ int main(int argc, char* argv[])
 	registerQuery<GetCategoryByIdQueryHandler, GetCategoryById, Category>(builder);
 	registerQuery<GetItemSourceByItemIdAndSourceIdQueryHandler, GetItemSourceByItemIdAndSourceId, ItemSource>(builder);
 	registerQuery<GetSourceByIdQueryHandler, GetSourceById, Source>(builder);
-	registerQuery<GetAllCartItemsByPredicateQueryHandler, GetAllCartItemsByPredicate, std::vector<CartItem>>(builder);
 
 	registerCommand<UpdateCartItemQuantityCommandHandler, UpdateCartItemQuantity>(builder);
 

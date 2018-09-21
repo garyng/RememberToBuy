@@ -330,15 +330,6 @@
     <ClInclude Include="ui\test\ICanResetTestView.h">
       <Filter>Source Files\ui\test</Filter>
     </ClInclude>
-    <ClInclude Include="query\GetAllByPredicate.h">
-      <Filter>Source Files\query</Filter>
-    </ClInclude>
-    <ClInclude Include="query\GetAllCartItemsByPredicate.h">
-      <Filter>Source Files\query</Filter>
-    </ClInclude>
-    <ClInclude Include="query\GetAllCartItemsByPredicateQueryHandler.h">
-      <Filter>Source Files\query</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -468,9 +459,6 @@
       <Filter>Source Files\query</Filter>
     </ClCompile>
     <ClCompile Include="query\GetItemSourceByItemIdAndSourceIdQueryHandler.cpp">
-      <Filter>Source Files\query</Filter>
-    </ClCompile>
-    <ClCompile Include="query\GetAllCartItemsByPredicateQueryHandler.cpp">
       <Filter>Source Files\query</Filter>
     </ClCompile>
   </ItemGroup>

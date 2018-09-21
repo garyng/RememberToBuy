@@ -21,6 +21,7 @@ ItemSource GetItemSourceByItemIdAndSourceIdQueryHandler::Handle(GetItemSourceByI
 		{
 			return item.ItemId() == parameter.ItemId && item.SourceId() == parameter.SourceId;
 		});
+
 	_proxy->Apply(result);
 	return result;
 }
