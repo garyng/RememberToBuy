@@ -101,7 +101,7 @@ Faker<CartItem> FakeCartItems(IEnumerable<Item> items, IEnumerable<ItemSource> i
 			ci.Id = f.IndexFaker;
 			ci.ItemId = f.PickRandom(items).Id;
 			ci.Quantity = f.Random.Int(0, 10);
-			ci.SourceId = f.PickRandom(itemSources.Where(s => s.ItemId == ci.Id)).SourceId;
+			ci.SourceId = f.PickRandom(itemSources.Where(s => s.ItemId == ci.ItemId)).SourceId;
 		});
 }
 Faker<HistoryItem> FakeHistoryItems(IEnumerable<Item> items, IEnumerable<ItemSource> itemSources)
@@ -112,7 +112,7 @@ Faker<HistoryItem> FakeHistoryItems(IEnumerable<Item> items, IEnumerable<ItemSou
 			hi.Id = f.IndexFaker;
 			hi.ItemId = f.PickRandom(items).Id;
 			hi.Quantity = f.Random.Int(0, 100);
-			hi.SourceId = f.PickRandom(itemSources.Where(s => s.ItemId == hi.Id)).SourceId;
+			hi.SourceId = f.PickRandom(itemSources.Where(s => s.ItemId == hi.ItemId)).SourceId;
 			hi.Price = f.Random.Double(1, 100);
 			hi.Date = f.Date.Recent().ToString();
 		});
