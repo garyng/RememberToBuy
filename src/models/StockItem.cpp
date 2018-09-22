@@ -39,6 +39,16 @@ void StockItem::ItemId(int value)
 	_itemId = value;
 }
 
+ItemProxy StockItem::Item() const
+{
+	return _item;
+}
+
+void StockItem::Item(ItemProxy value)
+{
+	_item = value;
+}
+
 void to_json(nlohmann::json& json, const StockItem& stockItem)
 {
 	json = nlohmann::json{

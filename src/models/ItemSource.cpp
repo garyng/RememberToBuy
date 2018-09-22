@@ -30,6 +30,26 @@ void ItemSource::ItemId(int value)
 	_itemId = value;
 }
 
+ItemProxy ItemSource::Item() const
+{
+	return _item;
+}
+
+void ItemSource::Item(ItemProxy value)
+{
+	_item = value;
+}
+
+SourceProxy ItemSource::Source() const
+{
+	return _source;
+}
+
+void ItemSource::Source(SourceProxy value)
+{
+	_source = value;
+}
+
 int ItemSource::SourceId() const
 {
 	return _sourceId;

@@ -29,8 +29,8 @@ public:
 	int ItemId() const;
 	void ItemId(int value);
 
-	ItemProxy Item() const { return _item; }
-	void Item(ItemProxy value) { _item = value; }
+	ItemProxy Item() const;
+	void Item(ItemProxy value);
 
 	int Quantity() const;
 	void Quantity(int value);
@@ -38,13 +38,11 @@ public:
 	int SourceId() const;
 	void SourceId(int value);
 
-	SourceProxy Source() const { return _source; }
-	void Source(SourceProxy value) { _source = value; }
+	SourceProxy Source() const;
+	void Source(SourceProxy value);
 
-	ItemSourceProxy ItemSource() const { return _itemSource; }
-	void ItemSource(ItemSourceProxy value) { _itemSource = value; }
-	
-	
+	ItemSourceProxy ItemSource() const;
+	void ItemSource(ItemSourceProxy value);
 };
 
 void to_json(nlohmann::json& json, const CartItem& item);

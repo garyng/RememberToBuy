@@ -1,5 +1,6 @@
 ﻿#pragma once
 #include <nlohmann/json.hpp>
+#include "proxy/ItemProxy.h"
 
 class PendingItem
 {
@@ -8,6 +9,7 @@ private:
 	int _itemId{};
 	int _quantity{};
 
+	ItemProxy _item{};
 public:
 	PendingItem(const int id, const int itemId, const int quantity);
 
@@ -18,6 +20,9 @@ public:
 
 	int ItemId() const;
 	void ItemId(int value);
+
+	ItemProxy Item() const;
+	void Item(ItemProxy value);
 
 	int Quantity() const;
 	void Quantity(int value);

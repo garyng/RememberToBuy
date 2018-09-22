@@ -1,6 +1,8 @@
 ﻿#pragma once
 #include <string>
 #include <nlohmann/json.hpp>
+#include "proxy/ItemProxy.h"
+#include "proxy/SourceProxy.h"
 
 class HistoryItem
 {
@@ -11,6 +13,9 @@ private:
 	int _sourceId{};
 	double _price{};
 	std::string _date;
+
+	ItemProxy _item{};
+	SourceProxy _source{};
 
 public:
 	HistoryItem(const int id, const int itemId, const int quantity, const int sourceId, const double price,
@@ -24,11 +29,17 @@ public:
 	int ItemId() const;
 	void ItemId(int value);
 
+	ItemProxy Item() const;
+	void Item(ItemProxy value);
+
 	int Quantity() const;
 	void Quantity(int value);
 
 	int SourceId() const;
 	void SourceId(int value);
+
+	SourceProxy Source() const;
+	void Source(SourceProxy value);
 
 	double Price() const;
 	void Price(double value);

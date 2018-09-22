@@ -29,6 +29,16 @@ void PendingItem::ItemId(int value)
 	_itemId = value;
 }
 
+ItemProxy PendingItem::Item() const
+{
+	return _item;
+}
+
+void PendingItem::Item(ItemProxy value)
+{
+	_item = value;
+}
+
 int PendingItem::Quantity() const
 {
 	return _quantity;

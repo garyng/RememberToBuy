@@ -30,6 +30,36 @@ void CartItem::ItemId(int value)
 	_itemId = value;
 }
 
+ItemProxy CartItem::Item() const
+{
+	return _item;
+}
+
+void CartItem::Item(ItemProxy value)
+{
+	_item = value;
+}
+
+SourceProxy CartItem::Source() const
+{
+	return _source;
+}
+
+void CartItem::Source(SourceProxy value)
+{
+	_source = value;
+}
+
+ItemSourceProxy CartItem::ItemSource() const
+{
+	return _itemSource;
+}
+
+void CartItem::ItemSource(ItemSourceProxy value)
+{
+	_itemSource = value;
+}
+
 int CartItem::Quantity() const
 {
 	return _quantity;

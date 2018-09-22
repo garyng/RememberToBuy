@@ -33,6 +33,26 @@ void HistoryItem::ItemId(int value)
 	_itemId = value;
 }
 
+ItemProxy HistoryItem::Item() const
+{
+	return _item;
+}
+
+void HistoryItem::Item(ItemProxy value)
+{
+	_item = value;
+}
+
+SourceProxy HistoryItem::Source() const
+{
+	return _source;
+}
+
+void HistoryItem::Source(SourceProxy value)
+{
+	_source = value;
+}
+
 int HistoryItem::Quantity() const
 {
 	return _quantity;
