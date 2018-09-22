@@ -35,6 +35,8 @@
 #include "query/GetSourceByIdQueryHandler.h"
 #include "ui/test/IconsAlignmentTestView.h"
 #include "ui/test/ICanResetTestView.h"
+#include "command/RemoveCartItemCommandHandler.h"
+#include "command/CheckOffCartItemCommandHandler.h"
 
 
 using namespace std;
@@ -168,6 +170,8 @@ int main(int argc, char* argv[])
 	registerQuery<GetSourceByIdQueryHandler, GetSourceById, Source>(builder);
 
 	registerCommand<UpdateCartItemQuantityCommandHandler, UpdateCartItemQuantity>(builder);
+	registerCommand<RemoveCartItemCommandHandler, RemoveCartItem>(builder);
+	registerCommand<CheckOffCartItemCommandHandler, CheckOffCartItem>(builder);
 
 	shared_ptr<Container> container = builder.build();
 

@@ -339,6 +339,18 @@
     <ClInclude Include="ui\utils\Sorter.h">
       <Filter>Source Files\ui\utils</Filter>
     </ClInclude>
+    <ClInclude Include="command\RemoveCartItem.h">
+      <Filter>Source Files\command</Filter>
+    </ClInclude>
+    <ClInclude Include="command\RemoveCartItemCommandHandler.h">
+      <Filter>Source Files\command</Filter>
+    </ClInclude>
+    <ClInclude Include="command\CheckOffCartItem.h">
+      <Filter>Source Files\command</Filter>
+    </ClInclude>
+    <ClInclude Include="command\CheckOffCartItemCommandHandler.h">
+      <Filter>Source Files\command</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -475,6 +487,12 @@
     </ClCompile>
     <ClCompile Include="ui\utils\Sorter.cpp">
       <Filter>Source Files\ui\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="command\RemoveCartItemCommandHandler.cpp">
+      <Filter>Source Files\command</Filter>
+    </ClCompile>
+    <ClCompile Include="command\CheckOffCartItemCommandHandler.cpp">
+      <Filter>Source Files\command</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

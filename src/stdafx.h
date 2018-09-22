@@ -46,3 +46,5 @@ struct unary_function
 #include "query/QueryDispatcher.h"
 #include "command/ICommandHandler.h"
 #include "command/CommandDispatcher.h"
+
+using namespace coveo::linq;
