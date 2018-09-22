@@ -171,6 +171,7 @@ XCOPY "$(TargetDir)$(TargetName)$(TargetExt)" "$(SolutionDir)..\dist\" /s /i /y 
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="..\libs\imgui\addons\imguidatechooser\imguidatechooser.h" />
+    <ClInclude Include="..\libs\imgui\addons\imguivariouscontrols\imguivariouscontrols.h" />
     <ClInclude Include="..\libs\imgui\examples\imgui_impl_glfw.h" />
     <ClInclude Include="..\libs\imgui\examples\imgui_impl_opengl3.h" />
     <ClInclude Include="..\libs\imgui\imconfig.h" />
@@ -262,6 +263,10 @@ XCOPY "$(TargetDir)$(TargetName)$(TargetExt)" "$(SolutionDir)..\dist\" /s /i /y 
   <ItemGroup>
     <ClCompile Include="..\libs\imgui\addons\imguidatechooser\imguidatechooser.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\libs\imgui\addons\imguivariouscontrols\imguivariouscontrols.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="..\libs\imgui\examples\imgui_impl_glfw.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>

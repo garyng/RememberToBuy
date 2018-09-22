@@ -67,6 +67,9 @@
     <Filter Include="Source Files\proxy">
       <UniqueIdentifier>{c62b0b8a-2e1d-4022-aa59-b3ec341bfc66}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\ui\utils">
+      <UniqueIdentifier>{41878a52-9c62-40d2-8f6f-62a225772197}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -330,6 +333,9 @@
     <ClInclude Include="ui\test\ICanResetTestView.h">
       <Filter>Source Files\ui\test</Filter>
     </ClInclude>
+    <ClInclude Include="..\libs\imgui\addons\imguivariouscontrols\imguivariouscontrols.h">
+      <Filter>Source Files\imgui\addons</Filter>
+    </ClInclude>
     <ClInclude Include="ui\utils\Sorter.h">
       <Filter>Source Files\ui\utils</Filter>
     </ClInclude>
@@ -463,6 +469,9 @@
     </ClCompile>
     <ClCompile Include="query\GetItemSourceByItemIdAndSourceIdQueryHandler.cpp">
       <Filter>Source Files\query</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libs\imgui\addons\imguivariouscontrols\imguivariouscontrols.cpp">
+      <Filter>Source Files\imgui\addons</Filter>
     </ClCompile>
     <ClCompile Include="ui\utils\Sorter.cpp">
       <Filter>Source Files\ui\utils</Filter>

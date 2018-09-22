@@ -1,17 +1,16 @@
 ﻿#pragma once
+#include <optional>
 #include "ui/ViewModelBase.h"
 #include "models/CartItem.h"
-#include "query/GetAllCartItems.h"
+#include "command/UpdateCartItemQuantity.h"
 
-class CartItemDto
-{
-	
-};
-
-class CartViewModel : public ViewModelBase
+class CartViewModel : public ViewModelBase,
+                      public ICanReset
 {
 private:
 	std::vector<CartItem> _cartItems;
+	std::optional<int> _selectedIndex;
+	std::string _searchString;
 
 public:
 
@@ -19,15 +18,71 @@ public:
 	              const std::shared_ptr<CommandDispatcher>& commandDispatcher,
 	              const std::shared_ptr<QueryDispatcher>& queryDispatcher);
 
-	void LoadCartItemsCommand()
+	void GetCartItemsCommand();
+
+	void SortCartItemsCommand();
+
+	CartItemFields _cartItemSortKey = CartItemFields::Id;
+	CartItemFields CartItemSortKey() const { return _cartItemSortKey; }
+
+	void CartItemSortKey(CartItemFields value)
 	{
-		_cartItems = _queryDispatcher->Dispatch<std::vector<CartItem>>(GetAllCartItems{});
-		
+		if (_cartItemSortKey == value) return;
+		_cartItemSortKey = value;
+
+		SortCartItemsCommand();
 	}
+
+	bool _isAscending;
+	bool IsAscending() const { return _isAscending; }
+
+	void IsAscending(bool value)
+	{
+		if (_isAscending == value) return;
+		_isAscending = value;
+		SortCartItemsCommand();
+	}
+
 
 	std::vector<CartItem> CartItems() const { return _cartItems; }
 	void CartItems(std::vector<CartItem> value) { _cartItems = value; }
 
+	std::optional<int> SelectedIndex() const { return _selectedIndex; }
+	void SelectedIndex(std::optional<int> value) { _selectedIndex = value; }
+
+	std::optional<CartItem> SelectedCartItem() const
+	{
+		if (_selectedIndex && (_selectedIndex >= 0 || _selectedIndex < _cartItems.size()))
+		{
+			return _cartItems.at(_selectedIndex.value());
+		}
+		return {};
+	};
+
+	std::string SearchString() const { return _searchString; }
+
+	void SearchString(std::string value)
+	{
+		_searchString = value;
+		GetCartItemsCommand();
+	}
+
+	bool IsSearching() const { return _searchString != ""; }
+
+	void UpdateCartItemQuantityCommand(int cartItemId, int quantity)
+	{
+		_logger->Debug("CartItem #" + std::to_string(cartItemId) + ": New quantity " + std::to_string(quantity));
+		UpdateCartItemQuantity command{cartItemId, quantity};
+		_commandDispatcher->Dispatch(command);
+		GetCartItemsCommand();
+	}
 
 	std::string Name() override;
+
+	void Reset() override
+	{
+		GetCartItemsCommand();
+		SelectedIndex({});
+		SearchString("");
+	}
 };

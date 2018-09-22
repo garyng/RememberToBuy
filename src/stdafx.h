@@ -29,6 +29,7 @@ struct unary_function
 #include "imgui/imgui_custom.h"
 
 #include <coveo/linq.h>
+#include <enum.h>
 
 #include "logger/ILogger.h"
 
