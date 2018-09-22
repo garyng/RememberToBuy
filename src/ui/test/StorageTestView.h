@@ -24,25 +24,39 @@ public:
 	{
 		ImGui::Begin("Test: Storage");
 
-		RenderResetStorageButton();
-		RenderResetAllStorageButton();
+		ImGui::Columns(2);
+
+		RenderResetAndEmptyStorageButton();
+
+		RenderResetAndEmptyAllStorageButton();
 		ImGui::End();
 	}
 
-	void RenderResetStorageButton() const
+	void RenderResetAndEmptyStorageButton() const
 	{
 		for (const auto& storage : _storages)
 		{
 			std::string name = std::string(typeid(*storage).name());
-			std::string popupName = "Are you sure?##" + name;
-			std::string text = "Reset " + name;
+			std::string restorePopupName = "Are you sure?##Restore" + name;
+			std::string restoreText = "Reset " + name;
 
-			if (ImGui::FullWidthButton(text.c_str()))
+			if (ImGui::FullWidthButton(restoreText.c_str()))
 			{
-				ImGui::OpenPopup(popupName.c_str());
+				ImGui::OpenPopup(restorePopupName.c_str());
+			}
+			ImGui::NextColumn();
+
+			std::string emptyPopupName = "Are you sure?##Empty" + name;
+			std::string emptyText = "Empty " + name;
+
+			if (ImGui::FullWidthButton(emptyText.c_str()))
+			{
+				ImGui::OpenPopup(emptyPopupName.c_str());
 			}
 
-			ImGui::OkCancelPopupModel(popupName.c_str(), ICON_FA_EXCLAMATION_CIRCLE,
+			ImGui::NextColumn();
+
+			ImGui::OkCancelPopupModel(restorePopupName.c_str(), ICON_FA_EXCLAMATION_CIRCLE,
 			                          {
 				                          "Restoring " + name,
 				                          "Are you sure?"
@@ -50,17 +64,31 @@ public:
 			                          {
 				                          storage->Restore();
 			                          }, "Yes", "No");
+			ImGui::OkCancelPopupModel(emptyPopupName.c_str(), ICON_FA_EXCLAMATION_CIRCLE,
+			                          {
+				                          "Emptying " + name,
+				                          "Are you sure?"
+			                          }, [&]()
+			                          {
+				                          storage->Clear();
+			                          }, "Yes", "No");
 		}
 	}
 
-	void RenderResetAllStorageButton()
+	void RenderResetAndEmptyAllStorageButton()
 	{
 		if (ImGui::FullWidthButton("Reset all storage"))
 		{
-			ImGui::OpenPopup("Are you sure?");
+			ImGui::OpenPopup("Are you sure?##Reset");
+		}
+		ImGui::NextColumn();
+
+		if (ImGui::FullWidthButton("Empty all storage"))
+		{
+			ImGui::OpenPopup("Are you sure?##Empty");
 		}
 
-		ImGui::OkCancelPopupModel("Are you sure?", ICON_FA_EXCLAMATION_CIRCLE,
+		ImGui::OkCancelPopupModel("Are you sure?##Reset", ICON_FA_EXCLAMATION_CIRCLE,
 		                          {
 			                          "Restoring all storage",
 			                          "Are you sure?"
@@ -69,6 +97,17 @@ public:
 			                          for (const auto& storage : _storages)
 			                          {
 				                          storage->Restore();
+			                          }
+		                          }, "Yes", "No");
+		ImGui::OkCancelPopupModel("Are you sure?##Empty", ICON_FA_EXCLAMATION_CIRCLE,
+		                          {
+			                          "Emptying all storage",
+			                          "Are you sure?"
+		                          }, [&]()
+		                          {
+			                          for (const auto& storage : _storages)
+			                          {
+				                          storage->Clear();
 			                          }
 		                          }, "Yes", "No");
 	}

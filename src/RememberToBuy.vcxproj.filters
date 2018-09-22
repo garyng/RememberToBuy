@@ -64,6 +64,12 @@
     <Filter Include="Source Files\query">
       <UniqueIdentifier>{ce423e30-8fcc-4bd0-ac5c-855c3950b90c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\proxy">
+      <UniqueIdentifier>{c62b0b8a-2e1d-4022-aa59-b3ec341bfc66}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ui\utils">
+      <UniqueIdentifier>{41878a52-9c62-40d2-8f6f-62a225772197}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -261,6 +267,78 @@
     <ClInclude Include="query\IQueryHandler.h">
       <Filter>Source Files\query</Filter>
     </ClInclude>
+    <ClInclude Include="query\GetAllCartItems.h">
+      <Filter>Source Files\query</Filter>
+    </ClInclude>
+    <ClInclude Include="query\GetAllCartItemsQueryHandler.h">
+      <Filter>Source Files\query</Filter>
+    </ClInclude>
+    <ClInclude Include="proxy\ItemProxy.h">
+      <Filter>Source Files\proxy</Filter>
+    </ClInclude>
+    <ClInclude Include="query\GetItemById.h">
+      <Filter>Source Files\query</Filter>
+    </ClInclude>
+    <ClInclude Include="query\GetItemByIdQueryHandler.h">
+      <Filter>Source Files\query</Filter>
+    </ClInclude>
+    <ClInclude Include="proxy\ProxyFactory.h">
+      <Filter>Source Files\proxy</Filter>
+    </ClInclude>
+    <ClInclude Include="proxy\ProxyBase.h">
+      <Filter>Source Files\proxy</Filter>
+    </ClInclude>
+    <ClInclude Include="proxy\CategoryProxy.h">
+      <Filter>Source Files\proxy</Filter>
+    </ClInclude>
+    <ClInclude Include="query\GetById.h">
+      <Filter>Source Files\query</Filter>
+    </ClInclude>
+    <ClInclude Include="query\GetCategoryById.h">
+      <Filter>Source Files\query</Filter>
+    </ClInclude>
+    <ClInclude Include="query\GetByIdQueryHandlerBase.h">
+      <Filter>Source Files\query</Filter>
+    </ClInclude>
+    <ClInclude Include="query\GetCategoryByIdQueryHandler.h">
+      <Filter>Source Files\query</Filter>
+    </ClInclude>
+    <ClInclude Include="command\UpdateCartItemQuantity.h">
+      <Filter>Source Files\command</Filter>
+    </ClInclude>
+    <ClInclude Include="command\UpdateCartItemQuantityCommandHandler.h">
+      <Filter>Source Files\command</Filter>
+    </ClInclude>
+    <ClInclude Include="proxy\SourceProxy.h">
+      <Filter>Source Files\proxy</Filter>
+    </ClInclude>
+    <ClInclude Include="query\GetSourceById.h">
+      <Filter>Source Files\query</Filter>
+    </ClInclude>
+    <ClInclude Include="query\GetSourceByIdQueryHandler.h">
+      <Filter>Source Files\query</Filter>
+    </ClInclude>
+    <ClInclude Include="query\GetItemSourceByItemIdAndSourceId.h">
+      <Filter>Source Files\query</Filter>
+    </ClInclude>
+    <ClInclude Include="query\GetItemSourceByItemIdAndSourceIdQueryHandler.h">
+      <Filter>Source Files\query</Filter>
+    </ClInclude>
+    <ClInclude Include="proxy\ItemSourceProxy.h">
+      <Filter>Source Files\proxy</Filter>
+    </ClInclude>
+    <ClInclude Include="ui\test\IconsAlignmentTestView.h">
+      <Filter>Source Files\ui\test</Filter>
+    </ClInclude>
+    <ClInclude Include="ui\test\ICanResetTestView.h">
+      <Filter>Source Files\ui\test</Filter>
+    </ClInclude>
+    <ClInclude Include="..\libs\imgui\addons\imguivariouscontrols\imguivariouscontrols.h">
+      <Filter>Source Files\imgui\addons</Filter>
+    </ClInclude>
+    <ClInclude Include="ui\utils\Sorter.h">
+      <Filter>Source Files\ui\utils</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -373,6 +451,30 @@
     </ClCompile>
     <ClCompile Include="storage\StockItemStorage.cpp">
       <Filter>Source Files\storage</Filter>
+    </ClCompile>
+    <ClCompile Include="query\GetAllCartItemsQueryHandler.cpp">
+      <Filter>Source Files\query</Filter>
+    </ClCompile>
+    <ClCompile Include="query\GetItemByIdQueryHandler.cpp">
+      <Filter>Source Files\query</Filter>
+    </ClCompile>
+    <ClCompile Include="query\GetCategoryByIdQueryHandler.cpp">
+      <Filter>Source Files\query</Filter>
+    </ClCompile>
+    <ClCompile Include="command\UpdateCartItemQuantityCommandHandler.cpp">
+      <Filter>Source Files\command</Filter>
+    </ClCompile>
+    <ClCompile Include="query\GetSourceByIdQueryHandler.cpp">
+      <Filter>Source Files\query</Filter>
+    </ClCompile>
+    <ClCompile Include="query\GetItemSourceByItemIdAndSourceIdQueryHandler.cpp">
+      <Filter>Source Files\query</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libs\imgui\addons\imguivariouscontrols\imguivariouscontrols.cpp">
+      <Filter>Source Files\imgui\addons</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\utils\Sorter.cpp">
+      <Filter>Source Files\ui\utils</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

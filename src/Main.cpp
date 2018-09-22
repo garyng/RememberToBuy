@@ -26,6 +26,16 @@
 #include "storage/SourceStorage.h"
 #include "storage/StockItemStorage.h"
 #include "ui/test/StorageTestView.h"
+#include "proxy/ProxyFactory.h"
+#include "query/GetAllCartItemsQueryHandler.h"
+#include "query/GetItemByIdQueryHandler.h"
+#include "query/GetCategoryByIdQueryHandler.h"
+#include "command/UpdateCartItemQuantityCommandHandler.h"
+#include "query/GetItemSourceByItemIdAndSourceIdQueryHandler.h"
+#include "query/GetSourceByIdQueryHandler.h"
+#include "ui/test/IconsAlignmentTestView.h"
+#include "ui/test/ICanResetTestView.h"
+
 
 using namespace std;
 using namespace Hypodermic;
@@ -51,7 +61,9 @@ void registerTestView(ContainerBuilder& builder)
 
 template <class TView, class TViewModel,
           class = IsBaseOf<TView, ViewBase<TViewModel>>,
-          class = IsBaseOf<TViewModel, IViewModel>>
+          class = std::enable_if_t<
+	          std::is_base_of_v<IViewModel, TViewModel> ||
+	          (std::is_base_of_v<IViewModel, TViewModel> && std::is_base_of_v<ICanReset, TViewModel>)>>
 void registerViewViewModel(ContainerBuilder& builder)
 {
 	builder.registerType<TView>()
@@ -60,11 +72,23 @@ void registerViewViewModel(ContainerBuilder& builder)
 	       .asSelf()
 	       .singleInstance();
 
-	builder.registerType<TViewModel>()
-	       .as<IViewModel>()
-	       .asSelf()
-	       .singleInstance();
+	if constexpr (std::is_base_of_v<ICanReset, TViewModel>)
+	{
+		builder.registerType<TViewModel>()
+		       .as<IViewModel>()
+		       .as<ICanReset>()
+		       .asSelf()
+		       .singleInstance();
+	}
+	else
+	{
+		builder.registerType<TViewModel>()
+		       .as<IViewModel>()
+		       .asSelf()
+		       .singleInstance();
+	}
 }
+
 
 template <class TStorage, class = IsBaseOf<TStorage, IStorage>>
 void registerStorage(ContainerBuilder& builder)
@@ -73,6 +97,22 @@ void registerStorage(ContainerBuilder& builder)
 	       .as<IStorage>()
 	       .asSelf()
 	       .singleInstance();
+}
+
+template <class TQueryHandler, class TQuery, class TResult,
+          class = IsBaseOf<TQueryHandler, IQueryHandler<TQuery, TResult>>>
+void registerQuery(ContainerBuilder& builder)
+{
+	builder.registerType<TQueryHandler>()
+	       .as<IQueryHandler<TQuery, TResult>>();
+}
+
+template <class TCommandHandler, class TCommand,
+          class = IsBaseOf<TCommandHandler, ICommandHandler<TCommand>>>
+void registerCommand(ContainerBuilder& builder)
+{
+	builder.registerType<TCommandHandler>()
+	       .as<ICommandHandler<TCommand>>();
 }
 
 
@@ -96,6 +136,8 @@ int main(int argc, char* argv[])
 	registerTestView<ColorsTestView>(builder);
 	registerTestView<NavigationTestView>(builder);
 	registerTestView<StorageTestView>(builder);
+	registerTestView<IconAlignmentTestView>(builder);
+	registerTestView<ICanResetTestView>(builder);
 
 	registerStorage<CartItemStorage>(builder);
 	registerStorage<CategoryStorage>(builder);
@@ -113,6 +155,19 @@ int main(int argc, char* argv[])
 
 	builder.registerType<QueryDispatcher>()
 	       .singleInstance();
+	builder.registerType<CommandDispatcher>()
+	       .singleInstance();
+
+	builder.registerType<ProxyFactory>()
+	       .singleInstance();
+
+	registerQuery<GetAllCartItemsQueryHandler, GetAllCartItems, std::vector<CartItem>>(builder);
+	registerQuery<GetItemByIdQueryHandler, GetItemById, Item>(builder);
+	registerQuery<GetCategoryByIdQueryHandler, GetCategoryById, Category>(builder);
+	registerQuery<GetItemSourceByItemIdAndSourceIdQueryHandler, GetItemSourceByItemIdAndSourceId, ItemSource>(builder);
+	registerQuery<GetSourceByIdQueryHandler, GetSourceById, Source>(builder);
+
+	registerCommand<UpdateCartItemQuantityCommandHandler, UpdateCartItemQuantity>(builder);
 
 	shared_ptr<Container> container = builder.build();
 

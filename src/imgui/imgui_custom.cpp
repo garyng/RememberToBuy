@@ -79,4 +79,98 @@ namespace ImGui
 			EndPopup();
 		}
 	}
+
+	void BlankScreenPrompt(std::string icon, std::initializer_list<std::string> texts)
+	{
+		PushFont(Fonts::FontAwesome5_Title);
+		ImVec2 iconSize = CalcTextSize(icon.c_str());
+		PopFont();
+
+		PushFont(Fonts::RobotoLight_Title2);
+
+		std::vector<std::pair<std::string, ImVec2>> textsAndSizes{};
+
+		float totalHeight = iconSize.y;
+		for (const auto& text : texts)
+		{
+			ImVec2 textSize = CalcTextSize(text.c_str());
+			totalHeight += textSize.y;
+			textsAndSizes.emplace_back(text, textSize);
+		}
+
+		ImVec2 windowSize = GetWindowSize();
+
+		// vertically centered
+		float currentY = (windowSize.y - totalHeight) / 2;
+
+		SetCursorPosY(currentY);
+
+		PushFont(Fonts::FontAwesome5_Title);
+		TextCenteredHorizontally(icon, iconSize);
+		PopFont();
+
+		for (const auto& textAndSize : textsAndSizes)
+		{
+			TextCenteredHorizontally(textAndSize.first, textAndSize.second);
+		}
+
+		PopFont();
+	}
+
+	void TextCenteredHorizontally(std::string text)
+	{
+		TextCenteredHorizontally(text, CalcTextSize(text.c_str()));
+	}
+
+	void TextCenteredHorizontally(std::string text, ImVec2 size)
+	{
+		ImVec2 windowSize = GetWindowSize();
+		float currentX = (windowSize.x - size.x) / 2;
+		SetCursorPosX(currentX);
+		Text(text.c_str());
+	}
+
+	void TextBoldNormal(std::string text)
+	{
+		PushFont(Fonts::RobotoBold_Normal);
+		TextWrapped(text.c_str());
+		PopFont();
+	}
+
+	void TextLightTitle1(std::string text)
+	{
+		PushFont(Fonts::RobotoLight_Title1);
+		TextWrapped(text.c_str());
+		PopFont();
+	}
+
+	void TextLightTitle2(std::string text)
+	{
+		PushFont(Fonts::RobotoLight_Title2);
+		TextWrapped(text.c_str());
+		PopFont();
+	}
+
+	void TextRegularTitle(std::string text)
+	{
+		PushFont(Fonts::RobotoRegular_Title);
+		TextWrapped(text.c_str());
+		PopFont();
+	}
+
+	bool FullWidthInputInt(std::string label, int& value, int minimum)
+	{
+		const int oldValue = value;
+		PushItemWidth(-1);
+		InputInt(label.c_str(), &value);
+		if (value < minimum)
+		{
+			value = minimum;
+		}
+
+		bool isValueChanged = value != oldValue;
+
+		PopItemWidth();
+		return isValueChanged;
+	}
 }

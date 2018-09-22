@@ -30,6 +30,7 @@ void App::Initialize()
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+	glfwWindowHint(GLFW_MAXIMIZED, GLFW_TRUE);
 
 	_window = glfwCreateWindow(1280, 720, WINDOW_TITLE.c_str(), nullptr, nullptr);
 
@@ -75,6 +76,9 @@ void App::LoadFonts() const
 
 	AddIconFont(io, 72.0f, false);
 
+	io.Fonts->AddFontFromFileTTF("fonts/Roboto-Regular.ttf", 15.0f);
+	AddIconFont(io, 15.0f);
+
 	io.Fonts->Build();
 	_logger->Debug("All fonts loaded");
 }
@@ -84,6 +88,10 @@ void App::AddIconFont(ImGuiIO& io, float fontSize, bool mergeIntoPrevious) const
 {
 	ImFontConfig config;
 	config.MergeMode = mergeIntoPrevious;
+	// make them monospace
+	// https://github.com/ocornut/imgui/issues/1869
+	config.GlyphMinAdvanceX = fontSize + 5;
+	config.GlyphMaxAdvanceX = fontSize + 5;
 	static const ImWchar iconRange[] = {ICON_MIN_FA, ICON_MAX_FA, 0};
 	io.Fonts->AddFontFromFileTTF("fonts/fa-solid-900.ttf", fontSize, &config, iconRange);
 }

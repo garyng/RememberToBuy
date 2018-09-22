@@ -1,5 +1,10 @@
 ﻿#pragma once
 #include <nlohmann/json.hpp>
+#include "proxy/ItemProxy.h"
+#include "proxy/SourceProxy.h"
+#include "proxy/ItemSourceProxy.h"
+
+BETTER_ENUM(CartItemFields, int, Id, Quantity, Name /* Item's name */);
 
 class CartItem
 {
@@ -8,6 +13,11 @@ private:
 	int _itemId{};
 	int _quantity{};
 	int _sourceId{};
+
+	ItemProxy _item{};
+	SourceProxy _source{};
+	ItemSourceProxy _itemSource;
+
 
 public:
 	CartItem(const int id, const int itemId, const int quantity, const int sourceId);
@@ -19,11 +29,22 @@ public:
 	int ItemId() const;
 	void ItemId(int value);
 
+	ItemProxy Item() const { return _item; }
+	void Item(ItemProxy value) { _item = value; }
+
 	int Quantity() const;
 	void Quantity(int value);
 
 	int SourceId() const;
 	void SourceId(int value);
+
+	SourceProxy Source() const { return _source; }
+	void Source(SourceProxy value) { _source = value; }
+
+	ItemSourceProxy ItemSource() const { return _itemSource; }
+	void ItemSource(ItemSourceProxy value) { _itemSource = value; }
+	
+	
 };
 
 void to_json(nlohmann::json& json, const CartItem& item);

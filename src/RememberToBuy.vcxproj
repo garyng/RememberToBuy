@@ -90,7 +90,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir)\..\libs\glfw\include\;$(SolutionDir)\..\libs\imgui\;$(SolutionDir)\..\libs\gl3w\;$(SolutionDir)\..\libs\IconFontCppHeaders\;$(SolutionDir)\..\libs\boost\;$(SolutionDir)\..\libs\json\single_include\;$(SolutionDir)\..\libs\Hypodermic\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir)\..\libs\glfw\include\;$(SolutionDir)\..\libs\imgui\;$(SolutionDir)\..\libs\gl3w\;$(SolutionDir)\..\libs\IconFontCppHeaders\;$(SolutionDir)\..\libs\boost\;$(SolutionDir)\..\libs\json\single_include\;$(SolutionDir)\..\libs\Hypodermic\;$(SolutionDir)\..\libs\linq_return_ref\;$(SolutionDir)\..\libs\better-enums\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
@@ -98,9 +98,10 @@
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <GenerateDebugInformation>DebugFastLink</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(SolutionDir)\..\libs\glfw\lib-vc2017;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>opengl32.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ShowProgress>NotSet</ShowProgress>
     </Link>
     <PostBuildEvent>
       <Command>XCOPY "$(ProjectDir)fonts" "$(SolutionDir)..\dist\fonts\" /s /i /y /d
@@ -131,7 +132,7 @@ XCOPY "$(TargetDir)$(TargetName)$(TargetExt)" "$(SolutionDir)..\dist\" /s /i /y 
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir)\..\libs\glfw\include\;$(SolutionDir)\..\libs\imgui\;$(SolutionDir)\..\libs\gl3w\;$(SolutionDir)\..\libs\IconFontCppHeaders\;$(SolutionDir)\..\libs\boost\;$(SolutionDir)\..\libs\json\single_include\;$(SolutionDir)\..\libs\Hypodermic\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir)\..\libs\glfw\include\;$(SolutionDir)\..\libs\imgui\;$(SolutionDir)\..\libs\gl3w\;$(SolutionDir)\..\libs\IconFontCppHeaders\;$(SolutionDir)\..\libs\boost\;$(SolutionDir)\..\libs\json\single_include\;$(SolutionDir)\..\libs\Hypodermic\;$(SolutionDir)\..\libs\better-enums\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
@@ -170,6 +171,7 @@ XCOPY "$(TargetDir)$(TargetName)$(TargetExt)" "$(SolutionDir)..\dist\" /s /i /y 
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="..\libs\imgui\addons\imguidatechooser\imguidatechooser.h" />
+    <ClInclude Include="..\libs\imgui\addons\imguivariouscontrols\imguivariouscontrols.h" />
     <ClInclude Include="..\libs\imgui\examples\imgui_impl_glfw.h" />
     <ClInclude Include="..\libs\imgui\examples\imgui_impl_opengl3.h" />
     <ClInclude Include="..\libs\imgui\imconfig.h" />
@@ -183,6 +185,8 @@ XCOPY "$(TargetDir)$(TargetName)$(TargetExt)" "$(SolutionDir)..\dist\" /s /i /y 
     <ClInclude Include="..\libs\gl3w\GL\glcorearb.h" />
     <ClInclude Include="command\CommandDispatcher.h" />
     <ClInclude Include="command\ICommandHandler.h" />
+    <ClInclude Include="command\UpdateCartItemQuantity.h" />
+    <ClInclude Include="command\UpdateCartItemQuantityCommandHandler.h" />
     <ClInclude Include="models\CartItem.h" />
     <ClInclude Include="models\Category.h" />
     <ClInclude Include="models\HistoryItem.h" />
@@ -191,6 +195,24 @@ XCOPY "$(TargetDir)$(TargetName)$(TargetExt)" "$(SolutionDir)..\dist\" /s /i /y 
     <ClInclude Include="models\PendingItem.h" />
     <ClInclude Include="models\Source.h" />
     <ClInclude Include="models\StockItem.h" />
+    <ClInclude Include="proxy\CategoryProxy.h" />
+    <ClInclude Include="proxy\ItemProxy.h" />
+    <ClInclude Include="proxy\ItemSourceProxy.h" />
+    <ClInclude Include="proxy\ProxyBase.h" />
+    <ClInclude Include="proxy\ProxyFactory.h" />
+    <ClInclude Include="proxy\SourceProxy.h" />
+    <ClInclude Include="query\GetAllCartItems.h" />
+    <ClInclude Include="query\GetAllCartItemsQueryHandler.h" />
+    <ClInclude Include="query\GetById.h" />
+    <ClInclude Include="query\GetByIdQueryHandlerBase.h" />
+    <ClInclude Include="query\GetCategoryById.h" />
+    <ClInclude Include="query\GetCategoryByIdQueryHandler.h" />
+    <ClInclude Include="query\GetItemById.h" />
+    <ClInclude Include="query\GetItemByIdQueryHandler.h" />
+    <ClInclude Include="query\GetItemSourceByItemIdAndSourceId.h" />
+    <ClInclude Include="query\GetItemSourceByItemIdAndSourceIdQueryHandler.h" />
+    <ClInclude Include="query\GetSourceById.h" />
+    <ClInclude Include="query\GetSourceByIdQueryHandler.h" />
     <ClInclude Include="query\IQueryHandler.h" />
     <ClInclude Include="query\QueryDispatcher.h" />
     <ClInclude Include="storage\CartItemStorage.h" />
@@ -208,7 +230,10 @@ XCOPY "$(TargetDir)$(TargetName)$(TargetExt)" "$(SolutionDir)..\dist\" /s /i /y 
     <ClInclude Include="ui\pending\PendingViewModel.h" />
     <ClInclude Include="ui\stock\StockView.h" />
     <ClInclude Include="ui\stock\StockViewModel.h" />
+    <ClInclude Include="ui\test\ICanResetTestView.h" />
+    <ClInclude Include="ui\test\IconsAlignmentTestView.h" />
     <ClInclude Include="ui\test\StorageTestView.h" />
+    <ClInclude Include="ui\utils\Sorter.h" />
     <ClInclude Include="Utilities.h" />
     <ClInclude Include="imgui\imgui_custom.h" />
     <ClInclude Include="logger\ConsoleLogger.h" />
@@ -239,6 +264,10 @@ XCOPY "$(TargetDir)$(TargetName)$(TargetExt)" "$(SolutionDir)..\dist\" /s /i /y 
     <ClCompile Include="..\libs\imgui\addons\imguidatechooser\imguidatechooser.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="..\libs\imgui\addons\imguivariouscontrols\imguivariouscontrols.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
     <ClCompile Include="..\libs\imgui\examples\imgui_impl_glfw.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
@@ -263,6 +292,7 @@ XCOPY "$(TargetDir)$(TargetName)$(TargetExt)" "$(SolutionDir)..\dist\" /s /i /y 
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="command\UpdateCartItemQuantityCommandHandler.cpp" />
     <ClCompile Include="imgui\imgui_custom.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="models\CartItem.cpp" />
@@ -273,6 +303,11 @@ XCOPY "$(TargetDir)$(TargetName)$(TargetExt)" "$(SolutionDir)..\dist\" /s /i /y 
     <ClCompile Include="models\PendingItem.cpp" />
     <ClCompile Include="models\Source.cpp" />
     <ClCompile Include="models\StockItem.cpp" />
+    <ClCompile Include="query\GetAllCartItemsQueryHandler.cpp" />
+    <ClCompile Include="query\GetCategoryByIdQueryHandler.cpp" />
+    <ClCompile Include="query\GetItemByIdQueryHandler.cpp" />
+    <ClCompile Include="query\GetItemSourceByItemIdAndSourceIdQueryHandler.cpp" />
+    <ClCompile Include="query\GetSourceByIdQueryHandler.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
@@ -298,6 +333,7 @@ XCOPY "$(TargetDir)$(TargetName)$(TargetExt)" "$(SolutionDir)..\dist\" /s /i /y 
     <ClCompile Include="ui\pending\PendingViewModel.cpp" />
     <ClCompile Include="ui\stock\StockView.cpp" />
     <ClCompile Include="ui\stock\StockViewModel.cpp" />
+    <ClCompile Include="ui\utils\Sorter.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\libs\imgui\imgui_user.inl" />
