@@ -330,6 +330,9 @@
     <ClInclude Include="ui\test\ICanResetTestView.h">
       <Filter>Source Files\ui\test</Filter>
     </ClInclude>
+    <ClInclude Include="ui\utils\Sorter.h">
+      <Filter>Source Files\ui\utils</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -460,6 +463,9 @@
     </ClCompile>
     <ClCompile Include="query\GetItemSourceByItemIdAndSourceIdQueryHandler.cpp">
       <Filter>Source Files\query</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\utils\Sorter.cpp">
+      <Filter>Source Files\ui\utils</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

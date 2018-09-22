@@ -232,6 +232,7 @@ XCOPY "$(TargetDir)$(TargetName)$(TargetExt)" "$(SolutionDir)..\dist\" /s /i /y 
     <ClInclude Include="ui\test\ICanResetTestView.h" />
     <ClInclude Include="ui\test\IconsAlignmentTestView.h" />
     <ClInclude Include="ui\test\StorageTestView.h" />
+    <ClInclude Include="ui\utils\Sorter.h" />
     <ClInclude Include="Utilities.h" />
     <ClInclude Include="imgui\imgui_custom.h" />
     <ClInclude Include="logger\ConsoleLogger.h" />
@@ -327,6 +328,7 @@ XCOPY "$(TargetDir)$(TargetName)$(TargetExt)" "$(SolutionDir)..\dist\" /s /i /y 
     <ClCompile Include="ui\pending\PendingViewModel.cpp" />
     <ClCompile Include="ui\stock\StockView.cpp" />
     <ClCompile Include="ui\stock\StockViewModel.cpp" />
+    <ClCompile Include="ui\utils\Sorter.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\libs\imgui\imgui_user.inl" />
