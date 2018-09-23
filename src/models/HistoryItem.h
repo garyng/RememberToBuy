@@ -4,7 +4,7 @@
 #include "proxy/ItemProxy.h"
 #include "proxy/SourceProxy.h"
 
-BETTER_ENUM(HistoryItemFields, int, Id, Quantity, Name /* Item's name */, Date);
+BETTER_ENUM(HistoryItemFields, int, Name /* Item's name */, Quantity, Date);
 
 class HistoryItem
 {

@@ -6,9 +6,6 @@ void Sorter::Sort(std::vector<CartItem>& items, CartItemFields field, bool ascen
 {
 	switch (field)
 	{
-		case CartItemFields::Id:
-			OrderBy(items, ascending, [](CartItem item) { return item.Id(); });
-			break;
 		case CartItemFields::Quantity:
 			OrderBy(items, ascending, [](CartItem item) { return item.Quantity(); });
 			break;
@@ -22,9 +19,6 @@ void Sorter::Sort(std::vector<HistoryItem>& items, HistoryItemFields field, bool
 {
 	switch (field)
 	{
-		case HistoryItemFields::Id:
-			OrderBy(items, ascending, [](HistoryItem item) { return item.Id(); });
-			break;
 		case HistoryItemFields::Name:
 			OrderBy(items, ascending, [](HistoryItem item) { return item.Item().Value().Name(); });
 			break;

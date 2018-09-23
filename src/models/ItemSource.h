@@ -3,6 +3,8 @@
 #include "proxy/ItemProxy.h"
 #include "proxy/SourceProxy.h"
 
+BETTER_ENUM(ItemSourceFields, int, Name /* Source name */, Price);
+
 class ItemSource
 {
 private:

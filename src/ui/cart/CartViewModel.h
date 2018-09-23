@@ -11,7 +11,7 @@ private:
 	std::vector<CartItem> _cartItems;
 	std::optional<int> _selectedIndex;
 	std::string _searchString;
-	CartItemFields _cartItemSortKey = CartItemFields::Id;
+	CartItemFields _cartItemSortKey = CartItemFields::Name;
 	bool _isAscending;
 
 public:

@@ -1,7 +1,6 @@
 ﻿#pragma once
 #include "ui/ViewModelBase.h"
 #include "models/HistoryItem.h"
-#include "query/GetAllHistoryItems.h"
 
 class HistoryViewModel : public ViewModelBase,
                          public ICanReset
@@ -10,7 +9,7 @@ private:
 	std::vector<HistoryItem> _historyItems;
 	std::string _searchString;
 	std::optional<int> _selectedIndex;
-	HistoryItemFields _masterSortKey = HistoryItemFields::Id;
+	HistoryItemFields _masterSortKey = HistoryItemFields::Name;
 	bool _isAscending;
 
 public:
