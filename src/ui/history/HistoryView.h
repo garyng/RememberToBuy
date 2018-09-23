@@ -8,4 +8,10 @@ public:
 	HistoryView(const std::shared_ptr<HistoryViewModel>& viewModel, const std::shared_ptr<ILogger>& logger);
 	std::string Name() const override;
 	void Render() override;
+	void RenderMaster();
+	void RenderDetails();
+	void RenderNoItems();
+	void RenderSearchNoResult();
+	void RenderSortByButtons();
+	void RenderSearchBox();
 };

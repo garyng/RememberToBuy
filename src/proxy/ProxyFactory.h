@@ -1,6 +1,7 @@
 ﻿#pragma once
 #include "ItemProxy.h"
 #include "models/CartItem.h"
+#include "models/HistoryItem.h"
 #include "SourceProxy.h"
 #include "ItemSourceProxy.h"
 
@@ -47,6 +48,18 @@ public:
 		if (!item.Category())
 		{
 			item.Category(CategoryProxyFactory(item.CategoryId()));
+		}
+	}
+
+	void Apply(HistoryItem& historyItem)
+	{
+		if (!historyItem.Item())
+		{
+			historyItem.Item(ItemProxyFactory(historyItem.ItemId()));
+		}
+		if (!historyItem.Source())
+		{
+			historyItem.Source(SourceProxyFactory(historyItem.SourceId()));
 		}
 	}
 

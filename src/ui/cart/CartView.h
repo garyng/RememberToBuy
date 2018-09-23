@@ -22,7 +22,5 @@ public:
 
 	void RenderSearchBox();
 
-	void RenderNoCartItemSelected();
-
 	void RenderCartItemDetails();
 };

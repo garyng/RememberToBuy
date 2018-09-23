@@ -27,6 +27,7 @@ struct unary_function
 #include <imgui.h>
 #include <IconsFontAwesome5.h>
 #include "imgui/imgui_custom.h"
+#include <addons/imguivariouscontrols/imguivariouscontrols.h>
 
 #include <coveo/linq.h>
 #include <enum.h>

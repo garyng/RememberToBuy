@@ -1,5 +1,6 @@
 ﻿#include "stdafx.h"
 #include "HistoryViewModel.h"
+#include "ui/utils/Sorter.h"
 
 
 HistoryViewModel::HistoryViewModel(const std::shared_ptr<NavigationService>& navigationService,
@@ -13,4 +14,28 @@ HistoryViewModel::HistoryViewModel(const std::shared_ptr<NavigationService>& nav
 std::string HistoryViewModel::Name()
 {
 	return NAMEOF(HistoryViewModel);
+}
+
+void HistoryViewModel::GetHistoryItemsCommand()
+{
+	_historyItems = _queryDispatcher->Dispatch<std::vector<HistoryItem>>(
+		GetAllHistoryItems{});
+	if (IsSearching())
+	{
+		_historyItems = _historyItems
+			| where([&](const HistoryItem& historyItem)
+			{
+				Item item = historyItem.Item();
+				Source source = historyItem.Source();
+				return boost::icontains(item.Name(), _searchString) ||
+					boost::icontains(source.Name(), _searchString) ||
+					boost::icontains(historyItem.Date(), _searchString);
+			})
+			| to_vector();
+	}
+}
+
+void HistoryViewModel::SortItemsCommand()
+{
+	Sorter::Sort(_historyItems, _masterSortKey, _isAscending);
 }

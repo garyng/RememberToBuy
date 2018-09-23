@@ -38,6 +38,8 @@
 #include "command/RemoveCartItemCommandHandler.h"
 #include "command/CheckOffCartItemCommandHandler.h"
 #include "ui/dashboard/DashboardView.h"
+#include "query/GetAllHistoryItems.h"
+#include "query/GetAllHistoryItemsQueryHandler.h"
 
 
 using namespace std;
@@ -166,6 +168,7 @@ int main(int argc, char* argv[])
 	       .singleInstance();
 
 	registerQuery<GetAllCartItemsQueryHandler, GetAllCartItems, std::vector<CartItem>>(builder);
+	registerQuery<GetAllHistoryItemsQueryHandler, GetAllHistoryItems, std::vector<HistoryItem>>(builder);
 	registerQuery<GetItemByIdQueryHandler, GetItemById, Item>(builder);
 	registerQuery<GetCategoryByIdQueryHandler, GetCategoryById, Category>(builder);
 	registerQuery<GetItemSourceByItemIdAndSourceIdQueryHandler, GetItemSourceByItemIdAndSourceId, ItemSource>(builder);

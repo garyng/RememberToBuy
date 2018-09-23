@@ -4,9 +4,6 @@
 
 void Sorter::Sort(std::vector<CartItem>& items, CartItemFields field, bool ascending)
 {
-	using namespace coveo::linq;
-
-	OrderBy(items, ascending, [](CartItem item) { return item.Item().Value().Name(); });
 	switch (field)
 	{
 		case CartItemFields::Id:
@@ -17,6 +14,25 @@ void Sorter::Sort(std::vector<CartItem>& items, CartItemFields field, bool ascen
 			break;
 		case CartItemFields::Name:
 			OrderBy(items, ascending, [](CartItem item) { return item.Item().Value().Name(); });
+			break;
+	}
+}
+
+void Sorter::Sort(std::vector<HistoryItem>& items, HistoryItemFields field, bool ascending)
+{
+	switch (field)
+	{
+		case HistoryItemFields::Id:
+			OrderBy(items, ascending, [](HistoryItem item) { return item.Id(); });
+			break;
+		case HistoryItemFields::Name:
+			OrderBy(items, ascending, [](HistoryItem item) { return item.Item().Value().Name(); });
+			break;
+		case HistoryItemFields::Quantity:
+			OrderBy(items, ascending, [](HistoryItem item) { return item.Quantity(); });
+			break;
+		case HistoryItemFields::Date:
+			OrderBy(items, ascending, [](HistoryItem item) { return item.Date(); });
 			break;
 	}
 }

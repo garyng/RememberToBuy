@@ -207,6 +207,8 @@ XCOPY "$(TargetDir)$(TargetName)$(TargetExt)" "$(SolutionDir)..\dist\" /s /i /y 
     <ClInclude Include="proxy\SourceProxy.h" />
     <ClInclude Include="query\GetAllCartItems.h" />
     <ClInclude Include="query\GetAllCartItemsQueryHandler.h" />
+    <ClInclude Include="query\GetAllHistoryItems.h" />
+    <ClInclude Include="query\GetAllHistoryItemsQueryHandler.h" />
     <ClInclude Include="query\GetById.h" />
     <ClInclude Include="query\GetByIdQueryHandlerBase.h" />
     <ClInclude Include="query\GetCategoryById.h" />
@@ -312,6 +314,7 @@ XCOPY "$(TargetDir)$(TargetName)$(TargetExt)" "$(SolutionDir)..\dist\" /s /i /y 
     <ClCompile Include="models\Source.cpp" />
     <ClCompile Include="models\StockItem.cpp" />
     <ClCompile Include="query\GetAllCartItemsQueryHandler.cpp" />
+    <ClCompile Include="query\GetAllHistoryItemsQueryHandler.cpp" />
     <ClCompile Include="query\GetCategoryByIdQueryHandler.cpp" />
     <ClCompile Include="query\GetItemByIdQueryHandler.cpp" />
     <ClCompile Include="query\GetItemSourceByItemIdAndSourceIdQueryHandler.cpp" />

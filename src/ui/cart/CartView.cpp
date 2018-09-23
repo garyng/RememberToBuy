@@ -1,6 +1,5 @@
 ﻿#include "stdafx.h"
 #include "CartView.h"
-#include <addons/imguivariouscontrols/imguivariouscontrols.h>
 
 CartView::CartView(const std::shared_ptr<CartViewModel>& viewModel,
                    const std::shared_ptr<ILogger>& logger): ViewBase<CartViewModel>(viewModel, logger)
@@ -25,7 +24,7 @@ void CartView::Render()
 			ImGui::Columns(2);
 			RenderSearchNoResults();
 			ImGui::NextColumn();
-			RenderNoCartItemSelected();
+			ImGui::NoItemSelectedPrompt("NoItemSelected");
 		}
 		else
 		{
@@ -47,7 +46,7 @@ void CartView::Render()
 
 		else
 		{
-			RenderNoCartItemSelected();
+			ImGui::NoItemSelectedPrompt("NoItemSelected");
 		}
 	}
 
@@ -67,7 +66,6 @@ void CartView::RenderSearchNoResults()
 		ImGui::BlankScreenPrompt(ICON_FA_SPLOTCH, {"No result..."});
 	}
 	ImGui::EndChild();
-
 	RenderSortByButtons();
 	RenderSearchBox();
 	RenderGoToPendingButton();
@@ -94,7 +92,9 @@ void CartView::RenderCartItemList()
 		{
 			Item item = cartItem.Item();
 			ItemSource itemSource = cartItem.ItemSource();
-			if (ImGui::Selectable(item.Name().c_str(),
+			std::string name = item.Name() + "##" + std::to_string(index);
+
+			if (ImGui::Selectable(name.c_str(),
 			                      _viewModel->SelectedIndex() && (index == _viewModel->SelectedIndex().value())))
 			{
 				_viewModel->SelectedIndex(index);
@@ -106,7 +106,9 @@ void CartView::RenderCartItemList()
 				int quantity = cartItem.Quantity();
 				double price = itemSource.Price();
 				double subTotal = quantity * price;
+				std::string sourceName = cartItem.Source().Value().Name();
 
+				ImGui::Text(("Buying from " + sourceName).c_str());
 				ImGui::Text(("Quantity: " + std::to_string(quantity)).c_str());
 				ImGui::Text(formatCurrency(price, "Price").c_str());
 				ImGui::Text(formatCurrency(subTotal, "Subtotal").c_str());
@@ -155,15 +157,6 @@ void CartView::RenderSearchBox()
 	{
 		_viewModel->SearchString(searchStringBuffer);
 	}
-}
-
-void CartView::RenderNoCartItemSelected()
-{
-	ImGui::BeginChild("NoItemSelected");
-
-	ImGui::BlankScreenPrompt(ICON_FA_HAND_POINT_LEFT, {"Select one item to check its details"});
-
-	ImGui::EndChild();
 }
 
 void CartView::RenderCartItemDetails()

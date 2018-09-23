@@ -1,11 +1,13 @@
 ﻿#pragma once
 #include "models/CartItem.h"
+#include "models/HistoryItem.h"
 
 class Sorter
 {
 public:
 
 	static void Sort(std::vector<CartItem>& items, CartItemFields field, bool ascending = true);
+	static void Sort(std::vector<HistoryItem>& items,HistoryItemFields field, bool ascending = true);
 
 private:
 	template <class TData, class Selector>

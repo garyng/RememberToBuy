@@ -117,6 +117,15 @@ namespace ImGui
 		PopFont();
 	}
 
+	void NoItemSelectedPrompt(std::string name)
+	{
+		BeginChild(name.c_str());
+
+		BlankScreenPrompt(ICON_FA_HAND_POINT_LEFT, { "Select one item to check its details" });
+
+		EndChild();
+	}
+
 	void TextCenteredHorizontally(std::string text)
 	{
 		TextCenteredHorizontally(text, CalcTextSize(text.c_str()));

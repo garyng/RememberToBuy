@@ -25,6 +25,7 @@ namespace ImGui
 	void TextCenteredHorizontally(std::string text);
 	void TextCenteredHorizontally(std::string text, ImVec2 size);
 	void BlankScreenPrompt(std::string icon, std::initializer_list<std::string> texts);
+	void NoItemSelectedPrompt(std::string name);
 
 	bool FullWidthInputInt(std::string label, int& value, int minimum = 1);
 }

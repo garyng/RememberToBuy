@@ -9,7 +9,6 @@ protected:
 	std::shared_ptr<ILogger> _logger;
 	std::shared_ptr<CommandDispatcher> _commandDispatcher;
 	std::shared_ptr<QueryDispatcher> _queryDispatcher;
-	bool _isSortAscending;
 
 public:
 	ViewModelBase(const std::shared_ptr<NavigationService>& navigationService, const std::shared_ptr<ILogger>& logger,

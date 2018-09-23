@@ -360,6 +360,12 @@
     <ClInclude Include="ui\dashboard\DashboardViewModel.h">
       <Filter>Source Files\ui\dashboard</Filter>
     </ClInclude>
+    <ClInclude Include="query\GetAllHistoryItems.h">
+      <Filter>Source Files\query</Filter>
+    </ClInclude>
+    <ClInclude Include="query\GetAllHistoryItemsQueryHandler.h">
+      <Filter>Source Files\query</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -508,6 +514,9 @@
     </ClCompile>
     <ClCompile Include="ui\dashboard\DashboardViewModel.cpp">
       <Filter>Source Files\ui\dashboard</Filter>
+    </ClCompile>
+    <ClCompile Include="query\GetAllHistoryItemsQueryHandler.cpp">
+      <Filter>Source Files\query</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
