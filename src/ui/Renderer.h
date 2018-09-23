@@ -4,6 +4,7 @@
 #include "IView.h"
 #include "ITestView.h"
 #include "navigation/NavigationService.h"
+#include "dialog/DialogService.h"
 
 class Renderer
 {
@@ -11,12 +12,14 @@ private:
 	std::vector<std::shared_ptr<IView>> _views;
 	std::vector<std::shared_ptr<ITestView>> _testViews;
 	std::shared_ptr<NavigationService> _navigationService;
+	std::shared_ptr<DialogService> _dialogService;
 
 public:
 	explicit Renderer(const std::vector<std::shared_ptr<IView>>& views,
 	                  const std::vector<std::shared_ptr<ITestView>>& testViews,
-	                  const std::shared_ptr<NavigationService>& navigationService)
-		: _views(views), _testViews(testViews), _navigationService(navigationService)
+	                  const std::shared_ptr<NavigationService>& navigationService,
+	                  const std::shared_ptr<DialogService>& dialogService)
+		: _views(views), _testViews(testViews), _navigationService(navigationService), _dialogService(dialogService)
 	{
 	}
 
@@ -59,6 +62,10 @@ public:
 		else
 		{
 			_navigationService->CurrentView()->Render();
+			if (_dialogService->CurrentDialogView().has_value())
+			{
+				_dialogService->CurrentDialogView().value()->Render();
+			}
 		}
 	}
 
