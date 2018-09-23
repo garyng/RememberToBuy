@@ -69,13 +69,11 @@ public:
 
 	bool IsSearching() const { return _searchString != ""; }
 
-	void UpdateCartItemQuantityCommand(int cartItemId, int quantity)
-	{
-		_logger->Debug("CartItem #" + std::to_string(cartItemId) + ": New quantity " + std::to_string(quantity));
-		UpdateCartItemQuantity command{cartItemId, quantity};
-		_commandDispatcher->Dispatch(command);
-		GetCartItemsCommand();
-	}
+	void UpdateCartItemQuantityCommand(int cartItemId, int quantity);
+
+	void RemoveSelectedCartItemCommand();
+
+	void CheckOffSelectedCartItemCommand();
 
 	std::string Name() override;
 

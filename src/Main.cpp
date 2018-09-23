@@ -37,6 +37,7 @@
 #include "ui/test/ICanResetTestView.h"
 #include "command/RemoveCartItemCommandHandler.h"
 #include "command/CheckOffCartItemCommandHandler.h"
+#include "ui/dashboard/DashboardView.h"
 
 
 using namespace std;
@@ -132,6 +133,7 @@ int main(int argc, char* argv[])
 	registerViewViewModel<PendingView, PendingViewModel>(builder);
 	registerViewViewModel<HistoryView, HistoryViewModel>(builder);
 	registerViewViewModel<StockView, StockViewModel>(builder);
+	registerViewViewModel<DashboardView, DashboardViewModel>(builder);
 
 	registerTestView<ImGuiDemoTestView>(builder);
 	registerTestView<FontsTestView>(builder);
@@ -177,6 +179,6 @@ int main(int argc, char* argv[])
 
 	showAllTestViews(container);
 
-	container->resolve<NavigationService>()->GoTo<CartViewModel>();
+	container->resolve<NavigationService>()->GoTo<DashboardViewModel>();
 	container->resolve<App>()->Start();
 }

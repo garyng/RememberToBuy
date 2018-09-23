@@ -2,6 +2,9 @@
 #include "CartViewModel.h"
 #include "ui/utils/Sorter.h"
 #include "query/GetAllCartItems.h"
+#include "storage/CartItemStorage.h"
+#include "command/RemoveCartItem.h"
+#include "command/CheckOffCartItem.h"
 
 CartViewModel::CartViewModel(const std::shared_ptr<NavigationService>& navigationService,
                              const std::shared_ptr<ILogger>& logger,
@@ -33,6 +36,28 @@ void CartViewModel::GetCartItemsCommand()
 void CartViewModel::SortCartItemsCommand()
 {
 	Sorter::Sort(_cartItems, _cartItemSortKey, _isAscending);
+}
+
+void CartViewModel::UpdateCartItemQuantityCommand(int cartItemId, int quantity)
+{
+	_logger->Debug("CartItem #" + std::to_string(cartItemId) + ": New quantity " + std::to_string(quantity));
+	UpdateCartItemQuantity command{cartItemId, quantity};
+	_commandDispatcher->Dispatch(command);
+	GetCartItemsCommand();
+}
+
+void CartViewModel::RemoveSelectedCartItemCommand()
+{
+	RemoveCartItem command = RemoveCartItem{SelectedCartItem()->Id()};
+	_commandDispatcher->Dispatch(command);
+	GetCartItemsCommand();
+}
+
+void CartViewModel::CheckOffSelectedCartItemCommand()
+{
+	CheckOffCartItem command = CheckOffCartItem{SelectedCartItem()->Id()};
+	_commandDispatcher->Dispatch(command);
+	GetCartItemsCommand();
 }
 
 std::string CartViewModel::Name()

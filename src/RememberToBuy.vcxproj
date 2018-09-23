@@ -229,6 +229,8 @@ XCOPY "$(TargetDir)$(TargetName)$(TargetExt)" "$(SolutionDir)..\dist\" /s /i /y 
     <ClInclude Include="storage\PendingItemStorage.h" />
     <ClInclude Include="storage\SourceStorage.h" />
     <ClInclude Include="storage\StockItemStorage.h" />
+    <ClInclude Include="ui\dashboard\DashboardView.h" />
+    <ClInclude Include="ui\dashboard\DashboardViewModel.h" />
     <ClInclude Include="ui\ICanReset.h" />
     <ClInclude Include="ui\pending\PendingView.h" />
     <ClInclude Include="ui\pending\PendingViewModel.h" />
@@ -332,6 +334,8 @@ XCOPY "$(TargetDir)$(TargetName)$(TargetExt)" "$(SolutionDir)..\dist\" /s /i /y 
     <ClCompile Include="ui\cart\CartView.cpp" />
     <ClCompile Include="ui\cart\CartViewModel.cpp" />
     <ClCompile Include="ui\colors\Colors.cpp" />
+    <ClCompile Include="ui\dashboard\DashboardView.cpp" />
+    <ClCompile Include="ui\dashboard\DashboardViewModel.cpp" />
     <ClCompile Include="ui\fonts\Fonts.cpp" />
     <ClCompile Include="ui\history\HistoryView.cpp" />
     <ClCompile Include="ui\history\HistoryViewModel.cpp" />

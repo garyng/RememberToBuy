@@ -140,7 +140,9 @@ void CartView::RenderSortByButtons()
 	}
 
 	bool isAscending = _viewModel->IsAscending();
-	ImGui::CheckButton((isAscending ? ICON_FA_SORT_DOWN " Ascending" : ICON_FA_SORT_UP " Descending"), &isAscending);
+	ImGui::CheckButton(
+		(isAscending ? ICON_FA_LONG_ARROW_ALT_DOWN " Ascending" : ICON_FA_LONG_ARROW_ALT_UP " Descending"),
+		&isAscending);
 	_viewModel->IsAscending(isAscending);
 }
 
@@ -159,7 +161,7 @@ void CartView::RenderNoCartItemSelected()
 {
 	ImGui::BeginChild("NoItemSelected");
 
-	ImGui::BlankScreenPrompt(ICON_FA_HAND_POINT_LEFT, {"Select one item to for its details"});
+	ImGui::BlankScreenPrompt(ICON_FA_HAND_POINT_LEFT, {"Select one item to check its details"});
 
 	ImGui::EndChild();
 }
@@ -212,8 +214,26 @@ void CartView::RenderCartItemDetails()
 
 	if (ImGui::FullWidthButton(ICON_FA_CHECK " Check off"))
 	{
+		ImGui::OpenPopup("Are you sure?##CheckOffItem");
 	}
 	if (ImGui::FullWidthButton(ICON_FA_MINUS " Remove"))
 	{
+		ImGui::OpenPopup("Are you sure?##RemoveItem");
 	}
+
+	ImGui::OkCancelPopupModel("Are you sure?##RemoveItem", ICON_FA_EXCLAMATION_CIRCLE, {
+		                          "Removing \"" + item.Name() + "\" from list",
+		                          "Are you sure?"
+	                          }, [&]()
+	                          {
+		                          _viewModel->RemoveSelectedCartItemCommand();
+	                          }, "Yes", "No");
+
+	ImGui::OkCancelPopupModel("Are you sure?##CheckOffItem", ICON_FA_CHECK_CIRCLE, {
+		                          "Checking off \"" + item.Name() + "\"",
+		                          "Are you sure?"
+	                          }, [&]()
+	                          {
+		                          _viewModel->CheckOffSelectedCartItemCommand();
+	                          }, "Yes", "No");
 }

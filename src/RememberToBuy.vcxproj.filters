@@ -70,6 +70,9 @@
     <Filter Include="Source Files\ui\utils">
       <UniqueIdentifier>{41878a52-9c62-40d2-8f6f-62a225772197}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\ui\dashboard">
+      <UniqueIdentifier>{df74c6fb-7b59-4256-957c-c027d573321a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -351,6 +354,12 @@
     <ClInclude Include="command\CheckOffCartItemCommandHandler.h">
       <Filter>Source Files\command</Filter>
     </ClInclude>
+    <ClInclude Include="ui\dashboard\DashboardView.h">
+      <Filter>Source Files\ui\dashboard</Filter>
+    </ClInclude>
+    <ClInclude Include="ui\dashboard\DashboardViewModel.h">
+      <Filter>Source Files\ui\dashboard</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -493,6 +502,12 @@
     </ClCompile>
     <ClCompile Include="command\CheckOffCartItemCommandHandler.cpp">
       <Filter>Source Files\command</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\dashboard\DashboardView.cpp">
+      <Filter>Source Files\ui\dashboard</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\dashboard\DashboardViewModel.cpp">
+      <Filter>Source Files\ui\dashboard</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
