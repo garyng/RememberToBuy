@@ -236,8 +236,6 @@ XCOPY "$(TargetDir)$(TargetName)$(TargetExt)" "$(SolutionDir)..\dist\" /s /i /y 
     <ClInclude Include="ui\ICanReset.h" />
     <ClInclude Include="ui\pending\PendingView.h" />
     <ClInclude Include="ui\pending\PendingViewModel.h" />
-    <ClInclude Include="ui\SelectStoreDialogView.h" />
-    <ClInclude Include="ui\SelectStoreDialogViewModel.h" />
     <ClInclude Include="ui\stock\StockView.h" />
     <ClInclude Include="ui\stock\StockViewModel.h" />
     <ClInclude Include="ui\test\ICanResetTestView.h" />
@@ -346,8 +344,6 @@ XCOPY "$(TargetDir)$(TargetName)$(TargetExt)" "$(SolutionDir)..\dist\" /s /i /y 
     <ClCompile Include="ui\history\HistoryViewModel.cpp" />
     <ClCompile Include="ui\pending\PendingView.cpp" />
     <ClCompile Include="ui\pending\PendingViewModel.cpp" />
-    <ClCompile Include="ui\SelectStoreDialogView.cpp" />
-    <ClCompile Include="ui\SelectStoreDialogViewModel.cpp" />
     <ClCompile Include="ui\stock\StockView.cpp" />
     <ClCompile Include="ui\stock\StockViewModel.cpp" />
     <ClCompile Include="ui\utils\Sorter.cpp" />

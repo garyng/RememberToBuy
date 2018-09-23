@@ -40,8 +40,6 @@
 #include "ui/dashboard/DashboardView.h"
 #include "query/GetAllHistoryItems.h"
 #include "query/GetAllHistoryItemsQueryHandler.h"
-#include "ui/dialog/DialogService.h"
-#include "ui/SelectStoreDialogView.h"
 
 
 using namespace std;
@@ -96,38 +94,6 @@ void registerViewViewModel(ContainerBuilder& builder)
 	}
 }
 
-template <class TView, class TViewModel,
-          class = IsBaseOf<TView, ViewBase<TViewModel>>,
-          class = std::enable_if_t<std::is_base_of_v<IViewModel, TViewModel> &&
-	          std::is_base_of_v<IDialog, TViewModel>>>
-void registerDialog(ContainerBuilder& builder)
-{
-	builder.registerType<TView>()
-	       .as<ViewBase<TViewModel>>()
-	       .as<IView>()
-	       .asSelf()
-	       .singleInstance();
-
-	if constexpr (std::is_base_of_v<ICanReset, TViewModel>)
-	{
-		builder.registerType<TViewModel>()
-		       .as<IViewModel>()
-		       .as<IDialog>()
-		       .as<ICanReset>()
-		       .asSelf()
-		       .singleInstance();
-	}
-	else
-	{
-		builder.registerType<TViewModel>()
-		       .as<IViewModel>()
-		       .as<IDialog>()
-		       .asSelf()
-		       .singleInstance();
-	}
-}
-
-
 template <class TStorage, class = IsBaseOf<TStorage, IStorage>>
 void registerStorage(ContainerBuilder& builder)
 {
@@ -163,17 +129,12 @@ int main(int argc, char* argv[])
 	       .singleInstance();
 	builder.registerType<NavigationService>()
 	       .singleInstance();
-	builder.registerType<DialogService>()
-	       .singleInstance();
 
 	registerViewViewModel<CartView, CartViewModel>(builder);
 	registerViewViewModel<PendingView, PendingViewModel>(builder);
 	registerViewViewModel<HistoryView, HistoryViewModel>(builder);
 	registerViewViewModel<StockView, StockViewModel>(builder);
 	registerViewViewModel<DashboardView, DashboardViewModel>(builder);
-
-	registerDialog<SelectStoreDialogView, SelectStoreDialogViewModel>(builder);
-
 
 	registerTestView<ImGuiDemoTestView>(builder);
 	registerTestView<FontsTestView>(builder);

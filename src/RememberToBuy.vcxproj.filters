@@ -73,11 +73,6 @@
     <Filter Include="Source Files\ui\dashboard">
       <UniqueIdentifier>{df74c6fb-7b59-4256-957c-c027d573321a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\ui\dialog">
-      <UniqueIdentifier>{8241cb6f-5ae6-4524-bd7c-01e2801a2e7b}</UniqueIdentifier>
-    <Filter Include="Source Files\ui\store">
-      <UniqueIdentifier>{fdf2ae39-9c1a-4653-b6f5-1ee21672f64b}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -371,14 +366,6 @@
     <ClInclude Include="query\GetAllHistoryItemsQueryHandler.h">
       <Filter>Source Files\query</Filter>
     </ClInclude>
-    <ClInclude Include="ui\dialog\IDialog.h">
-      <Filter>Source Files\ui\dialog</Filter>
-    <ClInclude Include="ui\SelectStoreDialogView.h">
-      <Filter>Source Files\ui\store</Filter>
-    </ClInclude>
-    <ClInclude Include="ui\SelectStoreDialogViewModel.h">
-      <Filter>Source Files\ui\store</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -531,19 +518,10 @@
     <ClCompile Include="query\GetAllHistoryItemsQueryHandler.cpp">
       <Filter>Source Files\query</Filter>
     </ClCompile>
-    <ClCompile Include="ui\SelectStoreDialogView.cpp">
-      <Filter>Source Files\ui\store</Filter>
-    </ClCompile>
-    <ClCompile Include="ui\SelectStoreDialogViewModel.cpp">
-      <Filter>Source Files\ui\store</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\libs\imgui\imgui_user.inl">
       <Filter>Source Files\imgui</Filter>
-    </None>
-    <None Include="ui\dialog\DialogService.h">
-      <Filter>Source Files\ui\dialog</Filter>
     </None>
   </ItemGroup>
 </Project>
