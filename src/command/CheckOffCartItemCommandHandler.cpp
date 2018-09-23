@@ -9,7 +9,7 @@ void CheckOffCartItemCommandHandler::Handle(CheckOffCartItem& parameter)
 	std::tm tm = *std::localtime(&t);
 
 	std::ostringstream ss;
-	ss << std::put_time(&tm, "%d-%m-%Y");
+	ss << std::put_time(&tm, "%Y/%m/%d");
 	std::string today = ss.str();
 
 	int id = _historyItemStorage->Data()
