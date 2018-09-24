@@ -3,6 +3,8 @@
 #include <nlohmann/json.hpp>
 #include "proxy/CategoryProxy.h"
 
+BETTER_ENUM(ItemFields, int, Name, Category /* Category name */);
+
 class Item
 {
 private:

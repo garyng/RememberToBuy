@@ -6,6 +6,7 @@
 #include "command/RemoveCartItem.h"
 #include "command/CheckOffCartItem.h"
 #include "SelectSourceViewModel.h"
+#include "SelectItemViewModel.h"
 
 CartViewModel::CartViewModel(const std::shared_ptr<NavigationService>& navigationService,
                              const std::shared_ptr<ILogger>& logger,
@@ -73,4 +74,11 @@ void CartViewModel::CheckOffSelectedCartItemCommand()
 std::string CartViewModel::Name()
 {
 	return NAMEOF(CartViewModel);
+}
+
+void CartViewModel::GoToSelectItemCommand()
+{
+	_navigationService->GoTo<SelectItemViewModel>([](auto vm)
+	{
+	}, false);
 }

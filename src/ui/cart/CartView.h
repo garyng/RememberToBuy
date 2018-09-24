@@ -10,7 +10,7 @@ public:
 
 	void Render() override;
 
-	void RenderGoToPendingButton();
+	void RenderGoToSelectItemButton();
 
 	void RenderSearchNoResults();
 

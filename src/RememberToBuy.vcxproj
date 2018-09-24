@@ -183,6 +183,8 @@ XCOPY "$(TargetDir)$(TargetName)$(TargetExt)" "$(SolutionDir)..\dist\" /s /i /y 
     <ClInclude Include="..\libs\imgui\stb_truetype.h" />
     <ClInclude Include="..\libs\gl3w\GL\gl3w.h" />
     <ClInclude Include="..\libs\gl3w\GL\glcorearb.h" />
+    <ClInclude Include="command\AddCartItem.h" />
+    <ClInclude Include="command\AddCartItemCommandHandler.h" />
     <ClInclude Include="command\CheckOffCartItem.h" />
     <ClInclude Include="command\CheckOffCartItemCommandHandler.h" />
     <ClInclude Include="command\CommandDispatcher.h" />
@@ -213,8 +215,12 @@ XCOPY "$(TargetDir)$(TargetName)$(TargetExt)" "$(SolutionDir)..\dist\" /s /i /y 
     <ClInclude Include="query\GetAllCartItemsQueryHandler.h" />
     <ClInclude Include="query\GetAllHistoryItems.h" />
     <ClInclude Include="query\GetAllHistoryItemsQueryHandler.h" />
+    <ClInclude Include="query\GetAllItems.h" />
     <ClInclude Include="query\GetAllItemSourcesByItemId.h" />
     <ClInclude Include="query\GetAllItemSourcesByItemIdQueryHandler.h" />
+    <ClInclude Include="query\GetAllItemsQueryHandler.h" />
+    <ClInclude Include="query\GetBestSourceByItemId.h" />
+    <ClInclude Include="query\GetBestSourceByItemIdQueryHandler.h" />
     <ClInclude Include="query\GetById.h" />
     <ClInclude Include="query\GetByIdQueryHandlerBase.h" />
     <ClInclude Include="query\GetCategoryById.h" />
@@ -237,6 +243,8 @@ XCOPY "$(TargetDir)$(TargetName)$(TargetExt)" "$(SolutionDir)..\dist\" /s /i /y 
     <ClInclude Include="storage\PendingItemStorage.h" />
     <ClInclude Include="storage\SourceStorage.h" />
     <ClInclude Include="storage\StockItemStorage.h" />
+    <ClInclude Include="ui\cart\SelectItemView.h" />
+    <ClInclude Include="ui\cart\SelectItemViewModel.h" />
     <ClInclude Include="ui\cart\SelectSourceView.h" />
     <ClInclude Include="ui\cart\SelectSourceViewModel.h" />
     <ClInclude Include="ui\dashboard\DashboardView.h" />
@@ -308,6 +316,7 @@ XCOPY "$(TargetDir)$(TargetName)$(TargetExt)" "$(SolutionDir)..\dist\" /s /i /y 
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="command\AddCartItemCommandHandler.cpp" />
     <ClCompile Include="command\CheckOffCartItemCommandHandler.cpp" />
     <ClCompile Include="command\RemoveCartItemCommandHandler.cpp" />
     <ClCompile Include="command\UpdateCartItemQuantityCommandHandler.cpp" />
@@ -326,6 +335,8 @@ XCOPY "$(TargetDir)$(TargetName)$(TargetExt)" "$(SolutionDir)..\dist\" /s /i /y 
     <ClCompile Include="query\GetAllCartItemsQueryHandler.cpp" />
     <ClCompile Include="query\GetAllHistoryItemsQueryHandler.cpp" />
     <ClCompile Include="query\GetAllItemSourcesByItemIdQueryHandler.cpp" />
+    <ClCompile Include="query\GetAllItemsQueryHandler.cpp" />
+    <ClCompile Include="query\GetBestSourceByItemIdQueryHandler.cpp" />
     <ClCompile Include="query\GetCategoryByIdQueryHandler.cpp" />
     <ClCompile Include="query\GetItemByIdQueryHandler.cpp" />
     <ClCompile Include="query\GetItemSourceByItemIdAndSourceIdQueryHandler.cpp" />
@@ -347,6 +358,8 @@ XCOPY "$(TargetDir)$(TargetName)$(TargetExt)" "$(SolutionDir)..\dist\" /s /i /y 
     <ClCompile Include="ui\App.cpp" />
     <ClCompile Include="ui\cart\CartView.cpp" />
     <ClCompile Include="ui\cart\CartViewModel.cpp" />
+    <ClCompile Include="ui\cart\SelectItemView.cpp" />
+    <ClCompile Include="ui\cart\SelectItemViewModel.cpp" />
     <ClCompile Include="ui\cart\SelectSourceView.cpp" />
     <ClCompile Include="ui\cart\SelectSourceViewModel.cpp" />
     <ClCompile Include="ui\colors\Colors.cpp" />

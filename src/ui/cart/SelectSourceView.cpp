@@ -26,7 +26,7 @@ void SelectSourceView::RenderHeader()
 
 void SelectSourceView::Render()
 {
-	ImGui::BeginDefaultCenteredResizableWindow("Select source");
+	ImGui::BeginDefaultCenteredResizableWindow("Select a source");
 	RenderGoBackButton();
 
 	RenderHeader();
@@ -210,8 +210,7 @@ void SelectSourceView::RenderDetails()
 
 		ImGui::TextBoldNormal("Price per unit:");
 		ImGui::TextLightTitle2(formatCurrency(itemSource.Price()));
-
-		RenderApplyButton();
 	}
 	ImGui::EndChild();
+	RenderApplyButton();
 }

@@ -44,6 +44,11 @@
 #include "query/GetAllItemSourcesByItemIdQueryHandler.h"
 #include "command/UpdateSourceByCartItemIdCommandHandler.h"
 #include "command/UpdateSourceOfAllCartItemsCommandHandler.h"
+#include "ui/cart/SelectItemView.h"
+#include "query/GetAllItems.h"
+#include "query/GetAllItemsQueryHandler.h"
+#include "query/GetBestSourceByItemIdQueryHandler.h"
+#include "command/AddCartItemCommandHandler.h"
 
 
 using namespace std;
@@ -140,6 +145,7 @@ int main(int argc, char* argv[])
 	registerViewViewModel<StockView, StockViewModel>(builder);
 	registerViewViewModel<DashboardView, DashboardViewModel>(builder);
 	registerViewViewModel<SelectSourceView, SelectSourceViewModel>(builder);
+	registerViewViewModel<SelectItemView, SelectItemViewModel>(builder);
 
 	registerTestView<ImGuiDemoTestView>(builder);
 	registerTestView<FontsTestView>(builder);
@@ -174,16 +180,19 @@ int main(int argc, char* argv[])
 	registerQuery<GetAllCartItemsQueryHandler, GetAllCartItems, std::vector<CartItem>>(builder);
 	registerQuery<GetAllHistoryItemsQueryHandler, GetAllHistoryItems, std::vector<HistoryItem>>(builder);
 	registerQuery<GetAllItemSourcesByItemIdQueryHandler, GetAllItemSourcesByItemId, std::vector<ItemSource>>(builder);
+	registerQuery<GetAllItemsQueryHandler, GetAllItems, std::vector<Item>>(builder);
 	registerQuery<GetItemByIdQueryHandler, GetItemById, Item>(builder);
 	registerQuery<GetCategoryByIdQueryHandler, GetCategoryById, Category>(builder);
 	registerQuery<GetItemSourceByItemIdAndSourceIdQueryHandler, GetItemSourceByItemIdAndSourceId, ItemSource>(builder);
 	registerQuery<GetSourceByIdQueryHandler, GetSourceById, Source>(builder);
+	registerQuery<GetBestSourceByItemIdQueryHandler, GetBestSourceByItemId, ItemSource>(builder);
 
 	registerCommand<UpdateCartItemQuantityCommandHandler, UpdateCartItemQuantity>(builder);
 	registerCommand<UpdateSourceByCartItemIdCommandHandler, UpdateSourceByCartItemId>(builder);
 	registerCommand<UpdateSourceOfAllCartItemsCommandHandler, UpdateSourceOfAllCartItems>(builder);
 	registerCommand<RemoveCartItemCommandHandler, RemoveCartItem>(builder);
 	registerCommand<CheckOffCartItemCommandHandler, CheckOffCartItem>(builder);
+	registerCommand<AddCartItemCommandHandler, AddCartItem>(builder);
 
 	shared_ptr<Container> container = builder.build();
 

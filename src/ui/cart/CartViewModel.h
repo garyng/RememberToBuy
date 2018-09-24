@@ -85,4 +85,6 @@ public:
 		_selectedIndex = {};
 		SearchString("");
 	}
+
+	void GoToSelectItemCommand();
 };

@@ -54,9 +54,12 @@ void CartView::Render()
 	ImGui::End();
 }
 
-void CartView::RenderGoToPendingButton()
+void CartView::RenderGoToSelectItemButton()
 {
-	ImGui::FullWidthButton("Check pending items " ICON_FA_ANGLE_DOUBLE_RIGHT);
+	if (ImGui::FullWidthButton(ICON_FA_PLUS " Add item"))
+	{
+		_viewModel->GoToSelectItemCommand();
+	}
 }
 
 void CartView::RenderSearchNoResults()
@@ -68,18 +71,18 @@ void CartView::RenderSearchNoResults()
 	ImGui::EndChild();
 	RenderSortByButtons();
 	RenderSearchBox();
-	RenderGoToPendingButton();
+	RenderGoToSelectItemButton();
 }
 
 void CartView::RenderNoCartItems()
 {
 	ImGui::BeginChildWithBottomSpace("NoCartItems", 1);
 
-	ImGui::BlankScreenPrompt(ICON_FA_ROBOT, {"Such emptiness", "Try moving some pending items to the cart?"});
+	ImGui::BlankScreenPrompt(ICON_FA_ROBOT, {"Such emptiness", "Try adding some items to the cart?"});
 
 	ImGui::EndChild();
 
-	RenderGoToPendingButton();
+	RenderGoToSelectItemButton();
 }
 
 void CartView::RenderCartItemList()
@@ -127,7 +130,7 @@ void CartView::RenderCartItemList()
 
 	RenderSortByButtons();
 	RenderSearchBox();
-	RenderGoToPendingButton();
+	RenderGoToSelectItemButton();
 }
 
 void CartView::RenderSortByButtons()

@@ -46,3 +46,16 @@ void Sorter::Sort(std::vector<ItemSource>& items, ItemSourceFields field, bool a
 			break;
 	}
 }
+
+void Sorter::Sort(std::vector<Item>& items, ItemFields field, bool ascending)
+{
+	switch (field)
+	{
+		case ItemFields::Name:
+			OrderBy(items, ascending, [](Item item) { return item.Name(); });
+			break;
+		case ItemFields::Category:
+			OrderBy(items, ascending, [](Item item) { return item.Category().Value().Name(); });
+			break;
+	}
+}

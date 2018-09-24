@@ -10,7 +10,7 @@ private:
 	std::string _searchString;
 	std::optional<int> _selectedIndex;
 	std::vector<ItemSource> _itemSources;
-	std::optional<CartItem> _cartItem{};
+	std::optional<CartItem> _selectedCartItem{};
 	bool _isApplyToAllCartItems{false};
 	bool _isAscending;
 	ItemSourceFields _masterSortKey = ItemSourceFields::Name;
@@ -22,11 +22,11 @@ public:
 	                      const std::shared_ptr<CommandDispatcher>& commandDispatcher,
 	                      const std::shared_ptr<QueryDispatcher>& queryDispatcher);
 
-	std::optional<CartItem> SelectedCartItem() const { return _cartItem; }
+	std::optional<CartItem> SelectedCartItem() const { return _selectedCartItem; }
 
 	void SelectedCartItem(CartItem value)
 	{
-		_cartItem = value;
+		_selectedCartItem = value;
 		GetSourcesCommand();
 	}
 

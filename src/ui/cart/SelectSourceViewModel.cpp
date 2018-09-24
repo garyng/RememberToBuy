@@ -19,10 +19,10 @@ SelectSourceViewModel::SelectSourceViewModel(const std::shared_ptr<NavigationSer
 
 void SelectSourceViewModel::GetSourcesCommand()
 {
-	if (_cartItem)
+	if (_selectedCartItem)
 	{
 		_itemSources = _queryDispatcher->Dispatch<std::vector<ItemSource>>(
-			GetAllItemSourcesByItemId{_cartItem.value().ItemId()});
+			GetAllItemSourcesByItemId{_selectedCartItem.value().ItemId()});
 
 		if (IsSearching())
 		{
@@ -54,7 +54,6 @@ void SelectSourceViewModel::SortItemsCommand()
 
 void SelectSourceViewModel::Reset()
 {
-	_cartItem = {};
 	GetSourcesCommand();
 	_selectedIndex = {};
 	SearchString("");

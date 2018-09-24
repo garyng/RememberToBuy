@@ -390,6 +390,30 @@
     <ClInclude Include="command\UpdateSourceOfAllCartItemsCommandHandler.h">
       <Filter>Source Files\command</Filter>
     </ClInclude>
+    <ClInclude Include="ui\cart\SelectItemView.h">
+      <Filter>Source Files\ui\cart</Filter>
+    </ClInclude>
+    <ClInclude Include="ui\cart\SelectItemViewModel.h">
+      <Filter>Source Files\ui\cart</Filter>
+    </ClInclude>
+    <ClInclude Include="query\GetAllItems.h">
+      <Filter>Source Files\query</Filter>
+    </ClInclude>
+    <ClInclude Include="query\GetAllItemsQueryHandler.h">
+      <Filter>Source Files\query</Filter>
+    </ClInclude>
+    <ClInclude Include="query\GetBestSourceByItemId.h">
+      <Filter>Source Files\query</Filter>
+    </ClInclude>
+    <ClInclude Include="query\GetBestSourceByItemIdQueryHandler.h">
+      <Filter>Source Files\query</Filter>
+    </ClInclude>
+    <ClInclude Include="command\AddCartItem.h">
+      <Filter>Source Files\command</Filter>
+    </ClInclude>
+    <ClInclude Include="command\AddCartItemCommandHandler.h">
+      <Filter>Source Files\command</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -555,6 +579,21 @@
       <Filter>Source Files\command</Filter>
     </ClCompile>
     <ClCompile Include="command\UpdateSourceOfAllCartItemsCommandHandler.cpp">
+      <Filter>Source Files\command</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\cart\SelectItemView.cpp">
+      <Filter>Source Files\ui\cart</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\cart\SelectItemViewModel.cpp">
+      <Filter>Source Files\ui\cart</Filter>
+    </ClCompile>
+    <ClCompile Include="query\GetAllItemsQueryHandler.cpp">
+      <Filter>Source Files\query</Filter>
+    </ClCompile>
+    <ClCompile Include="query\GetBestSourceByItemIdQueryHandler.cpp">
+      <Filter>Source Files\query</Filter>
+    </ClCompile>
+    <ClCompile Include="command\AddCartItemCommandHandler.cpp">
       <Filter>Source Files\command</Filter>
     </ClCompile>
   </ItemGroup>
