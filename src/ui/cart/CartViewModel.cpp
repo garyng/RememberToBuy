@@ -30,6 +30,7 @@ void CartViewModel::GetCartItemsCommand()
 					boost::icontains(source.Name(), _searchString);
 			})
 			| to_vector();
+		_selectedIndex = {};
 	}
 }
 

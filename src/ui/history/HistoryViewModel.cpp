@@ -32,6 +32,7 @@ void HistoryViewModel::GetHistoryItemsCommand()
 					boost::icontains(historyItem.Date(), _searchString);
 			})
 			| to_vector();
+		_selectedIndex = {};
 	}
 }
 

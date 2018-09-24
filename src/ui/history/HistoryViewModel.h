@@ -38,7 +38,7 @@ public:
 	void GetHistoryItemsCommand();
 
 	std::optional<int> SelectedIndex() const { return _selectedIndex; }
-	void SelectedIndex(std::optional<int> value) { _selectedIndex = value; }
+	void SelectedIndex(int value) { _selectedIndex = value; }
 
 	std::optional<HistoryItem> SelectedItem() const
 	{
@@ -52,7 +52,7 @@ public:
 	void Reset() override
 	{
 		GetHistoryItemsCommand();
-		SelectedIndex({});
+		_selectedIndex = {};
 		SearchString("");
 	}
 

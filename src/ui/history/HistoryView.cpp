@@ -40,7 +40,7 @@ void HistoryView::Render()
 		ImGui::NextColumn();
 
 
-		if (_viewModel->SelectedIndex().has_value())
+		if (_viewModel->SelectedIndex())
 		{
 			RenderDetails();
 		}

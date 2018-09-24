@@ -48,7 +48,7 @@ public:
 	void CartItems(std::vector<CartItem> value) { _cartItems = value; }
 
 	std::optional<int> SelectedIndex() const { return _selectedIndex; }
-	void SelectedIndex(std::optional<int> value) { _selectedIndex = value; }
+	void SelectedIndex(int value) { _selectedIndex = value; }
 
 	std::optional<CartItem> SelectedCartItem() const
 	{
@@ -80,7 +80,7 @@ public:
 	void Reset() override
 	{
 		GetCartItemsCommand();
-		SelectedIndex({});
+		_selectedIndex = {};
 		SearchString("");
 	}
 };
