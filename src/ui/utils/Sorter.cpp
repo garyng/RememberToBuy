@@ -12,6 +12,9 @@ void Sorter::Sort(std::vector<CartItem>& items, CartItemFields field, bool ascen
 		case CartItemFields::Name:
 			OrderBy(items, ascending, [](CartItem item) { return item.Item().Value().Name(); });
 			break;
+		case CartItemFields::Source:
+			OrderBy(items, ascending, [](CartItem item) { return item.Source().Value().Name(); });
+			break;
 	}
 }
 

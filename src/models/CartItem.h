@@ -4,7 +4,7 @@
 #include "proxy/SourceProxy.h"
 #include "proxy/ItemSourceProxy.h"
 
-BETTER_ENUM(CartItemFields, int, Name /* Item's name */, Quantity);
+BETTER_ENUM(CartItemFields, int, Name /* Item's name */, Source /* Source name */, Quantity);
 
 class CartItem
 {
