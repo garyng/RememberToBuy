@@ -191,6 +191,10 @@ XCOPY "$(TargetDir)$(TargetName)$(TargetExt)" "$(SolutionDir)..\dist\" /s /i /y 
     <ClInclude Include="command\RemoveCartItemCommandHandler.h" />
     <ClInclude Include="command\UpdateCartItemQuantity.h" />
     <ClInclude Include="command\UpdateCartItemQuantityCommandHandler.h" />
+    <ClInclude Include="command\UpdateSourceByCartItemId.h" />
+    <ClInclude Include="command\UpdateSourceByCartItemIdCommandHandler.h" />
+    <ClInclude Include="command\UpdateSourceOfAllCartItems.h" />
+    <ClInclude Include="command\UpdateSourceOfAllCartItemsCommandHandler.h" />
     <ClInclude Include="models\CartItem.h" />
     <ClInclude Include="models\Category.h" />
     <ClInclude Include="models\HistoryItem.h" />
@@ -209,6 +213,8 @@ XCOPY "$(TargetDir)$(TargetName)$(TargetExt)" "$(SolutionDir)..\dist\" /s /i /y 
     <ClInclude Include="query\GetAllCartItemsQueryHandler.h" />
     <ClInclude Include="query\GetAllHistoryItems.h" />
     <ClInclude Include="query\GetAllHistoryItemsQueryHandler.h" />
+    <ClInclude Include="query\GetAllItemSourcesByItemId.h" />
+    <ClInclude Include="query\GetAllItemSourcesByItemIdQueryHandler.h" />
     <ClInclude Include="query\GetById.h" />
     <ClInclude Include="query\GetByIdQueryHandlerBase.h" />
     <ClInclude Include="query\GetCategoryById.h" />
@@ -231,6 +237,8 @@ XCOPY "$(TargetDir)$(TargetName)$(TargetExt)" "$(SolutionDir)..\dist\" /s /i /y 
     <ClInclude Include="storage\PendingItemStorage.h" />
     <ClInclude Include="storage\SourceStorage.h" />
     <ClInclude Include="storage\StockItemStorage.h" />
+    <ClInclude Include="ui\cart\SelectSourceView.h" />
+    <ClInclude Include="ui\cart\SelectSourceViewModel.h" />
     <ClInclude Include="ui\dashboard\DashboardView.h" />
     <ClInclude Include="ui\dashboard\DashboardViewModel.h" />
     <ClInclude Include="ui\ICanReset.h" />
@@ -303,6 +311,8 @@ XCOPY "$(TargetDir)$(TargetName)$(TargetExt)" "$(SolutionDir)..\dist\" /s /i /y 
     <ClCompile Include="command\CheckOffCartItemCommandHandler.cpp" />
     <ClCompile Include="command\RemoveCartItemCommandHandler.cpp" />
     <ClCompile Include="command\UpdateCartItemQuantityCommandHandler.cpp" />
+    <ClCompile Include="command\UpdateSourceByCartItemIdCommandHandler.cpp" />
+    <ClCompile Include="command\UpdateSourceOfAllCartItemsCommandHandler.cpp" />
     <ClCompile Include="imgui\imgui_custom.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="models\CartItem.cpp" />
@@ -315,6 +325,7 @@ XCOPY "$(TargetDir)$(TargetName)$(TargetExt)" "$(SolutionDir)..\dist\" /s /i /y 
     <ClCompile Include="models\StockItem.cpp" />
     <ClCompile Include="query\GetAllCartItemsQueryHandler.cpp" />
     <ClCompile Include="query\GetAllHistoryItemsQueryHandler.cpp" />
+    <ClCompile Include="query\GetAllItemSourcesByItemIdQueryHandler.cpp" />
     <ClCompile Include="query\GetCategoryByIdQueryHandler.cpp" />
     <ClCompile Include="query\GetItemByIdQueryHandler.cpp" />
     <ClCompile Include="query\GetItemSourceByItemIdAndSourceIdQueryHandler.cpp" />
@@ -336,6 +347,8 @@ XCOPY "$(TargetDir)$(TargetName)$(TargetExt)" "$(SolutionDir)..\dist\" /s /i /y 
     <ClCompile Include="ui\App.cpp" />
     <ClCompile Include="ui\cart\CartView.cpp" />
     <ClCompile Include="ui\cart\CartViewModel.cpp" />
+    <ClCompile Include="ui\cart\SelectSourceView.cpp" />
+    <ClCompile Include="ui\cart\SelectSourceViewModel.cpp" />
     <ClCompile Include="ui\colors\Colors.cpp" />
     <ClCompile Include="ui\dashboard\DashboardView.cpp" />
     <ClCompile Include="ui\dashboard\DashboardViewModel.cpp" />

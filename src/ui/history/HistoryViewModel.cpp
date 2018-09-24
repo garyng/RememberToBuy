@@ -1,6 +1,7 @@
 ﻿#include "stdafx.h"
 #include "HistoryViewModel.h"
 #include "ui/utils/Sorter.h"
+#include "query/GetAllHistoryItems.h"
 
 
 HistoryViewModel::HistoryViewModel(const std::shared_ptr<NavigationService>& navigationService,

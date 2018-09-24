@@ -5,6 +5,7 @@
 #include "storage/CartItemStorage.h"
 #include "command/RemoveCartItem.h"
 #include "command/CheckOffCartItem.h"
+#include "SelectSourceViewModel.h"
 
 CartViewModel::CartViewModel(const std::shared_ptr<NavigationService>& navigationService,
                              const std::shared_ptr<ILogger>& logger,
@@ -37,6 +38,14 @@ void CartViewModel::GetCartItemsCommand()
 void CartViewModel::SortCartItemsCommand()
 {
 	Sorter::Sort(_cartItems, _cartItemSortKey, _isAscending);
+}
+
+void CartViewModel::GoToSelectSourceCommand()
+{
+	_navigationService->GoTo<SelectSourceViewModel>([&](std::shared_ptr<SelectSourceViewModel> vm)
+	{
+		vm->SelectedCartItem(SelectedCartItem().value());
+	}, false);
 }
 
 void CartViewModel::UpdateCartItemQuantityCommand(int cartItemId, int quantity)

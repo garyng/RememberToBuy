@@ -366,6 +366,30 @@
     <ClInclude Include="query\GetAllHistoryItemsQueryHandler.h">
       <Filter>Source Files\query</Filter>
     </ClInclude>
+    <ClInclude Include="ui\cart\SelectSourceViewModel.h">
+      <Filter>Source Files\ui\cart</Filter>
+    </ClInclude>
+    <ClInclude Include="ui\cart\SelectSourceView.h">
+      <Filter>Source Files\ui\cart</Filter>
+    </ClInclude>
+    <ClInclude Include="query\GetAllItemSourcesByItemId.h">
+      <Filter>Source Files\query</Filter>
+    </ClInclude>
+    <ClInclude Include="query\GetAllItemSourcesByItemIdQueryHandler.h">
+      <Filter>Source Files\query</Filter>
+    </ClInclude>
+    <ClInclude Include="command\UpdateSourceByCartItemId.h">
+      <Filter>Source Files\command</Filter>
+    </ClInclude>
+    <ClInclude Include="command\UpdateSourceByCartItemIdCommandHandler.h">
+      <Filter>Source Files\command</Filter>
+    </ClInclude>
+    <ClInclude Include="command\UpdateSourceOfAllCartItems.h">
+      <Filter>Source Files\command</Filter>
+    </ClInclude>
+    <ClInclude Include="command\UpdateSourceOfAllCartItemsCommandHandler.h">
+      <Filter>Source Files\command</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -517,6 +541,21 @@
     </ClCompile>
     <ClCompile Include="query\GetAllHistoryItemsQueryHandler.cpp">
       <Filter>Source Files\query</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\cart\SelectSourceViewModel.cpp">
+      <Filter>Source Files\ui\cart</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\cart\SelectSourceView.cpp">
+      <Filter>Source Files\ui\cart</Filter>
+    </ClCompile>
+    <ClCompile Include="query\GetAllItemSourcesByItemIdQueryHandler.cpp">
+      <Filter>Source Files\query</Filter>
+    </ClCompile>
+    <ClCompile Include="command\UpdateSourceByCartItemIdCommandHandler.cpp">
+      <Filter>Source Files\command</Filter>
+    </ClCompile>
+    <ClCompile Include="command\UpdateSourceOfAllCartItemsCommandHandler.cpp">
+      <Filter>Source Files\command</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

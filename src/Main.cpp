@@ -40,6 +40,10 @@
 #include "ui/dashboard/DashboardView.h"
 #include "query/GetAllHistoryItems.h"
 #include "query/GetAllHistoryItemsQueryHandler.h"
+#include "ui/cart/SelectSourceView.h"
+#include "query/GetAllItemSourcesByItemIdQueryHandler.h"
+#include "command/UpdateSourceByCartItemIdCommandHandler.h"
+#include "command/UpdateSourceOfAllCartItemsCommandHandler.h"
 
 
 using namespace std;
@@ -135,6 +139,7 @@ int main(int argc, char* argv[])
 	registerViewViewModel<HistoryView, HistoryViewModel>(builder);
 	registerViewViewModel<StockView, StockViewModel>(builder);
 	registerViewViewModel<DashboardView, DashboardViewModel>(builder);
+	registerViewViewModel<SelectSourceView, SelectSourceViewModel>(builder);
 
 	registerTestView<ImGuiDemoTestView>(builder);
 	registerTestView<FontsTestView>(builder);
@@ -168,12 +173,15 @@ int main(int argc, char* argv[])
 
 	registerQuery<GetAllCartItemsQueryHandler, GetAllCartItems, std::vector<CartItem>>(builder);
 	registerQuery<GetAllHistoryItemsQueryHandler, GetAllHistoryItems, std::vector<HistoryItem>>(builder);
+	registerQuery<GetAllItemSourcesByItemIdQueryHandler, GetAllItemSourcesByItemId, std::vector<ItemSource>>(builder);
 	registerQuery<GetItemByIdQueryHandler, GetItemById, Item>(builder);
 	registerQuery<GetCategoryByIdQueryHandler, GetCategoryById, Category>(builder);
 	registerQuery<GetItemSourceByItemIdAndSourceIdQueryHandler, GetItemSourceByItemIdAndSourceId, ItemSource>(builder);
 	registerQuery<GetSourceByIdQueryHandler, GetSourceById, Source>(builder);
 
 	registerCommand<UpdateCartItemQuantityCommandHandler, UpdateCartItemQuantity>(builder);
+	registerCommand<UpdateSourceByCartItemIdCommandHandler, UpdateSourceByCartItemId>(builder);
+	registerCommand<UpdateSourceOfAllCartItemsCommandHandler, UpdateSourceOfAllCartItems>(builder);
 	registerCommand<RemoveCartItemCommandHandler, RemoveCartItem>(builder);
 	registerCommand<CheckOffCartItemCommandHandler, CheckOffCartItem>(builder);
 

@@ -39,7 +39,7 @@ void CartView::Render()
 
 		ImGui::NextColumn();
 
-		if (_viewModel->SelectedCartItem().has_value())
+		if (_viewModel->SelectedCartItem())
 		{
 			RenderCartItemDetails();
 		}
@@ -180,8 +180,9 @@ void CartView::RenderCartItemDetails()
 
 		ImGui::TextLightTitle2(source.Name());
 
-		if (ImGui::FullWidthButton(ICON_FA_STORE " Change store"))
+		if (ImGui::FullWidthButton(ICON_FA_STORE " Change source"))
 		{
+			_viewModel->GoToSelectSourceCommand();
 		}
 
 		ImGui::TextBoldNormal("Price per unit:");

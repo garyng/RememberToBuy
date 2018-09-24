@@ -21,7 +21,7 @@ public:
 	template <class T>
 	void Apply(std::vector<T>& items)
 	{
-		for (auto && item : items)
+		for (auto&& item : items)
 		{
 			Apply(item);
 		}
@@ -29,40 +29,27 @@ public:
 
 	void Apply(CartItem& cartItem)
 	{
-		if (!cartItem.Item())
-		{
-			cartItem.Item(ItemProxyFactory(cartItem.ItemId()));
-		}
-		if (!cartItem.Source())
-		{
-			cartItem.Source(SourceProxyFactory(cartItem.SourceId()));
-		}
-		if (!cartItem.ItemSource())
-		{
-			cartItem.ItemSource(ItemSourceProxyFactory(cartItem.ItemId(), cartItem.SourceId()));
-		}
+		cartItem.Item(ItemProxyFactory(cartItem.ItemId()));
+		cartItem.Source(SourceProxyFactory(cartItem.SourceId()));
+		cartItem.ItemSource(ItemSourceProxyFactory(cartItem.ItemId(), cartItem.SourceId()));
 	}
 
 	void Apply(Item& item)
 	{
-		if (!item.Category())
-		{
-			item.Category(CategoryProxyFactory(item.CategoryId()));
-		}
+		item.Category(CategoryProxyFactory(item.CategoryId()));
 	}
 
 	void Apply(HistoryItem& historyItem)
 	{
-		if (!historyItem.Item())
-		{
-			historyItem.Item(ItemProxyFactory(historyItem.ItemId()));
-		}
-		if (!historyItem.Source())
-		{
-			historyItem.Source(SourceProxyFactory(historyItem.SourceId()));
-		}
+		historyItem.Item(ItemProxyFactory(historyItem.ItemId()));
+		historyItem.Source(SourceProxyFactory(historyItem.SourceId()));
 	}
 
+	void Apply(ItemSource& itemSource)
+	{
+		itemSource.Item(ItemProxyFactory(itemSource.ItemId()));
+		itemSource.Source(SourceProxyFactory(itemSource.SourceId()));
+	}
 
 	template <class T>
 	void Apply(T& item)

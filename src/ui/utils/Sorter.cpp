@@ -30,3 +30,16 @@ void Sorter::Sort(std::vector<HistoryItem>& items, HistoryItemFields field, bool
 			break;
 	}
 }
+
+void Sorter::Sort(std::vector<ItemSource>& items, ItemSourceFields field, bool ascending)
+{
+	switch (field)
+	{
+		case ItemSourceFields::Name:
+			OrderBy(items, ascending, [](ItemSource item) { return item.Source().Value().Name(); });
+			break;
+		case ItemSourceFields::Price:
+			OrderBy(items, ascending, [](ItemSource item) { return item.Price(); });
+			break;
+	}
+}

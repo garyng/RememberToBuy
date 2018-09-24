@@ -57,7 +57,9 @@ public:
 			return _cartItems.at(_selectedIndex.value());
 		}
 		return {};
-	};
+	}
+
+	void GoToSelectSourceCommand();
 
 	std::string SearchString() const { return _searchString; }
 
