@@ -1,0 +1,551 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\imgui">
+      <UniqueIdentifier>{4426b3bc-5718-44cf-8f6c-76a0c42a0ed1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ui">
+      <UniqueIdentifier>{b3c23b35-9082-4e41-a664-88543ab639a7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\gl3w">
+      <UniqueIdentifier>{e87d374a-a957-4a4d-af2f-c5fcee787be0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\imgui\addons">
+      <UniqueIdentifier>{15b4e267-6628-4d67-99bf-162bea2a52c4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\logger">
+      <UniqueIdentifier>{7c2b0abc-b8bf-474f-87ec-f24379701ae6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ui\fonts">
+      <UniqueIdentifier>{ffce06e9-d711-4050-88c3-993bef429192}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ui\colors">
+      <UniqueIdentifier>{d75a2b22-b565-4b80-bd96-eb78c76df1e6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ui\navigation">
+      <UniqueIdentifier>{3747f3b4-3b10-48c0-999a-9902c14137c4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ui\cart">
+      <UniqueIdentifier>{fe42915d-4277-4704-82da-d5bde634ed68}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ui\test">
+      <UniqueIdentifier>{49471701-c755-4dcc-8062-1ffc1948db34}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ui\history">
+      <UniqueIdentifier>{838a6ca4-ae23-4421-b3fb-37d591ecd1e5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\models">
+      <UniqueIdentifier>{a5b1ea8c-5018-4425-8405-9c5fc402425b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\storage">
+      <UniqueIdentifier>{d5a80203-8ea4-4c19-9dce-35326ea22de9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\command">
+      <UniqueIdentifier>{cc4de305-c0c3-4169-8e3f-00040d5b89e2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\query">
+      <UniqueIdentifier>{ce423e30-8fcc-4bd0-ac5c-855c3950b90c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\proxy">
+      <UniqueIdentifier>{c62b0b8a-2e1d-4022-aa59-b3ec341bfc66}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ui\utils">
+      <UniqueIdentifier>{41878a52-9c62-40d2-8f6f-62a225772197}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ui\dashboard">
+      <UniqueIdentifier>{df74c6fb-7b59-4256-957c-c027d573321a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\libs\imgui\imconfig.h">
+      <Filter>Source Files\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\libs\imgui\imgui.h">
+      <Filter>Source Files\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\libs\imgui\imgui_internal.h">
+      <Filter>Source Files\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\libs\imgui\imgui_user.h">
+      <Filter>Source Files\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\libs\imgui\stb_rect_pack.h">
+      <Filter>Source Files\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\libs\imgui\stb_textedit.h">
+      <Filter>Source Files\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\libs\imgui\stb_truetype.h">
+      <Filter>Source Files\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\libs\imgui\examples\imgui_impl_opengl3.h">
+      <Filter>Source Files\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\libs\imgui\examples\imgui_impl_glfw.h">
+      <Filter>Source Files\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\libs\imgui\addons\imguidatechooser\imguidatechooser.h">
+      <Filter>Source Files\imgui\addons</Filter>
+    </ClInclude>
+    <ClInclude Include="ui\App.h">
+      <Filter>Source Files\ui</Filter>
+    </ClInclude>
+    <ClInclude Include="ui\IView.h">
+      <Filter>Source Files\ui</Filter>
+    </ClInclude>
+    <ClInclude Include="ui\Renderer.h">
+      <Filter>Source Files\ui</Filter>
+    </ClInclude>
+    <ClInclude Include="ui\ITestView.h">
+      <Filter>Source Files\ui</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui\imgui_custom.h">
+      <Filter>Source Files\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="logger\ILogger.h">
+      <Filter>Source Files\logger</Filter>
+    </ClInclude>
+    <ClInclude Include="logger\ConsoleLogger.h">
+      <Filter>Source Files\logger</Filter>
+    </ClInclude>
+    <ClInclude Include="logger\NullLogger.h">
+      <Filter>Source Files\logger</Filter>
+    </ClInclude>
+    <ClInclude Include="ui\fonts\Fonts.h">
+      <Filter>Source Files\ui\fonts</Filter>
+    </ClInclude>
+    <ClInclude Include="ui\colors\Colors.h">
+      <Filter>Source Files\ui\colors</Filter>
+    </ClInclude>
+    <ClInclude Include="ui\navigation\NavigationService.h">
+      <Filter>Source Files\ui\navigation</Filter>
+    </ClInclude>
+    <ClInclude Include="ui\IViewModel.h">
+      <Filter>Source Files\ui</Filter>
+    </ClInclude>
+    <ClInclude Include="ui\cart\CartView.h">
+      <Filter>Source Files\ui\cart</Filter>
+    </ClInclude>
+    <ClInclude Include="ui\cart\CartViewModel.h">
+      <Filter>Source Files\ui\cart</Filter>
+    </ClInclude>
+    <ClInclude Include="ui\ViewModelBase.h">
+      <Filter>Source Files\ui</Filter>
+    </ClInclude>
+    <ClInclude Include="ui\ViewBase.h">
+      <Filter>Source Files\ui</Filter>
+    </ClInclude>
+    <ClInclude Include="ui\test\ColorsTestView.h">
+      <Filter>Source Files\ui\test</Filter>
+    </ClInclude>
+    <ClInclude Include="ui\test\FontsTestView.h">
+      <Filter>Source Files\ui\test</Filter>
+    </ClInclude>
+    <ClInclude Include="ui\test\ImGuiDemoTestView.h">
+      <Filter>Source Files\ui\test</Filter>
+    </ClInclude>
+    <ClInclude Include="ui\test\NavigationTestView.h">
+      <Filter>Source Files\ui\test</Filter>
+    </ClInclude>
+    <ClInclude Include="ui\history\HistoryViewModel.h">
+      <Filter>Source Files\ui\history</Filter>
+    </ClInclude>
+    <ClInclude Include="ui\history\HistoryView.h">
+      <Filter>Source Files\ui\history</Filter>
+    </ClInclude>
+    <ClInclude Include="Utilities.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ui\ICanReset.h">
+      <Filter>Source Files\ui</Filter>
+    </ClInclude>
+    <ClInclude Include="models\Item.h">
+      <Filter>Source Files\models</Filter>
+    </ClInclude>
+    <ClInclude Include="models\ItemSource.h">
+      <Filter>Source Files\models</Filter>
+    </ClInclude>
+    <ClInclude Include="models\Source.h">
+      <Filter>Source Files\models</Filter>
+    </ClInclude>
+    <ClInclude Include="models\Category.h">
+      <Filter>Source Files\models</Filter>
+    </ClInclude>
+    <ClInclude Include="models\CartItem.h">
+      <Filter>Source Files\models</Filter>
+    </ClInclude>
+    <ClInclude Include="models\HistoryItem.h">
+      <Filter>Source Files\models</Filter>
+    </ClInclude>
+    <ClInclude Include="storage\IStorage.h">
+      <Filter>Source Files\storage</Filter>
+    </ClInclude>
+    <ClInclude Include="storage\JsonStorage.h">
+      <Filter>Source Files\storage</Filter>
+    </ClInclude>
+    <ClInclude Include="storage\CartItemStorage.h">
+      <Filter>Source Files\storage</Filter>
+    </ClInclude>
+    <ClInclude Include="..\libs\gl3w\GL\gl3w.h">
+      <Filter>Source Files\gl3w</Filter>
+    </ClInclude>
+    <ClInclude Include="..\libs\gl3w\GL\glcorearb.h">
+      <Filter>Source Files\gl3w</Filter>
+    </ClInclude>
+    <ClInclude Include="storage\CategoryStorage.h">
+      <Filter>Source Files\storage</Filter>
+    </ClInclude>
+    <ClInclude Include="storage\HistoryItemStorage.h">
+      <Filter>Source Files\storage</Filter>
+    </ClInclude>
+    <ClInclude Include="storage\ItemStorage.h">
+      <Filter>Source Files\storage</Filter>
+    </ClInclude>
+    <ClInclude Include="storage\ItemSourceStorage.h">
+      <Filter>Source Files\storage</Filter>
+    </ClInclude>
+    <ClInclude Include="storage\SourceStorage.h">
+      <Filter>Source Files\storage</Filter>
+    </ClInclude>
+    <ClInclude Include="ui\test\StorageTestView.h">
+      <Filter>Source Files\ui\test</Filter>
+    </ClInclude>
+    <ClInclude Include="query\QueryDispatcher.h">
+      <Filter>Source Files\query</Filter>
+    </ClInclude>
+    <ClInclude Include="command\ICommandHandler.h">
+      <Filter>Source Files\command</Filter>
+    </ClInclude>
+    <ClInclude Include="command\CommandDispatcher.h">
+      <Filter>Source Files\command</Filter>
+    </ClInclude>
+    <ClInclude Include="query\IQueryHandler.h">
+      <Filter>Source Files\query</Filter>
+    </ClInclude>
+    <ClInclude Include="query\GetAllCartItems.h">
+      <Filter>Source Files\query</Filter>
+    </ClInclude>
+    <ClInclude Include="query\GetAllCartItemsQueryHandler.h">
+      <Filter>Source Files\query</Filter>
+    </ClInclude>
+    <ClInclude Include="proxy\ItemProxy.h">
+      <Filter>Source Files\proxy</Filter>
+    </ClInclude>
+    <ClInclude Include="query\GetItemById.h">
+      <Filter>Source Files\query</Filter>
+    </ClInclude>
+    <ClInclude Include="query\GetItemByIdQueryHandler.h">
+      <Filter>Source Files\query</Filter>
+    </ClInclude>
+    <ClInclude Include="proxy\ProxyFactory.h">
+      <Filter>Source Files\proxy</Filter>
+    </ClInclude>
+    <ClInclude Include="proxy\ProxyBase.h">
+      <Filter>Source Files\proxy</Filter>
+    </ClInclude>
+    <ClInclude Include="proxy\CategoryProxy.h">
+      <Filter>Source Files\proxy</Filter>
+    </ClInclude>
+    <ClInclude Include="query\GetById.h">
+      <Filter>Source Files\query</Filter>
+    </ClInclude>
+    <ClInclude Include="query\GetCategoryById.h">
+      <Filter>Source Files\query</Filter>
+    </ClInclude>
+    <ClInclude Include="query\GetByIdQueryHandlerBase.h">
+      <Filter>Source Files\query</Filter>
+    </ClInclude>
+    <ClInclude Include="query\GetCategoryByIdQueryHandler.h">
+      <Filter>Source Files\query</Filter>
+    </ClInclude>
+    <ClInclude Include="command\UpdateCartItemQuantity.h">
+      <Filter>Source Files\command</Filter>
+    </ClInclude>
+    <ClInclude Include="command\UpdateCartItemQuantityCommandHandler.h">
+      <Filter>Source Files\command</Filter>
+    </ClInclude>
+    <ClInclude Include="proxy\SourceProxy.h">
+      <Filter>Source Files\proxy</Filter>
+    </ClInclude>
+    <ClInclude Include="query\GetSourceById.h">
+      <Filter>Source Files\query</Filter>
+    </ClInclude>
+    <ClInclude Include="query\GetSourceByIdQueryHandler.h">
+      <Filter>Source Files\query</Filter>
+    </ClInclude>
+    <ClInclude Include="query\GetItemSourceByItemIdAndSourceId.h">
+      <Filter>Source Files\query</Filter>
+    </ClInclude>
+    <ClInclude Include="query\GetItemSourceByItemIdAndSourceIdQueryHandler.h">
+      <Filter>Source Files\query</Filter>
+    </ClInclude>
+    <ClInclude Include="proxy\ItemSourceProxy.h">
+      <Filter>Source Files\proxy</Filter>
+    </ClInclude>
+    <ClInclude Include="ui\test\IconsAlignmentTestView.h">
+      <Filter>Source Files\ui\test</Filter>
+    </ClInclude>
+    <ClInclude Include="ui\test\ICanResetTestView.h">
+      <Filter>Source Files\ui\test</Filter>
+    </ClInclude>
+    <ClInclude Include="..\libs\imgui\addons\imguivariouscontrols\imguivariouscontrols.h">
+      <Filter>Source Files\imgui\addons</Filter>
+    </ClInclude>
+    <ClInclude Include="ui\utils\Sorter.h">
+      <Filter>Source Files\ui\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="command\RemoveCartItem.h">
+      <Filter>Source Files\command</Filter>
+    </ClInclude>
+    <ClInclude Include="command\RemoveCartItemCommandHandler.h">
+      <Filter>Source Files\command</Filter>
+    </ClInclude>
+    <ClInclude Include="command\CheckOffCartItem.h">
+      <Filter>Source Files\command</Filter>
+    </ClInclude>
+    <ClInclude Include="command\CheckOffCartItemCommandHandler.h">
+      <Filter>Source Files\command</Filter>
+    </ClInclude>
+    <ClInclude Include="ui\dashboard\DashboardView.h">
+      <Filter>Source Files\ui\dashboard</Filter>
+    </ClInclude>
+    <ClInclude Include="ui\dashboard\DashboardViewModel.h">
+      <Filter>Source Files\ui\dashboard</Filter>
+    </ClInclude>
+    <ClInclude Include="query\GetAllHistoryItems.h">
+      <Filter>Source Files\query</Filter>
+    </ClInclude>
+    <ClInclude Include="query\GetAllHistoryItemsQueryHandler.h">
+      <Filter>Source Files\query</Filter>
+    </ClInclude>
+    <ClInclude Include="ui\cart\SelectSourceViewModel.h">
+      <Filter>Source Files\ui\cart</Filter>
+    </ClInclude>
+    <ClInclude Include="ui\cart\SelectSourceView.h">
+      <Filter>Source Files\ui\cart</Filter>
+    </ClInclude>
+    <ClInclude Include="query\GetAllItemSourcesByItemId.h">
+      <Filter>Source Files\query</Filter>
+    </ClInclude>
+    <ClInclude Include="query\GetAllItemSourcesByItemIdQueryHandler.h">
+      <Filter>Source Files\query</Filter>
+    </ClInclude>
+    <ClInclude Include="command\UpdateSourceByCartItemId.h">
+      <Filter>Source Files\command</Filter>
+    </ClInclude>
+    <ClInclude Include="command\UpdateSourceByCartItemIdCommandHandler.h">
+      <Filter>Source Files\command</Filter>
+    </ClInclude>
+    <ClInclude Include="command\UpdateSourceOfAllCartItems.h">
+      <Filter>Source Files\command</Filter>
+    </ClInclude>
+    <ClInclude Include="command\UpdateSourceOfAllCartItemsCommandHandler.h">
+      <Filter>Source Files\command</Filter>
+    </ClInclude>
+    <ClInclude Include="ui\cart\SelectItemView.h">
+      <Filter>Source Files\ui\cart</Filter>
+    </ClInclude>
+    <ClInclude Include="ui\cart\SelectItemViewModel.h">
+      <Filter>Source Files\ui\cart</Filter>
+    </ClInclude>
+    <ClInclude Include="query\GetAllItems.h">
+      <Filter>Source Files\query</Filter>
+    </ClInclude>
+    <ClInclude Include="query\GetAllItemsQueryHandler.h">
+      <Filter>Source Files\query</Filter>
+    </ClInclude>
+    <ClInclude Include="query\GetBestSourceByItemId.h">
+      <Filter>Source Files\query</Filter>
+    </ClInclude>
+    <ClInclude Include="query\GetBestSourceByItemIdQueryHandler.h">
+      <Filter>Source Files\query</Filter>
+    </ClInclude>
+    <ClInclude Include="command\AddCartItem.h">
+      <Filter>Source Files\command</Filter>
+    </ClInclude>
+    <ClInclude Include="command\AddCartItemCommandHandler.h">
+      <Filter>Source Files\command</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libs\imgui\imgui.cpp">
+      <Filter>Source Files\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libs\imgui\imgui_demo.cpp">
+      <Filter>Source Files\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libs\imgui\imgui_draw.cpp">
+      <Filter>Source Files\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libs\imgui\examples\imgui_impl_opengl3.cpp">
+      <Filter>Source Files\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libs\imgui\examples\imgui_impl_glfw.cpp">
+      <Filter>Source Files\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libs\imgui\addons\imguidatechooser\imguidatechooser.cpp">
+      <Filter>Source Files\imgui\addons</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\App.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui\imgui_custom.cpp">
+      <Filter>Source Files\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\fonts\Fonts.cpp">
+      <Filter>Source Files\ui\fonts</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\colors\Colors.cpp">
+      <Filter>Source Files\ui\colors</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\cart\CartView.cpp">
+      <Filter>Source Files\ui\cart</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\cart\CartViewModel.cpp">
+      <Filter>Source Files\ui\cart</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\history\HistoryViewModel.cpp">
+      <Filter>Source Files\ui\history</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\history\HistoryView.cpp">
+      <Filter>Source Files\ui\history</Filter>
+    </ClCompile>
+    <ClCompile Include="models\Item.cpp">
+      <Filter>Source Files\models</Filter>
+    </ClCompile>
+    <ClCompile Include="models\ItemSource.cpp">
+      <Filter>Source Files\models</Filter>
+    </ClCompile>
+    <ClCompile Include="models\Source.cpp">
+      <Filter>Source Files\models</Filter>
+    </ClCompile>
+    <ClCompile Include="models\Category.cpp">
+      <Filter>Source Files\models</Filter>
+    </ClCompile>
+    <ClCompile Include="models\CartItem.cpp">
+      <Filter>Source Files\models</Filter>
+    </ClCompile>
+    <ClCompile Include="models\HistoryItem.cpp">
+      <Filter>Source Files\models</Filter>
+    </ClCompile>
+    <ClCompile Include="storage\CartItemStorage.cpp">
+      <Filter>Source Files\storage</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libs\gl3w\GL\gl3w.c">
+      <Filter>Source Files\gl3w</Filter>
+    </ClCompile>
+    <ClCompile Include="storage\CategoryStorage.cpp">
+      <Filter>Source Files\storage</Filter>
+    </ClCompile>
+    <ClCompile Include="storage\HistoryItemStorage.cpp">
+      <Filter>Source Files\storage</Filter>
+    </ClCompile>
+    <ClCompile Include="storage\ItemStorage.cpp">
+      <Filter>Source Files\storage</Filter>
+    </ClCompile>
+    <ClCompile Include="storage\ItemSourceStorage.cpp">
+      <Filter>Source Files\storage</Filter>
+    </ClCompile>
+    <ClCompile Include="storage\SourceStorage.cpp">
+      <Filter>Source Files\storage</Filter>
+    </ClCompile>
+    <ClCompile Include="query\GetAllCartItemsQueryHandler.cpp">
+      <Filter>Source Files\query</Filter>
+    </ClCompile>
+    <ClCompile Include="query\GetItemByIdQueryHandler.cpp">
+      <Filter>Source Files\query</Filter>
+    </ClCompile>
+    <ClCompile Include="query\GetCategoryByIdQueryHandler.cpp">
+      <Filter>Source Files\query</Filter>
+    </ClCompile>
+    <ClCompile Include="command\UpdateCartItemQuantityCommandHandler.cpp">
+      <Filter>Source Files\command</Filter>
+    </ClCompile>
+    <ClCompile Include="query\GetSourceByIdQueryHandler.cpp">
+      <Filter>Source Files\query</Filter>
+    </ClCompile>
+    <ClCompile Include="query\GetItemSourceByItemIdAndSourceIdQueryHandler.cpp">
+      <Filter>Source Files\query</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libs\imgui\addons\imguivariouscontrols\imguivariouscontrols.cpp">
+      <Filter>Source Files\imgui\addons</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\utils\Sorter.cpp">
+      <Filter>Source Files\ui\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="command\RemoveCartItemCommandHandler.cpp">
+      <Filter>Source Files\command</Filter>
+    </ClCompile>
+    <ClCompile Include="command\CheckOffCartItemCommandHandler.cpp">
+      <Filter>Source Files\command</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\dashboard\DashboardView.cpp">
+      <Filter>Source Files\ui\dashboard</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\dashboard\DashboardViewModel.cpp">
+      <Filter>Source Files\ui\dashboard</Filter>
+    </ClCompile>
+    <ClCompile Include="query\GetAllHistoryItemsQueryHandler.cpp">
+      <Filter>Source Files\query</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\cart\SelectSourceViewModel.cpp">
+      <Filter>Source Files\ui\cart</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\cart\SelectSourceView.cpp">
+      <Filter>Source Files\ui\cart</Filter>
+    </ClCompile>
+    <ClCompile Include="query\GetAllItemSourcesByItemIdQueryHandler.cpp">
+      <Filter>Source Files\query</Filter>
+    </ClCompile>
+    <ClCompile Include="command\UpdateSourceByCartItemIdCommandHandler.cpp">
+      <Filter>Source Files\command</Filter>
+    </ClCompile>
+    <ClCompile Include="command\UpdateSourceOfAllCartItemsCommandHandler.cpp">
+      <Filter>Source Files\command</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\cart\SelectItemView.cpp">
+      <Filter>Source Files\ui\cart</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\cart\SelectItemViewModel.cpp">
+      <Filter>Source Files\ui\cart</Filter>
+    </ClCompile>
+    <ClCompile Include="query\GetAllItemsQueryHandler.cpp">
+      <Filter>Source Files\query</Filter>
+    </ClCompile>
+    <ClCompile Include="query\GetBestSourceByItemIdQueryHandler.cpp">
+      <Filter>Source Files\query</Filter>
+    </ClCompile>
+    <ClCompile Include="command\AddCartItemCommandHandler.cpp">
+      <Filter>Source Files\command</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\libs\imgui\imgui_user.inl">
+      <Filter>Source Files\imgui</Filter>
+    </None>
+  </ItemGroup>
+</Project>

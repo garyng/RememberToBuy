@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{446B83EE-46D6-4B6F-A92A-114813EE9E53}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>RememberToBuy</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir)\..\libs\glfw\include\;$(SolutionDir)\..\libs\imgui\;$(SolutionDir)\..\libs\gl3w\;$(SolutionDir)\..\libs\IconFontCppHeaders\;$(SolutionDir)\..\libs\boost\;$(SolutionDir)\..\libs\json\single_include\;$(SolutionDir)\..\libs\Hypodermic\;$(SolutionDir)\..\libs\linq_return_ref\;$(SolutionDir)\..\libs\better-enums\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>DebugFastLink</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(SolutionDir)\..\libs\glfw\lib-vc2017;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opengl32.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ShowProgress>NotSet</ShowProgress>
+    </Link>
+    <PostBuildEvent>
+      <Command>XCOPY "$(ProjectDir)fonts" "$(SolutionDir)..\dist\fonts\" /s /i /y /d
+XCOPY "$(TargetDir)$(TargetName)$(TargetExt)" "$(SolutionDir)..\dist\" /s /i /y /d</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir)\..\libs\glfw\include\;$(SolutionDir)\..\libs\imgui\;$(SolutionDir)\..\libs\gl3w\;$(SolutionDir)\..\libs\IconFontCppHeaders\;$(SolutionDir)\..\libs\boost\;$(SolutionDir)\..\libs\json\single_include\;$(SolutionDir)\..\libs\Hypodermic\;$(SolutionDir)\..\libs\better-enums\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(SolutionDir)\..\libs\glfw\lib-vc2017;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opengl32.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <PostBuildEvent>
+      <Command>XCOPY "$(ProjectDir)fonts" "$(SolutionDir)..\dist\fonts\" /s /i /y /d
+XCOPY "$(TargetDir)$(TargetName)$(TargetExt)" "$(SolutionDir)..\dist\" /s /i /y /d</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\libs\imgui\addons\imguidatechooser\imguidatechooser.h" />
+    <ClInclude Include="..\libs\imgui\addons\imguivariouscontrols\imguivariouscontrols.h" />
+    <ClInclude Include="..\libs\imgui\examples\imgui_impl_glfw.h" />
+    <ClInclude Include="..\libs\imgui\examples\imgui_impl_opengl3.h" />
+    <ClInclude Include="..\libs\imgui\imconfig.h" />
+    <ClInclude Include="..\libs\imgui\imgui.h" />
+    <ClInclude Include="..\libs\imgui\imgui_internal.h" />
+    <ClInclude Include="..\libs\imgui\imgui_user.h" />
+    <ClInclude Include="..\libs\imgui\stb_rect_pack.h" />
+    <ClInclude Include="..\libs\imgui\stb_textedit.h" />
+    <ClInclude Include="..\libs\imgui\stb_truetype.h" />
+    <ClInclude Include="..\libs\gl3w\GL\gl3w.h" />
+    <ClInclude Include="..\libs\gl3w\GL\glcorearb.h" />
+    <ClInclude Include="command\AddCartItem.h" />
+    <ClInclude Include="command\AddCartItemCommandHandler.h" />
+    <ClInclude Include="command\CheckOffCartItem.h" />
+    <ClInclude Include="command\CheckOffCartItemCommandHandler.h" />
+    <ClInclude Include="command\CommandDispatcher.h" />
+    <ClInclude Include="command\ICommandHandler.h" />
+    <ClInclude Include="command\RemoveCartItem.h" />
+    <ClInclude Include="command\RemoveCartItemCommandHandler.h" />
+    <ClInclude Include="command\UpdateCartItemQuantity.h" />
+    <ClInclude Include="command\UpdateCartItemQuantityCommandHandler.h" />
+    <ClInclude Include="command\UpdateSourceByCartItemId.h" />
+    <ClInclude Include="command\UpdateSourceByCartItemIdCommandHandler.h" />
+    <ClInclude Include="command\UpdateSourceOfAllCartItems.h" />
+    <ClInclude Include="command\UpdateSourceOfAllCartItemsCommandHandler.h" />
+    <ClInclude Include="models\CartItem.h" />
+    <ClInclude Include="models\Category.h" />
+    <ClInclude Include="models\HistoryItem.h" />
+    <ClInclude Include="models\Item.h" />
+    <ClInclude Include="models\ItemSource.h" />
+    <ClInclude Include="models\Source.h" />
+    <ClInclude Include="proxy\CategoryProxy.h" />
+    <ClInclude Include="proxy\ItemProxy.h" />
+    <ClInclude Include="proxy\ItemSourceProxy.h" />
+    <ClInclude Include="proxy\ProxyBase.h" />
+    <ClInclude Include="proxy\ProxyFactory.h" />
+    <ClInclude Include="proxy\SourceProxy.h" />
+    <ClInclude Include="query\GetAllCartItems.h" />
+    <ClInclude Include="query\GetAllCartItemsQueryHandler.h" />
+    <ClInclude Include="query\GetAllHistoryItems.h" />
+    <ClInclude Include="query\GetAllHistoryItemsQueryHandler.h" />
+    <ClInclude Include="query\GetAllItems.h" />
+    <ClInclude Include="query\GetAllItemSourcesByItemId.h" />
+    <ClInclude Include="query\GetAllItemSourcesByItemIdQueryHandler.h" />
+    <ClInclude Include="query\GetAllItemsQueryHandler.h" />
+    <ClInclude Include="query\GetBestSourceByItemId.h" />
+    <ClInclude Include="query\GetBestSourceByItemIdQueryHandler.h" />
+    <ClInclude Include="query\GetById.h" />
+    <ClInclude Include="query\GetByIdQueryHandlerBase.h" />
+    <ClInclude Include="query\GetCategoryById.h" />
+    <ClInclude Include="query\GetCategoryByIdQueryHandler.h" />
+    <ClInclude Include="query\GetItemById.h" />
+    <ClInclude Include="query\GetItemByIdQueryHandler.h" />
+    <ClInclude Include="query\GetItemSourceByItemIdAndSourceId.h" />
+    <ClInclude Include="query\GetItemSourceByItemIdAndSourceIdQueryHandler.h" />
+    <ClInclude Include="query\GetSourceById.h" />
+    <ClInclude Include="query\GetSourceByIdQueryHandler.h" />
+    <ClInclude Include="query\IQueryHandler.h" />
+    <ClInclude Include="query\QueryDispatcher.h" />
+    <ClInclude Include="storage\CartItemStorage.h" />
+    <ClInclude Include="storage\CategoryStorage.h" />
+    <ClInclude Include="storage\HistoryItemStorage.h" />
+    <ClInclude Include="storage\IStorage.h" />
+    <ClInclude Include="storage\ItemSourceStorage.h" />
+    <ClInclude Include="storage\ItemStorage.h" />
+    <ClInclude Include="storage\JsonStorage.h" />
+    <ClInclude Include="storage\SourceStorage.h" />
+    <ClInclude Include="ui\cart\SelectItemView.h" />
+    <ClInclude Include="ui\cart\SelectItemViewModel.h" />
+    <ClInclude Include="ui\cart\SelectSourceView.h" />
+    <ClInclude Include="ui\cart\SelectSourceViewModel.h" />
+    <ClInclude Include="ui\dashboard\DashboardView.h" />
+    <ClInclude Include="ui\dashboard\DashboardViewModel.h" />
+    <ClInclude Include="ui\ICanReset.h" />
+    <ClInclude Include="ui\test\ICanResetTestView.h" />
+    <ClInclude Include="ui\test\IconsAlignmentTestView.h" />
+    <ClInclude Include="ui\test\StorageTestView.h" />
+    <ClInclude Include="ui\utils\Sorter.h" />
+    <ClInclude Include="Utilities.h" />
+    <ClInclude Include="imgui\imgui_custom.h" />
+    <ClInclude Include="logger\ConsoleLogger.h" />
+    <ClInclude Include="logger\ILogger.h" />
+    <ClInclude Include="logger\NullLogger.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="ui\App.h" />
+    <ClInclude Include="ui\cart\CartView.h" />
+    <ClInclude Include="ui\cart\CartViewModel.h" />
+    <ClInclude Include="ui\colors\Colors.h" />
+    <ClInclude Include="ui\fonts\Fonts.h" />
+    <ClInclude Include="ui\history\HistoryView.h" />
+    <ClInclude Include="ui\history\HistoryViewModel.h" />
+    <ClInclude Include="ui\ITestView.h" />
+    <ClInclude Include="ui\IView.h" />
+    <ClInclude Include="ui\IViewModel.h" />
+    <ClInclude Include="ui\navigation\NavigationService.h" />
+    <ClInclude Include="ui\Renderer.h" />
+    <ClInclude Include="ui\test\ColorsTestView.h" />
+    <ClInclude Include="ui\test\FontsTestView.h" />
+    <ClInclude Include="ui\test\ImGuiDemoTestView.h" />
+    <ClInclude Include="ui\test\NavigationTestView.h" />
+    <ClInclude Include="ui\ViewBase.h" />
+    <ClInclude Include="ui\ViewModelBase.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\libs\imgui\addons\imguidatechooser\imguidatechooser.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\libs\imgui\addons\imguivariouscontrols\imguivariouscontrols.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\libs\imgui\examples\imgui_impl_glfw.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\libs\imgui\examples\imgui_impl_opengl3.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\libs\imgui\imgui.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\libs\imgui\imgui_demo.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\libs\imgui\imgui_draw.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\libs\gl3w\GL\gl3w.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="command\AddCartItemCommandHandler.cpp" />
+    <ClCompile Include="command\CheckOffCartItemCommandHandler.cpp" />
+    <ClCompile Include="command\RemoveCartItemCommandHandler.cpp" />
+    <ClCompile Include="command\UpdateCartItemQuantityCommandHandler.cpp" />
+    <ClCompile Include="command\UpdateSourceByCartItemIdCommandHandler.cpp" />
+    <ClCompile Include="command\UpdateSourceOfAllCartItemsCommandHandler.cpp" />
+    <ClCompile Include="imgui\imgui_custom.cpp" />
+    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="models\CartItem.cpp" />
+    <ClCompile Include="models\Category.cpp" />
+    <ClCompile Include="models\HistoryItem.cpp" />
+    <ClCompile Include="models\Item.cpp" />
+    <ClCompile Include="models\ItemSource.cpp" />
+    <ClCompile Include="models\Source.cpp" />
+    <ClCompile Include="query\GetAllCartItemsQueryHandler.cpp" />
+    <ClCompile Include="query\GetAllHistoryItemsQueryHandler.cpp" />
+    <ClCompile Include="query\GetAllItemSourcesByItemIdQueryHandler.cpp" />
+    <ClCompile Include="query\GetAllItemsQueryHandler.cpp" />
+    <ClCompile Include="query\GetBestSourceByItemIdQueryHandler.cpp" />
+    <ClCompile Include="query\GetCategoryByIdQueryHandler.cpp" />
+    <ClCompile Include="query\GetItemByIdQueryHandler.cpp" />
+    <ClCompile Include="query\GetItemSourceByItemIdAndSourceIdQueryHandler.cpp" />
+    <ClCompile Include="query\GetSourceByIdQueryHandler.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="storage\CartItemStorage.cpp" />
+    <ClCompile Include="storage\CategoryStorage.cpp" />
+    <ClCompile Include="storage\HistoryItemStorage.cpp" />
+    <ClCompile Include="storage\ItemSourceStorage.cpp" />
+    <ClCompile Include="storage\ItemStorage.cpp" />
+    <ClCompile Include="storage\SourceStorage.cpp" />
+    <ClCompile Include="ui\App.cpp" />
+    <ClCompile Include="ui\cart\CartView.cpp" />
+    <ClCompile Include="ui\cart\CartViewModel.cpp" />
+    <ClCompile Include="ui\cart\SelectItemView.cpp" />
+    <ClCompile Include="ui\cart\SelectItemViewModel.cpp" />
+    <ClCompile Include="ui\cart\SelectSourceView.cpp" />
+    <ClCompile Include="ui\cart\SelectSourceViewModel.cpp" />
+    <ClCompile Include="ui\colors\Colors.cpp" />
+    <ClCompile Include="ui\dashboard\DashboardView.cpp" />
+    <ClCompile Include="ui\dashboard\DashboardViewModel.cpp" />
+    <ClCompile Include="ui\fonts\Fonts.cpp" />
+    <ClCompile Include="ui\history\HistoryView.cpp" />
+    <ClCompile Include="ui\history\HistoryViewModel.cpp" />
+    <ClCompile Include="ui\utils\Sorter.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\libs\imgui\imgui_user.inl" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
