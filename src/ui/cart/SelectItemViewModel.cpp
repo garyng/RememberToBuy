@@ -57,16 +57,11 @@ void SelectItemViewModel::SortItemsCommand()
 	Sorter::Sort(_items, _masterSortKey, _isAscending);
 }
 
-void SelectItemViewModel::GoToCart() const
-{
-	_navigationService->GoTo<CartViewModel>([](auto vm)
-	{
-	}, false);
-}
-
 void SelectItemViewModel::GoBackCommand() const
 {
-	GoToCart();
+	_navigationService->GoTo<CartViewModel>([](std::shared_ptr<CartViewModel> vm)
+	{
+	}, false);
 }
 
 void SelectItemViewModel::AddSelectedItemCommand()
@@ -77,5 +72,18 @@ void SelectItemViewModel::AddSelectedItemCommand()
 
 	_commandDispatcher->Dispatch(command);
 
-	GoToCart();
+	_navigationService->GoTo<CartViewModel>([&](std::shared_ptr<CartViewModel> vm)
+	{
+		vm->SortCartItemsCommand();
+		std::vector<CartItem> cartItems = vm->CartItems();
+
+		auto found = std::find_if(cartItems.begin(), cartItems.end(), [&](const CartItem& cartItem)
+		{
+			return cartItem.Id() == command.id;
+		});
+		if (found != cartItems.end())
+		{
+			vm->SelectedIndex(std::distance(cartItems.begin(), found));
+		}
+	}, false);
 }

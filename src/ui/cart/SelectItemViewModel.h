@@ -69,13 +69,10 @@ public:
 		SortItemsCommand();
 	}
 
-
 	void Reset() override;
 	void GetItemsCommand();
 	void SortItemsCommand();
 
-
-	void GoToCart() const;
 	void GoBackCommand() const override;
 
 	void AddSelectedItemCommand();

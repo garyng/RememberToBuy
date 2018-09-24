@@ -196,9 +196,9 @@ int main(int argc, char* argv[])
 
 	shared_ptr<Container> container = builder.build();
 
-	showAllTestViews(container);
+	// showAllTestViews(container);
 
 	container->resolve<NavigationService>()->GoTo<DashboardViewModel>();
-	container->resolve<NavigationService>()->GoTo<CartViewModel>();
+	// container->resolve<NavigationService>()->GoTo<CartViewModel>();
 	container->resolve<App>()->Start();
 }
