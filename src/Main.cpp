@@ -14,17 +14,13 @@
 #include "ui/cart/CartViewModel.h"
 #include "ui/navigation/NavigationService.h"
 #include "ui/test/NavigationTestView.h"
-#include "ui/pending/PendingView.h"
 #include "ui/history/HistoryView.h"
-#include "ui/stock/StockView.h"
 #include "storage/CartItemStorage.h"
 #include "storage/CategoryStorage.h"
 #include "storage/HistoryItemStorage.h"
 #include "storage/ItemStorage.h"
 #include "storage/ItemSourceStorage.h"
-#include "storage/PendingItemStorage.h"
 #include "storage/SourceStorage.h"
-#include "storage/StockItemStorage.h"
 #include "ui/test/StorageTestView.h"
 #include "proxy/ProxyFactory.h"
 #include "query/GetAllCartItemsQueryHandler.h"
@@ -140,9 +136,7 @@ int main(int argc, char* argv[])
 	       .singleInstance();
 
 	registerViewViewModel<CartView, CartViewModel>(builder);
-	registerViewViewModel<PendingView, PendingViewModel>(builder);
 	registerViewViewModel<HistoryView, HistoryViewModel>(builder);
-	registerViewViewModel<StockView, StockViewModel>(builder);
 	registerViewViewModel<DashboardView, DashboardViewModel>(builder);
 	registerViewViewModel<SelectSourceView, SelectSourceViewModel>(builder);
 	registerViewViewModel<SelectItemView, SelectItemViewModel>(builder);
@@ -160,9 +154,7 @@ int main(int argc, char* argv[])
 	registerStorage<HistoryItemStorage>(builder);
 	registerStorage<ItemStorage>(builder);
 	registerStorage<ItemSourceStorage>(builder);
-	registerStorage<PendingItemStorage>(builder);
 	registerStorage<SourceStorage>(builder);
-	registerStorage<StockItemStorage>(builder);
 
 	builder.registerType<Renderer>()
 	       .singleInstance();

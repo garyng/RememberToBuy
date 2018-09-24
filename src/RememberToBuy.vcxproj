@@ -202,9 +202,7 @@ XCOPY "$(TargetDir)$(TargetName)$(TargetExt)" "$(SolutionDir)..\dist\" /s /i /y 
     <ClInclude Include="models\HistoryItem.h" />
     <ClInclude Include="models\Item.h" />
     <ClInclude Include="models\ItemSource.h" />
-    <ClInclude Include="models\PendingItem.h" />
     <ClInclude Include="models\Source.h" />
-    <ClInclude Include="models\StockItem.h" />
     <ClInclude Include="proxy\CategoryProxy.h" />
     <ClInclude Include="proxy\ItemProxy.h" />
     <ClInclude Include="proxy\ItemSourceProxy.h" />
@@ -240,9 +238,7 @@ XCOPY "$(TargetDir)$(TargetName)$(TargetExt)" "$(SolutionDir)..\dist\" /s /i /y 
     <ClInclude Include="storage\ItemSourceStorage.h" />
     <ClInclude Include="storage\ItemStorage.h" />
     <ClInclude Include="storage\JsonStorage.h" />
-    <ClInclude Include="storage\PendingItemStorage.h" />
     <ClInclude Include="storage\SourceStorage.h" />
-    <ClInclude Include="storage\StockItemStorage.h" />
     <ClInclude Include="ui\cart\SelectItemView.h" />
     <ClInclude Include="ui\cart\SelectItemViewModel.h" />
     <ClInclude Include="ui\cart\SelectSourceView.h" />
@@ -250,10 +246,6 @@ XCOPY "$(TargetDir)$(TargetName)$(TargetExt)" "$(SolutionDir)..\dist\" /s /i /y 
     <ClInclude Include="ui\dashboard\DashboardView.h" />
     <ClInclude Include="ui\dashboard\DashboardViewModel.h" />
     <ClInclude Include="ui\ICanReset.h" />
-    <ClInclude Include="ui\pending\PendingView.h" />
-    <ClInclude Include="ui\pending\PendingViewModel.h" />
-    <ClInclude Include="ui\stock\StockView.h" />
-    <ClInclude Include="ui\stock\StockViewModel.h" />
     <ClInclude Include="ui\test\ICanResetTestView.h" />
     <ClInclude Include="ui\test\IconsAlignmentTestView.h" />
     <ClInclude Include="ui\test\StorageTestView.h" />
@@ -329,9 +321,7 @@ XCOPY "$(TargetDir)$(TargetName)$(TargetExt)" "$(SolutionDir)..\dist\" /s /i /y 
     <ClCompile Include="models\HistoryItem.cpp" />
     <ClCompile Include="models\Item.cpp" />
     <ClCompile Include="models\ItemSource.cpp" />
-    <ClCompile Include="models\PendingItem.cpp" />
     <ClCompile Include="models\Source.cpp" />
-    <ClCompile Include="models\StockItem.cpp" />
     <ClCompile Include="query\GetAllCartItemsQueryHandler.cpp" />
     <ClCompile Include="query\GetAllHistoryItemsQueryHandler.cpp" />
     <ClCompile Include="query\GetAllItemSourcesByItemIdQueryHandler.cpp" />
@@ -352,9 +342,7 @@ XCOPY "$(TargetDir)$(TargetName)$(TargetExt)" "$(SolutionDir)..\dist\" /s /i /y 
     <ClCompile Include="storage\HistoryItemStorage.cpp" />
     <ClCompile Include="storage\ItemSourceStorage.cpp" />
     <ClCompile Include="storage\ItemStorage.cpp" />
-    <ClCompile Include="storage\PendingItemStorage.cpp" />
     <ClCompile Include="storage\SourceStorage.cpp" />
-    <ClCompile Include="storage\StockItemStorage.cpp" />
     <ClCompile Include="ui\App.cpp" />
     <ClCompile Include="ui\cart\CartView.cpp" />
     <ClCompile Include="ui\cart\CartViewModel.cpp" />
@@ -368,10 +356,6 @@ XCOPY "$(TargetDir)$(TargetName)$(TargetExt)" "$(SolutionDir)..\dist\" /s /i /y 
     <ClCompile Include="ui\fonts\Fonts.cpp" />
     <ClCompile Include="ui\history\HistoryView.cpp" />
     <ClCompile Include="ui\history\HistoryViewModel.cpp" />
-    <ClCompile Include="ui\pending\PendingView.cpp" />
-    <ClCompile Include="ui\pending\PendingViewModel.cpp" />
-    <ClCompile Include="ui\stock\StockView.cpp" />
-    <ClCompile Include="ui\stock\StockViewModel.cpp" />
     <ClCompile Include="ui\utils\Sorter.cpp" />
   </ItemGroup>
   <ItemGroup>

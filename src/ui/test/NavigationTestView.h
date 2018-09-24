@@ -4,10 +4,8 @@
 #include "ui/IViewModel.h"
 #include "ui/navigation/NavigationService.h"
 #include "imgui/imgui_custom.h"
-#include "ui/pending/PendingViewModel.h"
 #include "ui/cart/CartViewModel.h"
 #include "ui/history/HistoryViewModel.h"
-#include "ui/stock/StockViewModel.h"
 
 class NavigationTestView : public ITestView
 {
@@ -31,9 +29,7 @@ public:
 		ImGui::Begin("Test: Navigation service");
 
 		RenderNavigateToButton<CartViewModel>();
-		RenderNavigateToButton<PendingViewModel>();
 		RenderNavigateToButton<HistoryViewModel>();
-		RenderNavigateToButton<StockViewModel>();
 
 		if (ImGui::FullWidthButton(ICON_FA_ARROW_LEFT " Go back"))
 		{
