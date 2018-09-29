@@ -98,7 +98,7 @@ public:
 	{
 		if (ImGui::BeginMenu("About"))
 		{
-			ImGui::Text("Made for TDS2141");
+			ImGui::Text("Made for TDS2111");
 			ImGui::EndMenu();
 		}
 	}
