@@ -25,7 +25,7 @@ A `Visual Studio 2017` solution file is located under `/src/RememberToBuy.sln`. 
 
 ![](docs/cart.png)
 
-#### Check off an item
+#### Checking off an item
 
 ![](docs/cart-check-off.png)
 
