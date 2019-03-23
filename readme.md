@@ -62,4 +62,4 @@ No results
 
 ## Others
 
-This project is made for my `TDS2111 - Data Structure and Algorithms` subject. The architectural design/libraries used is very similar to my previous project: @garyng/LabBookingSystem.
+This project is made for my `TDS2111 - Data Structure and Algorithms` subject. The architectural design/libraries used is very similar to my previous project: [@garyng/LabBookingSystem](https://github.com/garyng/LabBookingSystem).
